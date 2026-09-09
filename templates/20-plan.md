@@ -1,107 +1,107 @@
 ---
 stage: plan
 owner: plan-board
-status: in_arbeit            # offen | in_arbeit | fertig | uebersprungen
+status: in_progress          # open | in_progress | done | skipped
 revision: 1
-created: <JJJJ-MM-TTThh:mm>
-updated: <JJJJ-MM-TTThh:mm>
+created: <YYYY-MM-DDThh:mm>
+updated: <YYYY-MM-DDThh:mm>
 input: 10-seed.md@<rev>
 ---
 
-# Plan <Kürzel>: <Arbeitstitel>
+# Plan <code>: <title>
 
-_Ergebnis der Stufe plan-board. Struktur folgt dem Concept Authoring Manifest §0–8 in Modell-Tiefe: Abschnitte, die für die Maquette nicht relevant sind, bleiben stehen und tragen den Vermerk „für die Maquette nicht relevant" — so ist der spätere Retrofit ein Diff, kein Neuanfang._
+_Result of the plan-board stage. The structure follows the Concept Authoring Manifest §0–8 in model depth: sections that do not apply to the maquette stay in place and carry the line "not relevant for this maquette" — so the later retrofit is a diff, not a restart._
 
-## 0. Synthese-Kontext
+## 0. Synthesis context
 
-- **Pfad:** B (Retrofit) — die Maquette wird gebaut, das Konzept danach extrahiert
-- **Abhängigkeiten:** <andere Dokumente/Systeme, die der Prototyp voraussetzt, oder „keine">
-- **Reichweite:** <was aus diesem Plan allein gebaut werden kann>
+- **Path:** B (retrofit) — the maquette is built first, the concept extracted afterwards
+- **Dependencies:** <other documents/systems the prototype relies on, or "none">
+- **Scope of synthesis:** <what can be built from this plan alone>
 
-## 1. Zweck
+## 1. Purpose
 
-<aus 10-seed.md §1, nach Grilling-light geschärft>
+<from 10-seed.md §1, sharpened in grilling-light>
 
-## 2. Gemeinsame Sprache
+## 2. Shared vocabulary
 
-<aus 10-seed.md §4, ergänzt um Begriffe aus dem Grilling>
+<from 10-seed.md §4, extended with terms from the grilling>
 
-## 3. Funktionale Anforderungen (cF)
+## 3. Functional requirements (cF)
 
-<!-- Übernommen aus 10-seed.md §7, im Grilling-light geprüft: gestrichen, geschärft, ergänzt. IDs bleiben stabil; neue IDs laufen weiter (cF-9 …). Jede Zeile nennt den Slice, der sie zeigt. -->
+<!-- Taken from 10-seed.md §7 and checked in grilling-light: struck, sharpened, added. IDs stay stable; new IDs continue the sequence (cF-9 …). Each row names the slice that shows it. -->
 
-| ID | Anforderung | Slice |
+| ID | Requirement | Slice |
 | --- | --- | --- |
 | cF-1 | <…> | S1 |
 
-## 4. Nutzerinteraktion (cU)
+## 4. User interaction (cU)
 
-| ID | Anforderung | Slice |
+| ID | Requirement | Slice |
 | --- | --- | --- |
 | cU-1 | <…> | S1 |
 
-## 5. Nicht-funktionale Anforderungen (cNF)
+## 5. Non-functional requirements (cNF)
 
-| ID | Anforderung | Slice |
+| ID | Requirement | Slice |
 | --- | --- | --- |
 | cNF-1 | <…> | — |
 
-## 6. Integrationspunkte
+## 6. Integration points
 
-<Datenquellen, Dateien, APIs, die der Prototyp wirklich anspricht — oder „für die Maquette nicht relevant: alles synthetisch">
+<data sources, files, APIs the prototype really touches — or "not relevant for this maquette: everything synthetic">
 
-## 7. Nicht im Umfang
+## 7. Out of scope
 
-<!-- Explizit, damit build nicht abschweift und brief die Kann-nicht-Liste hat. -->
+<!-- Explicit, so build does not drift and brief has its cannot-list. -->
 
 - <…>
 
-## 8. Entschiedene Fragen
+## 8. Resolved questions
 
-<!-- Aus 10-seed.md §8 und dem Grilling-light. Jede Q bekommt eine Einzeiler-Entscheidung. Offen gebliebene Fragen wandern unverändert nach §11. -->
+<!-- From 10-seed.md §8 and grilling-light. Each Q gets a one-line decision. Questions that stay open move unchanged to §11. -->
 
-| Frage | Entscheidung | Begründung |
+| Question | Decision | Reason |
 | --- | --- | --- |
 | Q1 | <…> | <…> |
 
-## 9. Review-Board
+## 9. Review board
 
-<!-- Drei Rollen lesen nacheinander. Jede Rolle: Kleinentscheidungen selbst getroffen (Liste), echte Weichen dem Nutzer vorgelegt (Frage → Antwort). Idee aus gstack autoplan (© 2026 Garry Tan, MIT License, siehe `LICENSES/gstack-MIT.txt`), ohne DX-Rolle und ohne unbegrenzte Tiefe. -->
+<!-- Three roles read in sequence. Each role: small decisions taken on its own (list), real forks put to the user (question → answer). Idea from gstack autoplan (© 2026 Garry Tan, MIT License, see `LICENSES/gstack-MIT.txt`), without the DX role and without unbounded depth. -->
 
-### Produkt
-- **Selbst entschieden:** <…>
-- **Weiche vorgelegt:** <Frage> → <Antwort des Nutzers>
+### Product
+- **Decided on its own:** <…>
+- **Fork put to the user:** <question> → <the user's answer>
 
 ### Design
-- **Selbst entschieden:** <…>
-- **Weiche vorgelegt:** <…>
+- **Decided on its own:** <…>
+- **Fork put to the user:** <…>
 
 ### Engineering
-- **Selbst entschieden:** <Stack, Datenhaltung, Startbefehl — so einfach wie möglich>
-- **Weiche vorgelegt:** <…>
+- **Decided on its own:** <stack, data handling, start command — as simple as possible>
+- **Fork put to the user:** <…>
 
 ## 10. Slices
 
-<!-- 3–5 vertikale Slices, jeder für sich vorzeigbar. S1 ist der Scope-Satz aus 10-seed.md §2 Q4. Jeder Slice hat genau ein Akzeptanzkriterium, das build per Smoke-Check prüft. -->
+<!-- 3–5 vertical slices, each demonstrable on its own. S1 is the scope sentence from 10-seed.md §2 Q4. Each slice has exactly one acceptance criterion that build checks with a smoke test. -->
 
-| Slice | Zeigt | Akzeptanzkriterium | Anforderungen |
+| Slice | Shows | Acceptance criterion | Requirements |
 | --- | --- | --- | --- |
-| S1 | <…> | <ein Satz, prüfbar> | cF-1, cU-1 |
+| S1 | <…> | <one sentence, checkable by clicking> | cF-1, cU-1 |
 | S2 | <…> | <…> | <…> |
 
-**Technische Eckdaten:** <Stack, Startbefehl, Datenquelle — drei Zeilen, kein Architekturkapitel>
+**Technical essentials:** <stack, start command, data source — three lines, no architecture chapter>
 
-## 11. Offene Fragen
+## 11. Open questions
 
-<!-- Fortlaufende Nummerierung aus 10-seed.md. -->
+<!-- Numbering continues from 10-seed.md. -->
 
 - **Q<n>** — <…>
 
 ## 12. Gate
 
-- **Freigabe durch Nutzer:** <ja, am <hh:mm> | mit Änderungen: <…> | nein — nochmal>
-- **Überarbeitungsrunden:** <0 | 1>
+- **Approved by the user:** <yes, at <hh:mm> | with changes: <…> | no — redo>
+- **Rework rounds:** <0 | 1>
 
-## Notizen (Mensch)
+## Notes (human)
 
-<!-- Tabu für alle Skills. Wird bei jeder Neuschreibung unverändert übernommen. -->
+<!-- Off limits for all skills. Copied verbatim on every rewrite. -->

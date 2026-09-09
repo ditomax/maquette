@@ -32,7 +32,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-Files in this suite that carry adapted gstack methods reference this file in their "Lineage" line: `skills/maquette-sparring`, `skills/maquette-plan-board`, `skills/maquette-design-3`, `skills/maquette-harden`, and the templates `10-seed.md`, `20-plan.md`, `30-design.md`, `50-harden.md`.
+Files in this suite that carry adapted gstack methods reference this file in their "Lineage" line: `skills/maquette-sparring`, `skills/maquette-plan-board`, `skills/maquette-design-3`, `skills/maquette-harden`, and the templates `10-seed.md`, `20-plan.md`, `30-design.md`, `50-harden.md`. The suite itself is © 2026 Dietmar Millinger, MIT License (`LICENSE`).
 
 Methods adapted (paraphrased, restructured, and reduced to prompt-only form):
 

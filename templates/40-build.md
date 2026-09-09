@@ -1,60 +1,60 @@
 ---
 stage: build
 owner: build
-status: in_arbeit            # offen | in_arbeit | fertig | uebersprungen
+status: in_progress          # open | in_progress | done | skipped
 revision: 1
-created: <JJJJ-MM-TTThh:mm>
-updated: <JJJJ-MM-TTThh:mm>
+created: <YYYY-MM-DDThh:mm>
+updated: <YYYY-MM-DDThh:mm>
 input: 20-plan.md@<rev>, 30-design.md@<rev>
-git: <ja | nein>             # aus 00-maquette.md übernommen
+git: <yes | no>              # copied from 00-maquette.md
 ---
 
-# Build <Kürzel>: <Arbeitstitel>
+# Build <code>: <title>
 
-_Ergebnis der Stufe build. Der Code liegt in `vcode/`. Diese Datei ist das Bautagebuch: ein Eintrag je Slice, in Reihenfolge, nie rückwirkend geändert._
+_Result of the build stage. The code lives in `vcode/`. This file is the build log: one entry per slice, in order, never changed retroactively._
 
-## Starten
+## How to start
 
-<!-- Drei Zeilen, die ein Nicht-IT-Nutzer ausführen kann. Wird von harden und brief benutzt. -->
+<!-- Three lines a non-developer can execute. Used by harden and brief. -->
 
 ```
-<Befehl 1, z. B. cd vcode>
-<Befehl 2, z. B. python -m http.server 8000>
-<Adresse, z. B. http://localhost:8000>
+<command 1, e.g. cd vcode>
+<command 2, e.g. python -m http.server 8000>
+<address, e.g. http://localhost:8000>
 ```
 
 ## Slices
 
-<!-- Je Slice ein Block. Status: fertig | teilweise | ausgelassen. Smoke-Check = das Akzeptanzkriterium aus 20-plan.md §10, ausprobiert, nicht angenommen. Commit nur mit Git. -->
+<!-- One block per slice. Status: done | partial | dropped. Smoke check = the acceptance criterion from 20-plan.md §10, actually tried, not assumed. Commit only with git. -->
 
-### S1 — <Titel aus 20-plan.md>
-- **Status:** <fertig | teilweise | ausgelassen>
-- **Smoke-Check:** <Akzeptanzkriterium> → <bestanden | nicht bestanden: <…>>
-- **Commit:** <Hash | — (kein Git)>
-- **Abweichung vom Plan:** <keine | <was und warum>>
-- **Dauer:** <Minuten>
+### S1 — <title from 20-plan.md>
+- **Status:** <done | partial | dropped>
+- **Smoke check:** <acceptance criterion> → <passed | failed: <…>>
+- **Commit:** <hash | — (no git)>
+- **Deviation from plan:** <none | <what and why>>
+- **Duration:** <minutes>
 
 ### S2 — <…>
 - …
 
-## Beim Bauen entdeckte Anforderungen
+## Requirements discovered while building
 
-<!-- Alles, was der Plan nicht hatte und der Code gebraucht hat. IDs laufen aus 20-plan.md weiter (cF-neu-1 …, bis brief sie einordnet). Nie zurück in 10 oder 20 schreiben (Schreibregel 3). -->
+<!-- Everything the plan lacked and the code needed. IDs continue from 20-plan.md (cF-new-1 … until brief sorts them in). Never written back into 10 or 20 (write rule 3). -->
 
-| ID | Anforderung | Entdeckt in Slice | Umgesetzt? |
+| ID | Requirement | Discovered in slice | Implemented? |
 | --- | --- | --- | --- |
-| cF-neu-1 | <…> | S<n> | <ja | nein> |
+| cF-new-1 | <…> | S<n> | <yes | no> |
 
-## Bekannte Lücken
+## Known gaps
 
-<!-- Was bewusst weggelassen oder gestubbt wurde. Ehrlich — harden prüft genau hier, brief macht daraus die Kann-nicht-Liste. -->
+<!-- What was deliberately left out or stubbed. Honestly — harden checks exactly here, brief turns it into the cannot-list. -->
 
 - <…>
 
-## Offene Fragen
+## Open questions
 
 - **Q<n>** — <…>
 
-## Notizen (Mensch)
+## Notes (human)
 
-<!-- Tabu für alle Skills. Wird bei jeder Neuschreibung unverändert übernommen. -->
+<!-- Off limits for all skills. Copied verbatim on every rewrite. -->

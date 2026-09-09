@@ -1,44 +1,44 @@
-# maquette — Start in drei Schritten
+# maquette — Start in three steps
 
-maquette macht aus einer Idee ein klickbares Modell: etwas, das man in der Hand hat, bevor man entscheidet, ob man es wirklich baut. Sie brauchen dafür keine Technikkenntnisse — Sie beantworten Fragen, die KI erledigt den Rest und legt alles als lesbare Textdateien in diesem Ordner ab.
+maquette turns an idea into a clickable model: something you can hold in your hands before you decide whether to really build it. You need no technical knowledge — you answer questions, the AI does the rest and stores everything as readable text files in this folder.
 
-**Dieser Ordner enthält nur Textdateien. Keine Programme, keine Installation, kein Internetzugriff.**
+**This folder contains only text files. No programs, no installation, no internet access.**
 
-## 1. Ordner ablegen
+## 1. Put the folder somewhere
 
-Entpacken Sie die ZIP-Datei und legen Sie den Ordner `maquette` dorthin, wo Sie ihn wiederfinden — zum Beispiel in Ihre Dokumente. Nicht umbenennen, nichts darin löschen.
+Unzip the file and place the `maquette` folder where you will find it again — your Documents, for example. Do not rename it, do not delete anything inside.
 
-## 2. Ordner in der KI-App öffnen
+## 2. Open the folder in your AI app
 
-- **ChatGPT-App (Codex):** Codex-Modus wählen → „Projekt öffnen" → diesen Ordner auswählen.
-- **Claude (Cowork):** Neue Aufgabe → Ordner verbinden → diesen Ordner auswählen.
-- **Claude Code / Codex im Terminal:** in den Ordner wechseln und das Programm starten.
+- **ChatGPT app (Codex):** choose Codex mode → "Open project" → select this folder.
+- **Claude (Cowork):** new task → connect folder → select this folder.
+- **Claude Code / Codex in a terminal:** change into the folder and start the program.
 
-Die App liest beim Öffnen automatisch die Spielregeln aus diesem Ordner.
+The app reads the rules from this folder automatically when it opens it.
 
-## 3. „start" tippen
+## 3. Type "start"
 
-Schreiben Sie **start** — oder einfach Ihre Idee in zwei Sätzen. Ab dann führt die KI Sie durch sechs Stationen und fragt jeweils nach: **weiter**, **nochmal** oder **stopp**. Mehr Befehle gibt es nicht.
+Type **start** — or simply your idea in two sentences. From then on the AI guides you through six stations and asks after each one: **next**, **redo** or **stop**. There are no other commands.
 
-| Station | Wer | Was Sie bekommen | etwa |
+| Station | Who | What you get | approx. |
 | --- | --- | --- | --- |
-| 1 | Sparringspartner | Ihre Idee geschärft, mit klarem Ziel für das Modell | 15 min |
-| 2 | Review-Board | Ein Plan in drei bis fünf Scheiben | 20 min |
-| 3 | Designer | Drei Entwürfe nebeneinander im Browser, Sie wählen | 15 min |
-| 4 | Bauteam | Das klickbare Modell, Scheibe für Scheibe | 60 min |
-| 5 | Qualitätsprüfer | Geprüft und repariert, mit ehrlichem Urteil | 20 min |
-| 6 | Demo-Brief | Drei-Minuten-Skript für die Vorführung und der nächste Schritt | 10 min |
+| 1 | Sparring partner | Your idea sharpened, with a clear goal for the model | 15 min |
+| 2 | Review board | A plan in three to five slices | 20 min |
+| 3 | Designer | Three drafts side by side in the browser, you choose | 15 min |
+| 4 | Build team | The clickable model, slice by slice | 60 min |
+| 5 | Quality checker | Tested and repaired, with an honest verdict | 20 min |
+| 6 | Demo brief | A three-minute script for the presentation and the next step | 10 min |
 
-Sie können jederzeit stoppen. Was bis dahin entstanden ist, bleibt im Ordner `maquettes/` und lässt sich beim nächsten Mal mit **weiter** fortsetzen.
+You can stop at any time. Whatever exists by then stays in the `maquettes/` folder and continues next time with **next**.
 
-## Wo liegt was?
+## Where is what?
 
-Jedes Modell bekommt einen eigenen Unterordner in `maquettes/`, zum Beispiel `maquettes/WST-weltstahl-dashboard/`. Darin liegen nummerierte Textdateien — `10-seed.md`, `20-plan.md` … `60-brief.md` — und das Modell selbst im Unterordner `vcode/`. Alles ist mit jedem Texteditor lesbar. Am Ende jeder Datei gibt es einen Abschnitt **Notizen (Mensch)**: Dort können Sie eigene Anmerkungen hinterlassen, die KI lässt ihn unangetastet.
+Every model gets its own subfolder in `maquettes/`, for example `maquettes/WST-world-steel-dashboard/`. Inside are numbered text files — `10-seed.md`, `20-plan.md` … `60-brief.md` — and the model itself in the subfolder `vcode/`. Everything opens in any text editor. At the end of every file there is a section **Notes (human)**: leave your own remarks there, the AI never touches it.
 
-## Wenn etwas nicht klappt
+## If something does not work
 
-- Die KI reagiert nicht auf „start"? Schreiben Sie: „Lies AGENTS.md und beginne."
-- Sie wollen ein zweites Modell? Schreiben Sie: „Neue Maquette." Das erste bleibt erhalten.
-- Neue Version von maquette? Neuen Ordner herunterladen, Ihren Unterordner `maquettes/` hinüberkopieren, fertig.
+- The AI does not react to "start"? Type: "Read AGENTS.md and begin."
+- You want a second model? Type: "New maquette." The first one is kept.
+- New version of maquette? Download the latest ZIP from https://github.com/ditomax/maquette/releases, copy your `maquettes/` subfolder across, done.
 
-Version: siehe Datei `VERSION`. Fragen und Rückmeldungen: dietmar@millinger.at
+Version: see file `VERSION`. Questions and feedback: dietmar@millinger.at

@@ -1,58 +1,59 @@
 ---
 stage: control
 owner: maquette
-status: in_arbeit            # offen | in_arbeit | fertig | uebersprungen
+status: in_progress          # open | in_progress | done | skipped
 revision: 1
-created: <JJJJ-MM-TTThh:mm>
-updated: <JJJJ-MM-TTThh:mm>
+created: <YYYY-MM-DDThh:mm>
+updated: <YYYY-MM-DDThh:mm>
 input: —
-# --- nur in 00-maquette.md ---
-titel: <Arbeitstitel der Maquette>
-kuerzel: <2–4 Buchstaben, z. B. WST>
-modus: workshop              # workshop | discovery
-git: nein                    # ja | nein — von der Regie beim Start geprüft
-sprache: de                  # Sprache der Ergebnisdateien
+# --- only in 00-maquette.md ---
+title: <working title of the maquette>
+code: <2–4 letters, e.g. WST>
+mode: workshop               # workshop | discovery
+git: no                      # yes | no — checked by the Director at start
+language: en                 # language of the result files' content
 budget_min: {sparring: 15, plan: 20, design: 15, build: 60, harden: 20, brief: 10}
+profile: none                # none | profile/ (if a profile folder exists)
 ---
 
-# Maquette <Kürzel>: <Arbeitstitel>
+# Maquette <code>: <title>
 
-<!-- Diese Datei gehört der Regie. Kein anderer Skill schreibt hier. -->
+<!-- This file belongs to the Director. No other skill writes here. -->
 
-## Ausgangspunkt
+## Starting point
 
-- **Eingang:** <Idee in zwei Sätzen | Ideenkarte <ID> | Konzeptskizze <ID>-K>
-- **Auftraggeber / Sponsor:** <Rolle, falls bekannt>
-- **Ziel der Maquette:** <ein Satz: was soll nach der Demo entschieden werden können?>
+- **Input:** <idea in two sentences | idea card <ID> | concept sketch <ID>-K>
+- **Sponsor:** <role, if known>
+- **Purpose of this maquette:** <one sentence: what should be decidable after the demo?>
 
-## Stufen
+## Stages
 
-| Stufe | Skill | Datei | Status | Gültige Revision | Begonnen | Beendet | Minuten |
+| Stage | Skill | File | Status | Current revision | Started | Finished | Minutes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | sparring | 10-seed.md | offen | — | | | |
-| 2 | plan-board | 20-plan.md | offen | — | | | |
-| 3 | design-3 | 30-design.md | offen | — | | | |
-| 4 | build | 40-build.md | offen | — | | | |
-| 5 | harden | 50-harden.md | offen | — | | | |
-| 6 | brief | 60-brief.md | offen | — | | | |
+| 1 | sparring | 10-seed.md | open | — | | | |
+| 2 | plan-board | 20-plan.md | open | — | | | |
+| 3 | design-3 | 30-design.md | open | — | | | |
+| 4 | build | 40-build.md | open | — | | | |
+| 5 | harden | 50-harden.md | open | — | | | |
+| 6 | brief | 60-brief.md | open | — | | | |
 
-<!-- Status-Werte: offen | in_arbeit | fertig | uebersprungen | veraltet (Eingang hat sich geändert, siehe Schreibregel 6).
-     „Gültige Revision" nennt die Datei, die die Folgestufe lesen soll, z. B. 20-plan.v2.md. -->
+<!-- Status values: open | in_progress | done | skipped | stale (input changed, see write rule 6).
+     "Current revision" names the file the next stage must read, e.g. 20-plan.v2.md. -->
 
-## Entscheidungslog
+## Decision log
 
-| Zeit | Stufe | Entscheidung | Bemerkung |
+| Time | Stage | Decision | Note |
 | --- | --- | --- | --- |
-| <hh:mm> | — | start | Modus <workshop>, Git <nein> |
+| <hh:mm> | — | start | mode <workshop>, git <no> |
 
-<!-- Erlaubte Entscheidungen: start · weiter · nochmal · stopp · ueberspringen · budget_ueberzogen (mit Nutzerantwort) -->
+<!-- Allowed decisions: start · next · redo · stop · skip · budget_exceeded (with the user's answer) -->
 
-## Offene Punkte für die Regie
+## Open items for the Director
 
-<!-- Dinge, die die Regie beim nächsten Aufruf ansprechen muss: überzogenes Budget, Konfliktdateien, veraltete Folgedateien, ausstehende Nutzerentscheidungen. Leer = nichts offen. -->
+<!-- Things the Director must raise at the next call: exceeded budget, conflict files, stale downstream files, pending user decisions. Empty = nothing open. -->
 
 - —
 
-## Notizen (Mensch)
+## Notes (human)
 
-<!-- Tabu für alle Skills. Hier korrigiert, ergänzt und kommentiert der Mensch. Wird bei jeder Neuschreibung unverändert übernommen. -->
+<!-- Off limits for all skills. The human corrects, adds and comments here. Copied verbatim on every rewrite. -->

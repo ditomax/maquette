@@ -1,45 +1,49 @@
 # maquette
 
-**Von der Idee zum klickbaren Modell — sieben Markdown-Skills, ein Befehl.**
+**From idea to clickable model — seven markdown skills, one command.**
 
-Version 0.1 · September 2026 · DMBG
+Version 0.2 · September 2026 · DMBG · https://github.com/ditomax/maquette
 
-## Was ist eine Maquette?
+_Deutsch: Für Anwender genügt `START.md` — drei Schritte, keine Installation. Eine deutsche Sprachfassung der Vorlagen folgt bei Bedarf; die Skills antworten ohnehin in der Sprache, in der man sie anspricht._
 
-Eine Maquette (französisch, „makett") ist das Modell, das Architekten bauen, bevor sie bauen: klein, greifbar, aus Karton — nicht das Gebäude, aber genau genug, um darum herumzugehen, Proportionen zu prüfen und mit dem Bauherrn zu entscheiden, ob und wie es weitergeht. Hier ist die Maquette der klickbare Prototyp einer Software-Idee: kein Produkt, sondern ein Modell, an dem man die Idee begreift und über den echten Bau entscheidet. Sie ist wertvoll, weil sie billig und vorläufig ist.
+## What is a maquette?
 
-## Wie es funktioniert
+A maquette (French, "ma-KET") is the model architects build before they build: small, tangible, made of cardboard — not the building, but exact enough to walk around it, check proportions and decide with the client whether and how to proceed. Here the maquette is the clickable prototype of a software idea: not a product, but a model on which you grasp the idea and decide about the real build. It is valuable precisely because it is cheap and provisional.
 
-Der Nutzer tippt `/maquette` und danach nur noch **weiter**, **nochmal** oder **stopp**. Ein Regie-Skill liest den Maquette-Ordner, sagt, wo man steht, und ruft die nächste von sechs Stufen auf:
+## How it works
 
-| Stufe | „Teammitglied" | Ergebnis | Minuten (Workshop) |
+The user types **start** and afterwards only **next**, **redo** or **stop**. A Director skill reads the maquette folder, says where things stand, and calls the next of six stages:
+
+| Stage | "Team member" | Result | Minutes (workshop) |
 | --- | --- | --- | --- |
-| 1 sparring | Sparringspartner | `10-seed.md` — Idee geschärft, Scope, drei Richtungen, eine gewählt | 15 |
-| 2 plan-board | Review-Board | `20-plan.md` — Anforderungen geprüft, Slices, Freigabe | 20 |
-| 3 design-3 | Designer | `30-design.md` + drei HTML-Varianten + Vergleichsseite | 15 |
-| 4 build | Bauteam | `40-build.md` + `vcode/` — Scheibe für Scheibe | 60 |
-| 5 harden | Qualitätsprüfer | `50-harden.md` — Befunde, Fixes im Budget, Demofähigkeit | 20 |
-| 6 brief | Chronist | `60-brief.md` — Demo-Skript, Kann/Kann-nicht, Retrofit-Seed | 10 |
+| 1 sparring | sparring partner | `10-seed.md` — idea sharpened, scope, three directions, one chosen | 15 |
+| 2 plan-board | review board | `20-plan.md` — requirements checked, slices, approval | 20 |
+| 3 design-3 | designer | `30-design.md` + three HTML variants + comparison page | 15 |
+| 4 build | build team | `40-build.md` + `vcode/` — slice by slice | 60 |
+| 5 harden | quality checker | `50-harden.md` — findings, fixes within budget, demo-readiness | 20 |
+| 6 brief | chronicler | `60-brief.md` — demo script, can/cannot, retrofit seed | 10 |
 
-Jede Stufe liest genau eine Eingangsdatei und schreibt genau eine Ergebnisdatei. Alle Ergebnisse liegen in **einem Ordner pro Maquette**, tragen Frontmatter und unterliegen Schreibregeln, die verhindern, dass sich Agents gegenseitig überschreiben (siehe `RULES.md`). Der Ordner ist der Zustand — es gibt nichts außerhalb.
+Every stage reads exactly one input file and writes exactly one result file. All results live in **one folder per maquette**, carry frontmatter and follow write rules that stop agents from overwriting each other (see `RULES.md`). The folder is the state — there is nothing outside it.
 
-Davor kann unsere Mittelstand-Kette liegen (ki-ideenfindung → Ideenkarte, konzeptskizze → Konzeptskizze; beides wird in Stufe 1 vorgefüllt). Danach kommt das Concept Authoring Manifest: `60-brief.md` enthält den Retrofit-Seed für Phase 1 (Path B).
+Upstream, our SME chain can feed it (ki-ideenfindung → idea card, konzeptskizze → concept sketch; both are prefilled in stage 1). Downstream comes the Concept Authoring Manifest: `60-brief.md` contains the retrofit seed for Phase 1 (Path B).
 
-## Struktur
+## Structure
 
 ```
 maquette/
-  START.md             drei Schritte für den Menschen (Deutsch)
-  AGENTS.md            Einstieg für Codex — macht den Agenten zur Regie
-  CLAUDE.md            dasselbe für Claude
+  START.md             three steps for the human
+  AGENTS.md            entry point for Codex — turns the agent into the Director
+  CLAUDE.md            the same for Claude
   VERSION
-  README.md            diese Datei
-  RULES.md             gemeinsame Regeln aller Stufen — Frontmatter, Schreibregeln, Gesprächsregeln
-  ATTRIBUTION.md       übernommene Ideen und ihre Herkunft
-  maquettes/           Arbeit der Nutzer, ein Unterordner je Maquette (nicht im Repo)
-  templates/           eine Vorlage je Ergebnisdatei (verbindliche Inhaltsdefinition)
+  README.md            this file
+  RULES.md             shared rules for all stages — frontmatter, write rules, conversation rules
+  ATTRIBUTION.md       adopted ideas and their origin
+  LICENSES/            third-party license texts
+  profile/             optional customer-specific constraints (empty = core defaults)
+  maquettes/           the users' work, one subfolder per maquette (not in the repo)
+  templates/           one template per result file (binding content definition)
   skills/
-    maquette/          Regie
+    maquette/          Director
     maquette-sparring/
     maquette-plan-board/
     maquette-design-3/
@@ -48,33 +52,41 @@ maquette/
     maquette-brief/
 ```
 
-## Verteilung und Installation
+## Distribution and installation
 
-Dieser Ordner ist der **Workspace** — Repo und ZIP haben dieselbe Struktur. Nutzer laden die ZIP eines Releases herunter, entpacken sie, öffnen den Ordner in ihrer KI-App und tippen „start" (Anleitung in `START.md`). `AGENTS.md` (Codex) und `CLAUDE.md` (Claude) werden beim Öffnen automatisch gelesen und machen den Agenten zur Regie — es gibt nichts zu installieren, keine Symlinks, keine globalen Skill-Ordner.
+This folder is the **workspace** — repo and ZIP share the same structure. Users download the ZIP of a release, unzip it, open the folder in their AI app and type "start" (instructions in `START.md`). `AGENTS.md` (Codex) and `CLAUDE.md` (Claude) are read automatically when the folder opens and turn the agent into the Director — nothing to install, no symlinks, no global skill folders.
 
-Für Entwickler, die die Skills global haben wollen, geht zusätzlich:
+Developers who want the skills globally can additionally:
 
 ```
-ln -s "$PWD/skills/"maquette* ~/.codex/skills/      # oder ~/.claude/skills/
+ln -s "$PWD/skills/"maquette* ~/.codex/skills/      # or ~/.claude/skills/
 ```
 
-**ChatGPT / Mistral** (kein Ordnerzugriff): Regie entfällt. Den Textkörper eines Stufen-Skills (ohne Frontmatter) als System-Prompt einsetzen, `RULES.md` und die passende Vorlage anhängen; `00-maquette.md` pflegt der Mensch von Hand.
+**ChatGPT / Mistral** (no folder access): no Director. Use the body of a stage skill (without frontmatter) as system prompt, attach `RULES.md` and the matching template; the human maintains `00-maquette.md` by hand.
 
-Keine Abhängigkeiten, kein Setup-Skript, kein Netzwerkzugriff, keine Telemetrie. `maquettes/` ist per `.gitignore` vom Repo ausgeschlossen — die Arbeit der Nutzer landet nie im öffentlichen Repository.
+No dependencies, no setup script, no network access, no telemetry. `maquettes/` is excluded from the repo via `.gitignore` — users' work never lands in the public repository.
+
+## Profiles
+
+Customer-specific variants (restricted topics, IT constraints, corporate design, extra checklist items, the customer's own approval process) do not fork this repo. They live in a `profile/` folder inside the workspace that the Director reads at start and passes to each stage. A profile may restrict, never loosen the core rules. The profile format is documented in `profile/README.md`; an empty `profile/` means core defaults. Customer ZIP = core release + `profile/` + empty `maquettes/`.
+
+## Modes
+
+- **workshop** (default): half a day, goal is a demo. Forcing questions Q1–Q4, grilling 10 minutes, slices S1–S3, fix budget 10 (with git) / 5 (without).
+- **discovery**: two to three days, goal is a robust prototype plus a complete retrofit seed. Q1–Q6, grilling 30 minutes, all slices, double fix budget.
+
+Git is optional: if a repository exists, every slice and every fix is committed; otherwise not. The skills never create a repository themselves.
 
 ## Release
 
-Neue Version: `VERSION` anheben, Tag `vX.Y.Z` setzen, GitHub-Release mit angehängter ZIP des Ordners (`maquette-vX.Y.Z.zip`). Nutzer aktualisieren, indem sie den neuen Ordner herunterladen und ihr `maquettes/` hinüberkopieren. Git ist optional: Ist ein Repository vorhanden, wird je Scheibe und je Fix committet; sonst nicht. Die Skills legen nie selbst ein Repository an.
+Repository: https://github.com/ditomax/maquette — releases at https://github.com/ditomax/maquette/releases.
 
-## Modi
+New version: bump `VERSION`, tag `vX.Y.Z`, GitHub release with the folder attached as `maquette-vX.Y.Z.zip`. Users update by downloading the new folder and copying their `maquettes/` (and `profile/`) across.
 
-- **workshop** (Default): ein halber Tag, Ziel ist eine Demo. Forcing Questions Q1–Q4, Grilling 10 Minuten, Slices S1–S3, Fix-Budget 10 (mit Git) / 5 (ohne).
-- **discovery**: zwei bis drei Tage, Ziel ist ein belastbarer Prototyp plus vollständiger Retrofit-Seed. Q1–Q6, Grilling 30 Minuten, alle Slices, doppeltes Fix-Budget.
+## Origin
 
-## Herkunft
+The stages combine our own skills (idea-work, ki-ideenfindung, konzeptskizze, Concept Authoring Manifest, CLAUDE.local.md) with ideas from gstack (Garry Tan, MIT): forcing questions and premise challenge, review board with roles, three divergent design variants, confidence-calibrated review, one commit per fix with revert on regression. Method was adopted, not code.
 
-Die Stufen kombinieren unsere eigenen Skills (idea-work, ki-ideenfindung, konzeptskizze, Concept Authoring Manifest, CLAUDE.local.md) mit Ideen aus gstack (Garry Tan, MIT): Forcing Questions und Premise Challenge, Review-Board mit Rollen, drei divergente Design-Varianten, Konfidenz-kalibriertes Review, ein Commit je Fix mit Revert bei Regression. Übernommen wurde Methode, kein Code.
+## License
 
-## Lizenz
-
-gstack ist © 2026 Garry Tan und steht unter der MIT-Lizenz; der vollständige Lizenztext liegt in `LICENSES/gstack-MIT.txt` und in `ATTRIBUTION.md`, das auch genau auflistet, welche Methode in welche Stufe übernommen wurde. Die Lizenz von maquette selbst steht in `LICENSE`.
+gstack is © 2026 Garry Tan under the MIT License; the full text is in `LICENSES/gstack-MIT.txt` and in `ATTRIBUTION.md`, which also lists exactly which method went into which stage. maquette itself is © 2026 Dietmar Millinger and also released under the MIT License (`LICENSE`).

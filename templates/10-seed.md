@@ -1,103 +1,103 @@
 ---
 stage: seed
 owner: sparring
-status: in_arbeit            # offen | in_arbeit | fertig | uebersprungen
+status: in_progress          # open | in_progress | done | skipped
 revision: 1
-created: <JJJJ-MM-TTThh:mm>
-updated: <JJJJ-MM-TTThh:mm>
-input: 00-maquette.md@1      # Ausgangspunkt; bei Ideenkarte/Konzeptskizze zusätzlich deren ID im Abschnitt „Eingang"
+created: <YYYY-MM-DDThh:mm>
+updated: <YYYY-MM-DDThh:mm>
+input: 00-maquette.md@1      # starting point; with an idea card / concept sketch also its ID under "Input"
 ---
 
-# Seed <Kürzel>: <Arbeitstitel>
+# Seed <code>: <title>
 
-_Concept Seed light — Ergebnis der Stufe sparring. Kandidaten-Anforderungen (`cF-` / `cU-` / `cNF-`) sind **unratifiziert**: Sie dienen der Maquette als Leitplanke und dem späteren Retrofit (Manifest Phase 1) als Ausgangsmaterial, nicht als Spezifikation._
+_Concept Seed light — result of the sparring stage. Candidate requirements (`cF-` / `cU-` / `cNF-`) are **unratified**: they serve the maquette as guardrails and the later retrofit (Manifest Phase 1) as raw material, not as a specification._
 
-## Eingang
+## Input
 
-- **Quelle:** <Idee in zwei Sätzen | Ideenkarte <ID> | Konzeptskizze <ID>-K>
-- **Vorgefüllt aus der Quelle:** <welche Felder übernommen und vom Nutzer bestätigt wurden, oder „nichts — Cold Start">
+- **Source:** <idea in two sentences | idea card <ID> | concept sketch <ID>-K>
+- **Prefilled from the source:** <which fields were taken over and confirmed by the user, or "none — cold start">
 
-## Feld der Anwendung
+## Field of application
 
-<eine Zeile: z. B. „Web-App, intern" / „Dashboard auf öffentlichen Daten" / „Dokumenten-Assistent">
-<!-- Vom Nutzer bestätigt. Legt die Standardanliegen fest, die als offene Fragen auftauchen müssen (Web → Datenschutz, Zugriff, Deployment). -->
+<one line, e.g. "internal web app" / "dashboard on public data" / "document assistant">
+<!-- Confirmed by the user. Determines the standard concerns that must appear as open questions (web → data protection, access, deployment). -->
 
-## 1. Zweck
+## 1. Purpose
 
-<Das gerahmte Problem und das eigentliche Ziel dahinter (Laddering: „warum ist das wichtig?"). Woran erkennt man Erfolg?>
+<the framed problem and the real goal behind it (laddering: "why does this matter?"). What success looks like.>
 
-## 2. Forcing Questions
+## 2. Forcing questions
 
-<!-- Aus gstack office-hours (© 2026 Garry Tan, MIT License, siehe `LICENSES/gstack-MIT.txt`), eingeordnet nach Konzept §5. Jede Antwort mit Evidenzmarke [belegt|geschätzt|unbekannt].
-     Q2 und Q3 werden bei vorhandener Ideenkarte vorgefüllt und nur bestätigt. Q5 und Q6 sind hier bewusst NICHT enthalten (Q5 → 60-brief, Q6 → nur Discovery-Modus). -->
+<!-- From gstack office-hours (© 2026 Garry Tan, MIT License, see `LICENSES/gstack-MIT.txt`), placed per concept §5. Every answer carries an evidence mark [evidenced|estimated|unknown].
+     Q2 and Q3 are prefilled from an idea card if one exists and only confirmed. Q5 and Q6 are deliberately NOT here (Q5 → 60-brief, Q6 → discovery mode only). -->
 
-- **Q1 Nachfrage-Realität** — Wer wäre spürbar betroffen, wenn es diese Lösung morgen nicht gäbe, und woran sieht man das? <…> [belegt|geschätzt|unbekannt]
-- **Q2 Status quo** — Was tun die Betroffenen heute stattdessen, und was kostet dieser Umweg (Häufigkeit × Aufwand)? <…> [belegt|geschätzt|unbekannt]
-- **Q3 Der konkrete Mensch** — Wer genau braucht das am dringendsten: Rolle, Situation, Konsequenz, wenn es nicht gelöst wird? <…> [belegt|geschätzt|unbekannt]
-- **Q4 Kleinste Demo** — Was ist die kleinste Version, mit der der Sponsor grünes Licht gibt? <…> [belegt|geschätzt|unbekannt]
-  → **Scope der Maquette:** <ein Satz; wird Slice S1 in 20-plan.md>
+- **Q1 Demand reality** — Who would be noticeably affected if this solution did not exist tomorrow, and how can you tell? <…> [evidenced|estimated|unknown]
+- **Q2 Status quo** — What do the affected people do today instead, and what does that workaround cost (frequency × effort)? <…> [evidenced|estimated|unknown]
+- **Q3 The specific person** — Who exactly needs this most: role, situation, consequence if it stays unsolved? <…> [evidenced|estimated|unknown]
+- **Q4 Smallest demo** — What is the smallest version that makes the sponsor say yes? <…> [evidenced|estimated|unknown]
+  → **Scope sentence:** <one sentence; becomes slice S1 in 20-plan.md>
 
-## 3. Prämissen-Check
+## 3. Premise check
 
-<!-- Premise Challenge: Was müsste wahr sein, damit das Problem überhaupt existiert und diese Lösungsrichtung trägt? Eine Zeile je Prämisse, mit Einschätzung. -->
+<!-- Premise challenge: what would have to be true for this problem to exist at all and for this solution direction to hold? One line per premise, with a rating. -->
 
-| Prämisse | Wahr, wenn … | Einschätzung |
+| Premise | True if … | Rating |
 | --- | --- | --- |
-| <…> | <…> | <belegt | plausibel | offen> |
+| <…> | <…> | <evidenced | plausible | open> |
 
-## 4. Gemeinsame Sprache
+## 4. Shared vocabulary
 
-<!-- Begriffe, die im Gespräch entstanden sind, in den Worten des Nutzers. Wird zu CONTEXT.md im Retrofit. -->
+<!-- Terms that emerged in the conversation, in the user's own words. Becomes CONTEXT.md in the retrofit. -->
 
-| Begriff | Bedeutung |
+| Term | Meaning |
 | --- | --- |
 | <…> | <…> |
 
-## 5. Leitplanken
+## 5. Guardrails
 
-<!-- Nicht verhandelbare Grenzen für die Maquette: Must-nots, Datenschutz-/Sicherheitsflags aus dem Feld der Anwendung, Dinge, die der Prototyp bewusst nicht zeigen darf. -->
+<!-- Non-negotiable limits for the maquette: must-nots, data-protection / security flags from the field of application, things the prototype must deliberately not show. -->
 
-- **LP-1** — <…>
+- **GR-1** — <…>
 
-## 6. Gewählte Richtung und Alternativen
+## 6. Chosen direction and alternatives
 
-<!-- Harter Stopp in sparring: Der Nutzer hat drei Richtungen gesehen, bevor er eine gewählt hat. Verworfene Alternativen bleiben mit Grund erhalten (ADR-Seeds). -->
+<!-- Hard stop in sparring: the user has seen three directions before choosing one. Rejected alternatives stay, with reasons (ADR seeds). -->
 
-- **Gewählt:** <Richtung in zwei Sätzen> — **weil:** <…>
-- **Verworfen A:** <…> — **weil:** <…>
-- **Verworfen B:** <…> — **weil:** <…>
+- **Chosen:** <direction in two sentences> — **because:** <…>
+- **Rejected A:** <…> — **because:** <…>
+- **Rejected B:** <…> — **because:** <…>
 
-## 7. Kandidaten-Anforderungen (unratifiziert)
+## 7. Candidate requirements (unratified)
 
-<!-- 5–8 Stück gesamt. Nur was die Maquette zeigen soll. Testbar formuliert, wo möglich. -->
+<!-- 5–8 in total. Only what the maquette must show. Testable where possible. -->
 
-### Funktional
-| ID | Anforderung |
+### Functional
+| ID | Requirement |
 | --- | --- |
 | cF-1 | <…> |
 
-### Nutzerinteraktion
-| ID | Anforderung |
+### User interaction
+| ID | Requirement |
 | --- | --- |
 | cU-1 | <…> |
 
-### Nicht-funktional
-| ID | Anforderung |
+### Non-functional
+| ID | Requirement |
 | --- | --- |
 | cNF-1 | <…> |
 
-## 8. Offene Fragen
+## 8. Open questions
 
-<!-- Alles Ungeklärte, inkl. der Standardanliegen des Anwendungsfelds. Nummerierung Q1… läuft in 40/50/60 weiter, wird nie neu begonnen. -->
+<!-- Everything unresolved, incl. the standard concerns of the field of application. Numbering Q1… continues in 40/50/60 and never restarts. -->
 
 - **Q1** — <…>
 
-## 9. Riskanteste Annahme
+## 9. Riskiest assumption
 
-- **Annahme:** <ein Satz — aus Mini-Pre-Mortem: „die Maquette ist gezeigt worden und hat nicht überzeugt — woran lag es?">
-- **Wenn falsch:** <Konsequenz>
-- **Billigster Test:** <der kleinste Versuch, der sie bestätigt oder kippt; wird in 60-brief.md wieder aufgegriffen>
+- **Assumption:** <one sentence — from the mini pre-mortem: "the maquette was shown and did not convince — why?">
+- **If wrong:** <consequence>
+- **Cheapest test:** <the smallest experiment that confirms or kills it; picked up again in 60-brief.md>
 
-## Notizen (Mensch)
+## Notes (human)
 
-<!-- Tabu für alle Skills. Wird bei jeder Neuschreibung unverändert übernommen. -->
+<!-- Off limits for all skills. Copied verbatim on every rewrite. -->

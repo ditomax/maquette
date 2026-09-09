@@ -1,60 +1,60 @@
 ---
 stage: harden
 owner: harden
-status: in_arbeit            # offen | in_arbeit | fertig | uebersprungen
+status: in_progress          # open | in_progress | done | skipped
 revision: 1
-created: <JJJJ-MM-TTThh:mm>
-updated: <JJJJ-MM-TTThh:mm>
+created: <YYYY-MM-DDThh:mm>
+updated: <YYYY-MM-DDThh:mm>
 input: 40-build.md@<rev>
-git: <ja | nein>
-budget_fixes: <10 mit Git | 5 ohne Git>
+git: <yes | no>
+budget_fixes: <10 with git | 5 without git>
 ---
 
-# Härtung <Kürzel>: <Arbeitstitel>
+# Hardening <code>: <title>
 
-_Ergebnis der Stufe harden. Review gegen die Maquette-Checkliste (nicht diff-basiert), dann Fixes innerhalb eines Budgets. Ideen aus gstack review und qa (© 2026 Garry Tan, MIT License, siehe `LICENSES/gstack-MIT.txt`): Konfidenz-Kalibrierung, ein Fix je Commit, Stopp bei Regression._
+_Result of the harden stage. Review against the maquette checklist (not diff-based), then fixes within a budget. Ideas from gstack review and qa (© 2026 Garry Tan, MIT License, see `LICENSES/gstack-MIT.txt`): confidence calibration, one fix per commit, stop on regression._
 
-## 1. Prüfweg
+## 1. Test path
 
-- **Methode:** <Browser-QA (Host: <…>) | Code-Walkthrough (kein Browser verfügbar)>
-- **Gestartet mit:** <Befehle aus 40-build.md „Starten">
-- **Geprüfte Slices:** <S1…Sn>
+- **Method:** <browser QA (host: <…>) | code walkthrough (no browser available)>
+- **Started with:** <commands from 40-build.md "How to start">
+- **Slices checked:** <S1…Sn>
 
-## 2. Befunde
+## 2. Findings
 
-<!-- Checkliste: Happy Path je Slice · leere Zustände · Fehleingaben · Textqualität (Rechtschreibung, Fachbegriffe aus §2 des Plans) · keine Platzhalter/Lorem ipsum · Startanleitung funktioniert · Leitplanken aus 10-seed.md §5 eingehalten.
-     Konfidenz: hoch = reproduziert; mittel = beobachtet, Ursache vermutet. Befunde mit niedriger Konfidenz kommen NICHT hierher, sondern in §5. -->
+<!-- Checklist: happy path per slice · empty states · wrong input · text quality (spelling, vocabulary from plan §2) · no placeholders / lorem ipsum · "sample data" label present if data is synthetic · guardrails from 10-seed.md §5 respected · nothing from 20-plan.md §7 (out of scope) accidentally half-built.
+     Confidence: high = reproduced; medium = observed, cause presumed. Low-confidence findings do NOT go here but into §5. -->
 
-| Nr. | Slice | Befund | Schwere | Konfidenz | Entscheidung |
+| No. | Slice | Finding | Severity | Confidence | Decision |
 | --- | --- | --- | --- | --- | --- |
-| B1 | S1 | <…> | <hoch | mittel | niedrig> | <hoch | mittel> | <fixen | lassen: <Grund>> |
+| F1 | S1 | <…> | <high | medium | low> | <high | medium> | <fix | leave: <reason>> |
 
 ## 3. Fixes
 
-<!-- Ein Eintrag je Fix, in Reihenfolge. Mit Git: Commit je Fix, Revert bei Regression, Budget 10, STOPP beim ersten Revert und bei jedem Fix mit > 3 Dateien. Ohne Git: ein Fix → prüfen → nächster, kein Revert, Budget 5. -->
+<!-- One entry per fix, in order. With git: commit per fix, revert on regression, budget 10, STOP at the first revert and at any fix touching > 3 files. Without git: one fix → check → next, no revert, budget 5. -->
 
-| Fix | Befund | Dateien | Ergebnis | Commit / Prüfvermerk |
+| Fix | Finding | Files | Result | Commit / check note |
 | --- | --- | --- | --- | --- |
-| F1 | B1 | <n> | <behoben | Regression → Revert | abgebrochen> | <Hash | „geprüft hh:mm"> |
+| X1 | F1 | <n> | <fixed | regression → reverted | aborted> | <hash | "checked hh:mm"> |
 
-**Budget-Stand:** <verbraucht / Budget> · **Stopp-Grund:** <keiner | Budget | Revert | > 3 Dateien | Nutzer>
+**Budget used:** <used / budget> · **Stop reason:** <none | budget | revert | > 3 files | user>
 
-## 4. Endurteil
+## 4. Verdict
 
-- **Demofähig:** <ja | mit Einschränkung | nein>
-- **Einschränkungen:** <was der Vorführende wissen und umgehen muss>
-- **Ausgangslage vs. Endstand:** <besser | gleich | schlechter — bei „schlechter" deutlich hervorheben>
+- **Demo-ready:** <yes | with limitations | no>
+- **Limitations:** <what the presenter must know and avoid>
+- **Start vs. end state:** <better | same | worse — if "worse", highlight it clearly>
 
-## 5. Anhang: unsicher, nicht gefixt
+## 5. Appendix: uncertain, not fixed
 
-<!-- Befunde mit niedriger Konfidenz oder außerhalb des Budgets. Nichts geht verloren; brief nimmt sie in die Kann-nicht-Liste oder die offenen Fragen. -->
+<!-- Low-confidence findings or those outside the budget. Nothing is lost; brief takes them into the cannot-list or the open questions. -->
 
 - <…>
 
-## Offene Fragen
+## Open questions
 
 - **Q<n>** — <…>
 
-## Notizen (Mensch)
+## Notes (human)
 
-<!-- Tabu für alle Skills. Wird bei jeder Neuschreibung unverändert übernommen. -->
+<!-- Off limits for all skills. Copied verbatim on every rewrite. -->

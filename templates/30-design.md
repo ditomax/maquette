@@ -1,57 +1,57 @@
 ---
 stage: design
 owner: design-3
-status: in_arbeit            # offen | in_arbeit | fertig | uebersprungen
+status: in_progress          # open | in_progress | done | skipped
 revision: 1
-created: <JJJJ-MM-TTThh:mm>
-updated: <JJJJ-MM-TTThh:mm>
+created: <YYYY-MM-DDThh:mm>
+updated: <YYYY-MM-DDThh:mm>
 input: 20-plan.md@<rev>
 ---
 
-# Design <Kürzel>: <Arbeitstitel>
+# Design <code>: <title>
 
-_Ergebnis der Stufe design-3. Drei bewusst verschiedene Varianten als eigenständige HTML-Dateien (`30-design-a.html`, `-b.html`, `-c.html`), Vergleich in `30-vergleich.html`. Idee aus gstack design-shotgun (© 2026 Garry Tan, MIT License, siehe `LICENSES/gstack-MIT.txt`), ohne Server, Screenshots und Geschmacksprofil._
+_Result of the design-3 stage. Three deliberately different variants as standalone HTML files (`30-design-a.html`, `-b.html`, `-c.html`), compared in `30-compare.html`. Idea from gstack design-shotgun (© 2026 Garry Tan, MIT License, see `LICENSES/gstack-MIT.txt`), without server, screenshots and taste profile._
 
-## 1. Kontext
+## 1. Context
 
-<!-- Fünf Fragen, eine nach der anderen. Antworten in den Worten des Nutzers. Aus 20-plan.md vorfüllen, wo möglich, und bestätigen lassen. -->
+<!-- Five questions, one at a time. Answers in the user's words. Prefill from 20-plan.md where possible and have it confirmed. -->
 
-- **Wer benutzt es:** <Rolle, Situation, Gerät>
-- **Job-to-be-done:** <der eine Satz, warum jemand die Seite öffnet>
-- **Bestehendes:** <Corporate Design, Vorbild-Tools, Verbote — oder „frei">
-- **User-Flow von S1:** <Schritt → Schritt → Ergebnis>
-- **Edge-Cases:** <leer, viel, Fehler, langsam>
+- **Who uses it:** <role, situation, device>
+- **Job to be done:** <the one sentence why someone opens the page>
+- **Existing constraints:** <corporate design, reference tools, prohibitions — or "free">
+- **User flow of S1:** <step → step → result>
+- **Edge cases:** <empty, many, error, slow>
 
-## 2. Varianten
+## 2. Variants
 
-<!-- Anti-Konvergenz-Gebot: Die drei Varianten MÜSSEN sich in Schrift, Farbwelt und Layout unterscheiden. Eine Zeile Begründung, warum diese Variante zu §1 passt. -->
+<!-- Anti-convergence rule: the three variants MUST differ in typeface, colour world and layout. One line of reasoning why each variant fits §1. -->
 
-| Variante | Charakter | Schrift | Farbwelt | Layout | Passt, weil |
+| Variant | Character | Typeface | Colour world | Layout | Fits because |
 | --- | --- | --- | --- | --- | --- |
-| A | <z. B. „nüchtern, Tabelle zuerst"> | <…> | <…> | <…> | <…> |
-| B | <z. B. „visuell, Karte zuerst"> | <…> | <…> | <…> | <…> |
-| C | <z. B. „geführt, ein Schritt je Bildschirm"> | <…> | <…> | <…> | <…> |
+| A | <e.g. "sober, table first"> | <…> | <…> | <…> | <…> |
+| B | <e.g. "visual, card first"> | <…> | <…> | <…> | <…> |
+| C | <e.g. "guided, one step per screen"> | <…> | <…> | <…> | <…> |
 
-**Alle drei zeigen denselben Inhalt:** Slice S1 mit realistischen Beispieldaten, keine Lorem-ipsum-Texte.
+**All three show the same content:** slice S1 with realistic sample data, no lorem ipsum.
 
-## 3. Entscheidung
+## 3. Decision
 
-- **Gewählt:** <A | B | C | Mischung: <…>> — **weil:** <Begründung des Nutzers, in seinen Worten>
-- **Übernehmen aus den anderen:** <konkrete Elemente, oder „nichts">
-- **Verworfen:** <die anderen zwei, je ein Satz>
+- **Chosen:** <A | B | C | mix: <…>> — **because:** <the user's reasoning, in their words>
+- **Taken from the others:** <concrete elements, or "nothing">
+- **Rejected:** <the other two, one sentence each>
 
-## 4. Design-Tokens für den Build
+## 4. Design tokens for the build
 
-<!-- Das, was build aus der gewählten HTML-Datei übernimmt. Kurz, maschinenlesbar. -->
+<!-- What build takes over from the chosen HTML file. Short, machine-readable. -->
 
 ```yaml
-schrift: <Familie, Fallback>
-farben: {hintergrund: "#…", text: "#…", akzent: "#…", warnung: "#…"}
-layout: <Raster/Spalten in einem Satz>
-abstaende: <Basiseinheit>
-startdatei: 30-design-<x>.html
+typeface: <family, fallback>
+colours: {background: "#…", text: "#…", accent: "#…", warning: "#…"}
+layout: <grid/columns in one sentence>
+spacing: <base unit>
+start_file: 30-design-<x>.html
 ```
 
-## Notizen (Mensch)
+## Notes (human)
 
-<!-- Tabu für alle Skills. Wird bei jeder Neuschreibung unverändert übernommen. -->
+<!-- Off limits for all skills. Copied verbatim on every rewrite. -->

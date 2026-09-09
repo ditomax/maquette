@@ -1,78 +1,78 @@
 ---
 stage: brief
 owner: brief
-status: in_arbeit            # offen | in_arbeit | fertig | uebersprungen
+status: in_progress          # open | in_progress | done | skipped
 revision: 1
-created: <JJJJ-MM-TTThh:mm>
-updated: <JJJJ-MM-TTThh:mm>
+created: <YYYY-MM-DDThh:mm>
+updated: <YYYY-MM-DDThh:mm>
 input: 10-seed.md@<rev>, 20-plan.md@<rev>, 40-build.md@<rev>, 50-harden.md@<rev>
 ---
 
-# Brief <Kürzel>: <Arbeitstitel>
+# Brief <code>: <title>
 
-_Ergebnis der Stufe brief und Ausgang der Maquette. Teil 1 ist für die Vorführung, Teil 2 für die Entscheidung danach, Teil 3 der Retrofit-Seed für das Concept Authoring Manifest (Path B → Phase 1)._
+_Result of the brief stage and exit point of the maquette. Part 1 is for the presentation, Part 2 for the decision afterwards, Part 3 the retrofit seed for the Concept Authoring Manifest (Path B → Phase 1)._
 
-## Teil 1 — Demo-Skript (3 Minuten)
+## Part 1 — Demo script (3 minutes)
 
-<!-- Für den Menschen, der vorführt. Keine Technik, keine Skill-Namen. -->
+<!-- For the person presenting. No technology, no skill names. -->
 
-- **Das Problem in einem Satz:** <aus 10-seed.md §1, in den Worten des Sponsors>
-- **Für wen:** <der konkrete Mensch aus Q3>
-- **Klickpfad:**
-  1. <Starten: Befehl/Adresse aus 40-build.md>
-  2. <Schritt — was man sieht — was man sagt>
+- **The problem in one sentence:** <from 10-seed.md §1, in the sponsor's words>
+- **For whom:** <the specific person from Q3>
+- **Click path:**
+  1. <start: command/address from 40-build.md>
+  2. <step — what you see — what you say>
   3. <…>
-- **Der Moment, auf den es ankommt:** <die eine Interaktion, die den Nutzen zeigt>
-- **Was man nicht anklicken sollte:** <Einschränkungen aus 50-harden.md §4>
+- **The moment that matters:** <the one interaction that shows the benefit>
+- **What not to click:** <limitations from 50-harden.md §4>
 
-## Teil 2 — Kann / Kann bewusst nicht
+## Part 2 — Can / deliberately cannot
 
-| Kann | Kann bewusst nicht | Warum nicht |
+| Can | Deliberately cannot | Why not |
 | --- | --- | --- |
-| <…> | <aus 20-plan.md §7, 40-build.md „Lücken", 50-harden.md §5> | <Umfang | Zeit | Daten | Entscheidung offen> |
+| <…> | <from 20-plan.md §7, 40-build.md "Known gaps", 50-harden.md §5> | <scope | time | data | decision pending> |
 
-**Was diese Maquette beweist:** <ein Satz>
-**Was sie nicht beweist:** <ein Satz — ehrlich, damit niemand einen Prototyp für ein Produkt hält>
+**What this maquette proves:** <one sentence>
+**What it does not prove:** <one sentence — honest, so nobody mistakes a prototype for a product>
 
-## Teil 3 — Retrofit-Seed
+## Part 3 — Retrofit seed
 
-<!-- Der Übergabepunkt ins Manifest. Alles, was 10, 20, 40, 50 gelehrt haben, konsolidiert. Kandidaten bleiben unratifiziert; Phase 1 (Grilling) ratifiziert und nummeriert um. -->
+<!-- The handover point into the Manifest. Everything 10, 20, 40, 50 taught, consolidated. Candidates stay unratified; Phase 1 (grilling) ratifies and renumbers. -->
 
-### Aktualisierte Kandidaten-Anforderungen
+### Updated candidate requirements
 
-<!-- Aus 20-plan.md §3–5 plus 40-build.md „entdeckte Anforderungen", umnummeriert in eine Reihe. Spalte „Status in Maquette": gezeigt | teilweise | nicht gezeigt. -->
+<!-- From 20-plan.md §3–5 plus 40-build.md "Requirements discovered", renumbered into one sequence. Column "Status in maquette": shown | partial | not shown. -->
 
-| ID | Anforderung | Herkunft | Status in Maquette |
+| ID | Requirement | Origin | Status in maquette |
 | --- | --- | --- | --- |
-| cF-1 | <…> | seed | gezeigt |
-| cF-<n> | <…> | build | teilweise |
+| cF-1 | <…> | seed | shown |
+| cF-<n> | <…> | build | partial |
 
-### Gemeinsame Sprache
+### Shared vocabulary
 
-<aus 20-plan.md §2, ergänzt um Begriffe aus build/harden — Startpunkt für CONTEXT.md>
+<from 20-plan.md §2, extended with terms from build/harden — starting point for CONTEXT.md>
 
-### Entschiedene Fragen
+### Resolved questions
 
-<aus 20-plan.md §8 — bleiben als ADR-Seeds erhalten>
+<from 20-plan.md §8 — kept as ADR seeds>
 
-### Offene Fragen
+### Open questions
 
-<!-- Alle Q aus 10, 20, 40, 50, die noch offen sind, in einer Liste. Das ist die Startmunition für das Grilling. -->
+<!-- Every Q from 10, 20, 40, 50 still open, deduplicated, original numbers kept. This is the grilling session's starting ammunition. -->
 
 - **Q<n>** — <…>
 
-### Riskanteste Annahme — Stand nach der Maquette
+### Riskiest assumption — state after the maquette
 
-- **Annahme (aus 10-seed.md §9):** <…>
-- **Was die Maquette dazu gezeigt hat:** <bestätigt | geschwächt | nicht berührt — mit Beobachtung>
-- **Q5 Beobachtung:** <Hat jemand die Maquette ohne Hilfe benutzt? Was hat überrascht? — oder „noch nicht beobachtet: nächster Test">
+- **Assumption (from 10-seed.md §9):** <…>
+- **What the maquette showed:** <confirmed | weakened | untouched — with observation>
+- **Q5 Observation:** <Has anyone used the maquette without help? What surprised you? — or "not yet observed: next test">
 
-## Teil 4 — Nächster Schritt
+## Part 4 — Next step
 
-- **Empfehlung:** <Discovery Sprint (Manifest Phase 1 mit diesem Seed) | riskanteste Annahme testen (siehe oben) | zweite Maquette-Runde mit Scope <…> | Ende — Idee geparkt, weil <…>>
-- **Wer entscheidet:** <Sponsor aus 00-maquette.md>
-- **Wann:** <…>
+- **Recommendation:** <discovery sprint (Manifest Phase 1 with this seed) | test the riskiest assumption first | second maquette round with scope <…> | stop — idea parked because <…>>
+- **Who decides:** <sponsor from 00-maquette.md>
+- **When:** <…>
 
-## Notizen (Mensch)
+## Notes (human)
 
-<!-- Tabu für alle Skills. Wird bei jeder Neuschreibung unverändert übernommen. -->
+<!-- Off limits for all skills. Copied verbatim on every rewrite. -->
