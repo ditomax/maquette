@@ -1,6 +1,6 @@
 ---
 name: maquette-plan-board
-version: "0.2"
+version: "0.3"
 description: >
   Stage 2 of the maquette suite. Turns 10-seed.md into 20-plan.md: a short grilling
   of the candidate requirements, then a review board (product, design, engineering)
@@ -24,7 +24,9 @@ Two sentences, in the user's language: the review board looks at the seed from t
 
 ### 1. Grilling-light (workshop 10 min / discovery 30 min) → §3–§5, §8
 
-Walk the candidate requirements from the seed. For each: is it testable? does the maquette need it? is anything missing that the scope sentence implies? Strike, sharpen, add (new IDs continue the sequence). Answer open questions from `10-seed.md` §8 as one-liners where the user can — the rest stay open in §11. Ask one question at a time; do not exceed the grilling minutes.
+Start from the demo walk-through in `10-seed.md` §7, not from the candidate list: replay it step by step and ask, per step, "Is this still the flow — what is missing between here and the next step?" Then walk the candidates: is it testable? does the maquette need it? Strike, sharpen, add (new IDs continue the sequence).
+
+Two questions belong here and not in design-3, because their answers are requirements, not styling: **job to be done** — "the one sentence why someone opens this page" (sharpens §1 and the cU rows) — and **edge cases per slice** — empty · many · error · slow; each becomes a cF-/cU- or an entry in §7 out of scope, never left implicit. Answer open questions from `10-seed.md` §8 as one-liners where the user can — the rest stay open in §11. Ask one question at a time; do not exceed the grilling minutes.
 
 Explicitly check the field's standard concerns from the seed: for a web/dashboard maquette at least data source and licence, where it runs, whether any real personal data is touched (must be "no" for a maquette unless the user overrides with a reason → guardrail).
 
@@ -40,7 +42,7 @@ Auto-decisions must be reversible in build; anything else is a fork.
 
 ### 3. Slices (§10)
 
-Cut 3–5 vertical slices; S1 is the scope sentence from `10-seed.md` §2 Q4. Each slice: what it shows, **one** acceptance criterion a non-developer can check by clicking, requirement IDs. Workshop mode builds S1–S3 at most — mark S4+ "if time allows". Write the three technical lines (stack, start command, data source).
+Cut 3–5 vertical slices; S1 is the scope sentence from `10-seed.md` §2 Q4. Each slice: what it shows, its flow in one line (step → step → result, from the walk-through), **one** acceptance criterion a non-developer can check by clicking, requirement IDs. Read the acceptance criteria back one by one — they are the requirements build will be measured against. Workshop mode builds S1–S3 at most — mark S4+ "if time allows". Write the three technical lines (stack, start command, data source).
 
 ### 4. Gate (§12)
 
@@ -59,4 +61,6 @@ Read back: scope, forks decided, slices with criteria, what is out of scope (§7
 | Write an architecture chapter | Three technical lines; the maquette is a model |
 | Cut slices by layer (backend, frontend) | Cut vertically — each slice is clickable |
 | Let grilling run open-ended | Fixed minutes; leftovers go to §11 |
+| Grill the candidate list only | Replay the walk-through; find what is missing between steps |
+| Leave edge cases to the designer | Decide each one here: shown, or out of scope |
 | Propose stacks that need installs or accounts | Simplest thing that runs from a folder |

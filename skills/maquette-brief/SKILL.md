@@ -1,6 +1,6 @@
 ---
 name: maquette-brief
-version: "0.2"
+version: "0.3"
 description: >
   Stage 6 of the maquette suite. Writes 60-brief.md — a three-minute demo script,
   an honest can/cannot list, the retrofit seed for the Concept Authoring Manifest

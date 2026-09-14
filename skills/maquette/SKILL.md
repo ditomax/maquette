@@ -1,6 +1,6 @@
 ---
 name: maquette
-version: "0.2"
+version: "0.3"
 description: >
   Director of the maquette suite — takes one idea to a clickable model in six stages
   (sparring → plan-board → design-3 → build → harden → brief), keeping all results
@@ -23,7 +23,7 @@ This SKILL.md lives in `<suite>/skills/maquette/`. Templates are in `<suite>/tem
 
 ## Opening (every call)
 
-0. On the first greeting of a session, mention the version from `<suite>/VERSION` in half a sentence ("maquette 0.2.0"). Nothing else about internals. If `<suite>/profile/` exists and is not empty, read `profile/README.md` and every file it names; carry their constraints into each stage call (RULES §8).
+0. On the first greeting of a session, mention the version from `<suite>/VERSION` in half a sentence ("maquette 0.3.0"). Nothing else about internals. If `<suite>/profile/` exists and is not empty, read `profile/README.md` and every file it names; carry their constraints into each stage call (RULES §8).
 1. Find the maquette folder: the current working directory if it contains `00-maquette.md`, else the single maquette under `<suite>/maquettes/` if there is exactly one, else ask which one (list them by title), else offer to create one (`<suite>/maquettes/<code>-<slug>/` — confirm the path). "New maquette" always creates a new folder and leaves existing ones untouched.
 2. Read `00-maquette.md` if it exists. Determine the **current stage**: the first row in the stage table whose status is not `done` or `skipped`. Check for `.conflict.md` files and for `stale` rows.
 3. Say, in two sentences: where the maquette stands and what happens now. Then act on the user's word (accept the equivalents in the user's language — German: weiter / nochmal / stopp / überspringen):
@@ -64,7 +64,7 @@ Then create `00-maquette.md` from `templates/00-maquette.md` with `revision: 1`,
 
 | | workshop | discovery |
 | --- | --- | --- |
-| sparring | Q1–Q4 | Q1–Q6 |
+| sparring | Q1–Q4, walk-through S1 | Q1–Q6, walk-through S1 + next slice |
 | plan-board | grilling-light 10 min, 1 rework round | grilling 30 min, 2 rework rounds |
 | design-3 | 3 variants, S1 only | 3 variants, S1+S2 |
 | build | slices S1–S3 max | all slices |

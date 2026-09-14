@@ -1,8 +1,8 @@
 ---
 name: maquette-design-3
-version: "0.2"
+version: "0.3"
 description: >
-  Stage 3 of the maquette suite. Gathers five context answers, then produces three
+  Stage 3 of the maquette suite. Reads the plan's context back, then produces three
   deliberately different design variants of slice S1 as standalone HTML files plus a
   static comparison page, lets the user choose, and writes 30-design.md with design
   tokens for the build. Called by the maquette Director; skippable.
@@ -18,13 +18,13 @@ Lineage: gstack `design-shotgun` — five context dimensions, anti-convergence r
 
 ## Opening
 
-Two sentences, in the user's language: five short questions, then three deliberately different drafts of the first screen side by side in the browser; about 15 minutes.
+Two sentences, in the user's language: a short read-back of what the plan already says, at most two questions, then three deliberately different drafts of the first screen side by side in the browser; about 15 minutes.
 
 ## Sequence
 
-### 1. Context (§1) — five questions, one at a time
+### 1. Context (§1) — prefill first, at most two questions
 
-Prefill from `20-plan.md` (product/design decisions, S1) and read back; ask only what is missing: who · job to be done · existing constraints (corporate design, prohibitions, reference tools) · user flow of S1 · edge cases (empty, many, error).
+Who, job to be done, user flow of S1 and edge cases were elicited in sparring and plan-board and are requirements now, not design context: prefill them from `20-plan.md` (§1, §4, §7, §9 design decisions, §10 flow column) and read them back in one block. Ask only what is still missing — normally just **existing constraints** (corporate design, prohibitions, reference tools) and, if the flow line leaves it open, **what the viewer must see in the first three seconds**. If the read-back exposes a gap in flow or edge cases, do not fix it here: record it under "Gaps found" in §1 so build picks it up as `cF-new` (RULES §4.3, findings flow forward).
 
 ### 2. Three variants (§2)
 

@@ -1,6 +1,6 @@
 ---
 name: maquette-build
-version: "0.2"
+version: "0.3"
 description: >
   Stage 4 of the maquette suite. Builds the prototype in vcode/ one vertical slice
   at a time from 20-plan.md and 30-design.md, checks each slice against its

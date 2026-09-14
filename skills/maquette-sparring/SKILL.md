@@ -1,6 +1,6 @@
 ---
 name: maquette-sparring
-version: "0.2"
+version: "0.3"
 description: >
   Stage 1 of the maquette suite. Sparring partner for one idea: frame it, ask the
   forcing questions, challenge its premises, show three directions before the user
@@ -19,7 +19,7 @@ Lineage: framing and validation from our `idea-work` skill (Mode 1 + Mode 5, exp
 
 ## Opening
 
-Two sentences, in the user's language: you are the sparring partner; in about 15 minutes the idea will be sharp enough to know what the maquette must show — and what not. Then start.
+Two sentences, in the user's language: you are the sparring partner; in about 15 minutes the idea will be sharp enough to know what the maquette must show, screen by screen — and what not. Then start.
 
 ## Sequence
 
@@ -66,18 +66,30 @@ Tag every answer `[evidenced]`, `[estimated]` or `[unknown]`.
 
 Before any direction is chosen, present **three genuinely different ways** to serve the scope sentence (different mechanism, not different colours). At least one should be simpler than what the user had in mind, and one may be non-AI. Then: "Which one do we take — and why?" **Do not proceed until the user has answered.** Record the choice and both rejections with reasons.
 
-### 6. Guardrails and candidates (§5, §7)
+### 6. Demo walk-through (§7, first block) — the elicitation step
 
-- Guardrails: must-nots from the field check, from the user, from prefill (personal data flagged → no real personal data in the maquette), from the profile if present.
-- 5–8 candidate requirements total, only what the maquette must show. Number `cF-`, `cU-`, `cNF-`. Say plainly that they are candidates, not a spec.
+The direction is chosen; now make the model concrete before anything is written down as a requirement. One question at a time, answers in the user's words:
 
-### 7. Riskiest assumption (§9)
+- **Scene** — "The sponsor sits in front of the maquette. What is the first thing on the screen?" Get objects and data by name ("a list of the four portfolio companies with the date of the last rollout"), not categories ("an overview").
+- **Action** — "What does the sponsor do next — click, type, choose? And what appears then?" Walk two to four steps until the moment from Q4 is reached. Each step: what is on the screen, what the viewer does, what changes.
+- **The convincing moment** — "Which of these steps is the one that convinces? What must be visible there, exactly?"
+- **Non-cases** — "What happens when there is nothing yet / far too much / something goes wrong?" Decide per case: shown in the maquette, or deliberately left out (→ out of scope in 20-plan.md §7).
+- **Not shown** — "What must the maquette deliberately *not* show, so nobody mistakes it for the product?"
+
+Push once per question for a concrete noun or verb. Tag `[evidenced|estimated|unknown]` where the user reports how people work today. Workshop: about five minutes, S1 only; discovery: also the next likely slice.
+
+### 7. Guardrails and candidates (§5, §7)
+
+- Guardrails: must-nots from the field check, from the user, from prefill (personal data flagged → no real personal data in the maquette), from the profile if present, and the "not shown" answers from the walk-through.
+- Derive 5–8 candidate requirements **from the walk-through**: every object or datum named there becomes a `cF-` (what the model shows or does), every step the viewer takes a `cU-` (how one interacts), every constraint a `cNF-`. Only what the maquette must show. **Read the candidates back inline as one table** and ask: "Anything missing the sponsor would look for — or anything here you would not build?" Adjust, then say plainly that they are candidates, not a spec.
+
+### 8. Riskiest assumption (§9)
 
 Mini pre-mortem, success-criterion framed (as in ki-ideenfindung): "The maquette has been shown and did not convince — why?" Invert into the assumption; ask for the cheapest test.
 
-### 8. Read-back and write
+### 9. Read-back and write
 
-Read back scope sentence, chosen direction, guardrails and the riskiest assumption in five lines. On approval: write `10-seed.md` (revision 1, `input: 00-maquette.md@<rev>`, source and prefill noted under "Input"), remove guidance comments and placeholders, keep all headings, add `## Notes (human)` empty. Hand back to the Director per RULES §7.
+Read back scope sentence, chosen direction, guardrails, number of candidates and the riskiest assumption in six lines. On approval: write `10-seed.md` (revision 1, `input: 00-maquette.md@<rev>`, source and prefill noted under "Input"), remove guidance comments and placeholders, keep all headings, add `## Notes (human)` empty. Hand back to the Director per RULES §7.
 
 ## Anti-patterns
 
@@ -87,5 +99,7 @@ Read back scope sentence, chosen direction, guardrails and the riskiest assumpti
 | Skip the three directions because the user "already knows" | Show them anyway — the stop is the point |
 | Ask the questions as a list | One at a time, push once, tag evidence |
 | Re-ask what the idea card answers | Prefill and read back |
+| Derive candidates from Q1–Q4 alone | Walk the demo first; every candidate points to a screen, an action or a constraint the user named |
+| Write §7 without showing it | Read the candidate table back and let the user strike or add |
 | Write code, scaffold, or name a stack | Only 10-seed.md leaves this stage |
 | Run over budget silently | Say it; close with the current state |

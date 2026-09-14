@@ -14,13 +14,15 @@ _Result of the design-3 stage. Three deliberately different variants as standalo
 
 ## 1. Context
 
-<!-- Five questions, one at a time. Answers in the user's words. Prefill from 20-plan.md where possible and have it confirmed. -->
+<!-- Prefilled from 20-plan.md and confirmed by the user; only constraints and first-three-seconds are normally asked here. Answers in the user's words. -->
 
-- **Who uses it:** <role, situation, device>
-- **Job to be done:** <the one sentence why someone opens the page>
+- **Who uses it:** <role, situation, device — from 20-plan.md>
+- **Job to be done:** <the one sentence why someone opens the page — from 20-plan.md §1>
 - **Existing constraints:** <corporate design, reference tools, prohibitions — or "free">
-- **User flow of S1:** <step → step → result>
-- **Edge cases:** <empty, many, error, slow>
+- **User flow of S1:** <step → step → result — from 20-plan.md §10>
+- **Edge cases:** <empty, many, error, slow — from 20-plan.md §4/§7>
+- **First three seconds:** <what must be visible immediately>
+- **Gaps found (→ build log as cF-new):** <…, or "none">
 
 ## 2. Variants
 

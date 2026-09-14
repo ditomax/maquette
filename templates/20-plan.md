@@ -52,7 +52,7 @@ _Result of the plan-board stage. The structure follows the Concept Authoring Man
 
 ## 7. Out of scope
 
-<!-- Explicit, so build does not drift and brief has its cannot-list. -->
+<!-- Explicit, so build does not drift and brief has its cannot-list. Includes the non-cases (empty / many / error) deliberately left out. -->
 
 - <…>
 
@@ -82,12 +82,12 @@ _Result of the plan-board stage. The structure follows the Concept Authoring Man
 
 ## 10. Slices
 
-<!-- 3–5 vertical slices, each demonstrable on its own. S1 is the scope sentence from 10-seed.md §2 Q4. Each slice has exactly one acceptance criterion that build checks with a smoke test. -->
+<!-- 3–5 vertical slices, each demonstrable on its own. S1 is the scope sentence from 10-seed.md §2 Q4. Flow comes from the walk-through in 10-seed.md §7. Each slice has exactly one acceptance criterion that build checks with a smoke test. -->
 
-| Slice | Shows | Acceptance criterion | Requirements |
-| --- | --- | --- | --- |
-| S1 | <…> | <one sentence, checkable by clicking> | cF-1, cU-1 |
-| S2 | <…> | <…> | <…> |
+| Slice | Shows | Flow | Acceptance criterion | Requirements |
+| --- | --- | --- | --- | --- |
+| S1 | <…> | <step → step → result> | <one sentence, checkable by clicking> | cF-1, cU-1 |
+| S2 | <…> | <…> | <…> | <…> |
 
 **Technical essentials:** <stack, start command, data source — three lines, no architecture chapter>
 

@@ -1,6 +1,6 @@
 ---
 name: maquette-harden
-version: "0.2"
+version: "0.3"
 description: >
   Stage 5 of the maquette suite. Reviews the prototype in vcode/ against a short
   demo checklist (not diff-based), calibrates findings by confidence, fixes within a

@@ -2,7 +2,7 @@
 
 **From idea to clickable model — seven markdown skills, one command.**
 
-Version 0.2 · September 2026 · DMBG · https://github.com/ditomax/maquette
+Version 0.3 · September 2026 · DMBG · https://github.com/ditomax/maquette
 
 _Deutsch: Für Anwender genügt `START.md` — drei Schritte, keine Installation. Eine deutsche Sprachfassung der Vorlagen folgt bei Bedarf; die Skills antworten ohnehin in der Sprache, in der man sie anspricht._
 
@@ -16,8 +16,8 @@ The user types **start** and afterwards only **next**, **redo** or **stop**. A D
 
 | Stage | "Team member" | Result | Minutes (workshop) |
 | --- | --- | --- | --- |
-| 1 sparring | sparring partner | `10-seed.md` — idea sharpened, scope, three directions, one chosen | 15 |
-| 2 plan-board | review board | `20-plan.md` — requirements checked, slices, approval | 20 |
+| 1 sparring | sparring partner | `10-seed.md` — idea sharpened, scope, three directions, one chosen, demo walked through screen by screen | 15 |
+| 2 plan-board | review board | `20-plan.md` — requirements grilled along the walk-through, edge cases decided, slices, approval | 20 |
 | 3 design-3 | designer | `30-design.md` + three HTML variants + comparison page | 15 |
 | 4 build | build team | `40-build.md` + `vcode/` — slice by slice | 60 |
 | 5 harden | quality checker | `50-harden.md` — findings, fixes within budget, demo-readiness | 20 |

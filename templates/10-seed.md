@@ -69,7 +69,19 @@ _Concept Seed light — result of the sparring stage. Candidate requirements (`c
 
 ## 7. Candidate requirements (unratified)
 
-<!-- 5–8 in total. Only what the maquette must show. Testable where possible. -->
+### Demo walk-through
+
+<!-- Elicitation step after the direction is chosen, in the user's words. Every row feeds a cF-/cU- below; non-cases decided "left out" go to 20-plan.md §7 (out of scope). -->
+
+| Step | On the screen | The viewer does | Then |
+| --- | --- | --- | --- |
+| 1 | <objects and data by name> | <click / type / choose> | <what changes> |
+
+- **Convincing moment:** <step n — what must be visible there, exactly>
+- **Non-cases:** <empty: shown | left out · many: … · error: …>
+- **Deliberately not shown:** <…>
+
+<!-- 5–8 candidates in total, derived from the walk-through and read back to the user. Only what the maquette must show. Testable where possible. -->
 
 ### Functional
 | ID | Requirement |
