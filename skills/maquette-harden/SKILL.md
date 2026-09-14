@@ -38,7 +38,7 @@ Show the findings table inline before fixing anything, ordered by severity. Ask 
 
 One fix at a time, smallest change, then re-check the finding **and** the slice's acceptance criterion.
 
-- **With git:** commit per fix `X<n> <finding>`. If a re-check shows a regression: `git revert` the fix, record it, and **stop** (stop reason: revert). Also stop at the first fix touching more than three files — say so, ask the user.
+- **With git:** commit per fix `maquette(<code>): fix <n> — <finding>` (RULES §6). If a re-check shows a regression: `git revert` the fix, record it, and **stop** (stop reason: revert). Also stop at the first fix touching more than three files — say so, ask the user.
 - **Without git:** fix → re-check → next; no revert possible, so the budget is halved and any fix that fails re-check is undone by hand before continuing (record "aborted").
 - Stop at the budget. Remaining findings go to §5.
 

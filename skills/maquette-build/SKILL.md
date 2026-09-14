@@ -26,7 +26,7 @@ Two sentences, in the user's language: the build team now works through the plan
 - Stack: as decided in `20-plan.md` §9 engineering. Default: static HTML/JS or one Python file. **No installs** unless the plan names them; if something must be installed, say the exact command and wait. A profile's IT constraints override any default.
 - Data: in `vcode/data/`, with a `SOURCE.md` (source, date, licence line). Synthetic data is fine if the plan says so — label it visibly in the UI ("sample data, as of …").
 - Write the **How to start** block in `40-build.md` first, then verify it works.
-- Git (`git: yes` only): work on the current branch; commit the setup as `S0 setup`. Never `git init`, never push.
+- Git (`git: yes` only): work on the current branch; commit the setup as `maquette(<code>): slice S0 setup`. Never `git init`, never push.
 
 ## Per slice (S1 … Sn, in plan order)
 
@@ -34,7 +34,7 @@ Two sentences, in the user's language: the build team now works through the plan
 2. Build the minimum that satisfies the acceptance criterion. No extras, no "while I'm here" refactors (CLAUDE.local.md: simplicity first, surgical changes).
 3. **Smoke check**: run/open it and try the acceptance criterion yourself. Report honestly: passed / failed with what you saw.
 4. Show the user where to click. Wait for "next" or a correction. A correction is part of the same slice.
-5. Git: one commit `S<n> <title>`. Record hash (or "— (no git)") in `40-build.md`.
+5. Git: one commit `maquette(<code>): slice S<n> <title>` (RULES §6). Record hash (or "— (no git)") in `40-build.md`.
 6. Anything the plan lacked but the code needed → "Requirements discovered while building" (`cF-new-<n>`), never back into 10 or 20. Anything deliberately left out → "Known gaps".
 7. Check the budget after every slice. Workshop mode: stop after S3 unless time and user allow more.
 
