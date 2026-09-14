@@ -2,7 +2,7 @@
 
 **From idea to clickable model — seven markdown skills, one command.**
 
-Version 0.3 · September 2026 · DMBG · https://github.com/ditomax/maquette
+Version 0.4 · September 2026 · DMBG · https://github.com/ditomax/maquette
 
 _Deutsch: Für Anwender genügt `START.md` — drei Schritte, keine Installation. Eine deutsche Sprachfassung der Vorlagen folgt bei Bedarf; die Skills antworten ohnehin in der Sprache, in der man sie anspricht._
 
@@ -25,7 +25,7 @@ The user types **start** and afterwards only **next**, **redo** or **stop**. A D
 
 Every stage reads exactly one input file and writes exactly one result file. All results live in **one folder per maquette**, carry frontmatter and follow write rules that stop agents from overwriting each other (see `RULES.md`). The folder is the state — there is nothing outside it.
 
-Upstream, our SME chain can feed it (ki-ideenfindung → idea card, konzeptskizze → concept sketch; both are prefilled in stage 1). Downstream comes the Concept Authoring Manifest: `60-brief.md` contains the retrofit seed for Phase 1 (Path B).
+maquette is the middle of a three-part suite — **idea → maquette → build** — and talks to its neighbours through two files. Upstream, the idea skillset (idea-collect, idea-evaluate) hands over `10-shortlist.md` (contract H1): the Director lists the entries, the user picks exactly one, and stage 1 prefills from it. Downstream, `60-brief.md` (contract H2) is the handover to the build skillset, which turns the clickable model into a product. Both seams are optional: without a shortlist, stage 1 starts from an idea in prose, an idea card or a concept sketch; without build, the brief is still the honest record of what the maquette proved.
 
 ## Structure
 
@@ -65,6 +65,12 @@ ln -s "$PWD/skills/"maquette* ~/.codex/skills/      # or ~/.claude/skills/
 **ChatGPT / Mistral** (no folder access): no Director. Use the body of a stage skill (without frontmatter) as system prompt, attach `RULES.md` and the matching template; the human maintains `00-maquette.md` by hand.
 
 No dependencies, no setup script, no network access, no telemetry. `maquettes/` is excluded from the repo via `.gitignore` — users' work never lands in the public repository.
+
+## Inside a project
+
+The workspace above is the standalone form. Inside a project folder the same suite is copied to `planning/suite/maquette/` (read-only), the maquettes live in `planning/maquette/`, the profile in `planning/profile/`, and the shortlist in `planning/idea/10-shortlist.md`. Product code lives outside `planning/`; the prototype code stays in each maquette's `vcode/`, frozen after the brief. The Director recognises the layout by the `planning/` folder — nothing to configure.
+
+Git is optional in both forms. Skills never create a repository; if one exists, a commit marks a frozen state (a stage `done`, a slice, a fix) and nothing else — the policy is in `RULES.md` §6.
 
 ## Profiles
 

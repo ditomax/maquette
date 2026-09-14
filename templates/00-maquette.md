@@ -14,6 +14,7 @@ git: no                      # yes | no — checked by the Director at start
 language: en                 # language of the result files' content
 budget_min: {sparring: 15, plan: 20, design: 15, build: 60, harden: 20, brief: 10}
 profile: none                # none | profile/ (if a profile folder exists)
+contract_in: none            # none | H1/1 (started from a shortlist entry)
 ---
 
 # Maquette <code>: <title>
@@ -22,7 +23,7 @@ profile: none                # none | profile/ (if a profile folder exists)
 
 ## Starting point
 
-- **Input:** <idea in two sentences | idea card <ID> | concept sketch <ID>-K>
+- **Input:** <shortlist entry <ID> (<path>@<rev>) | idea in two sentences | idea card <ID> | concept sketch <ID>-K>
 - **Sponsor:** <role, if known>
 - **Purpose of this maquette:** <one sentence: what should be decidable after the demo?>
 

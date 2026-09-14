@@ -15,6 +15,15 @@
 
 There is no state outside the maquette folder — no `~/.something`, no environment variables, no memory across maquettes. A skill learns everything it needs by reading `00-maquette.md`, its input file and (if present) the profile. A skill that needs something else asks the user.
 
+Two layouts are supported; the Director resolves which one applies at start and calls the maquettes root `<work>`:
+
+| Layout | `<suite>` (read-only) | `<work>` (maquette folders) | profile | shortlist (H1) |
+| --- | --- | --- | --- | --- |
+| standalone workspace | the folder holding `AGENTS.md`, `VERSION` | `<suite>/maquettes/` | `<suite>/profile/` | none, or a file the user names |
+| inside a project | `<project>/planning/suite/maquette/` | `<project>/planning/maquette/` | `<project>/planning/profile/` | `<project>/planning/idea/10-shortlist.md` |
+
+The project layout is recognised by a `planning/` folder above `<suite>`. Everything else is identical: one folder per maquette, nothing outside it.
+
 ```
 <maquette folder>/
   00-maquette.md      Director       control
@@ -69,7 +78,18 @@ input: <file>@<revision>[, <file>@<revision>]
 
 ## 6. Git
 
-`git` in `00-maquette.md` is `yes` only if the maquette folder (or a parent) is a git repository at start. Skills never run `git init`. With `git: no`, all commit/revert steps in build and harden are skipped and the result file records "— (no git)".
+Git is optional and never created by a skill. `git` in `00-maquette.md` is `yes` only if the maquette folder (or a parent) is a git repository at start; skills never run `git init`. With `git: no`, every commit step below is skipped and the result file records "— (no git)".
+
+With `git: yes`, a commit marks a **frozen state, never progress**. Interim work is not committed.
+
+| Event | What is committed | Message |
+| --- | --- | --- |
+| a result file reaches `status: done` | that file only (Director) | `maquette(<code>): <stage> done` |
+| build finishes a slice | `vcode/` + `40-build.md` | `maquette(<code>): slice S<n>` |
+| harden applies a fix | one commit per fix; revert on regression | `maquette(<code>): fix <n> — <finding>` |
+| a rerun (`redo`) is accepted | the new `.vN` file + `00-maquette.md` | `maquette(<code>): <stage> v<N> done` |
+
+Skills never push, rebase, branch or touch files outside the maquette folder in a commit. Whether `planning/` is committed at all is the project's decision, not the suite's.
 
 ## 7. Handing back to the Director
 
@@ -78,3 +98,10 @@ At the end of a stage, the stage skill reports in one short block: file written 
 ## 8. Profile (reserved)
 
 A workspace may contain a `profile/` folder with customer-specific constraints (allowed topics, IT rules, corporate design, extra checklist items, the customer's own next-step process). When it exists, the Director reads it at start and passes the relevant parts to each stage. **A profile may restrict, never loosen:** write rules, git behaviour and "nothing outside the folder" stay as defined here. The profile format is defined in `profile/README.md` once the first profile exists; until then an absent or empty `profile/` means "core defaults".
+
+## 9. Contracts
+
+maquette sits between two other skillsets and talks to them through files. A missing contract file is never an error — it only means more questions for the user.
+
+- **H1 — in.** `10-shortlist.md` (contract `H1/1`, written by idea-evaluate). The Director lists its entries and the user picks exactly one; sparring prefills from that entry and confirms instead of asking. Without a shortlist: cold start from an idea in prose, an idea card or a concept sketch.
+- **H2 — out.** `60-brief.md` (contract `H2/1`) is the handover to build. Part 3 carries everything build intake needs, including the prototype facts for reading `vcode/`. After `done`, neither the brief nor `vcode/` is edited by anyone — build reads, never writes here.

@@ -13,7 +13,7 @@ description: >
 
 You are the **sparring partner**: warm, curious, and unwilling to let a vague idea pass. You produce a document, never code. Read `../../RULES.md` first.
 
-**Input:** the starting point from `00-maquette.md` (idea in two sentences, an idea card from ki-ideenfindung, or a concept sketch from konzeptskizze). **Output:** `10-seed.md` from `templates/10-seed.md`. **Budget:** `budget_min.sparring`.
+**Input:** the starting point from `00-maquette.md` (a shortlist entry from idea-evaluate — contract H1 —, an idea in two sentences, an idea card, or a concept sketch). **Output:** `10-seed.md` from `templates/10-seed.md`. **Budget:** `budget_min.sparring`.
 
 Lineage: framing and validation from our `idea-work` skill (Mode 1 + Mode 5, express); the forcing questions and the premise challenge from gstack `office-hours` — without its persona, goal categories, web search and second opinions. gstack is © 2026 Garry Tan, MIT License — full text in `LICENSES/gstack-MIT.txt`, details in `ATTRIBUTION.md`.
 
@@ -23,20 +23,24 @@ Two sentences, in the user's language: you are the sparring partner; in about 15
 
 ## Sequence
 
-### 1. Prefill (only with an idea card or concept sketch)
+### 1. Prefill (only with a shortlist entry, an idea card or a concept sketch)
 
 Map fields and read them back for correction instead of re-asking:
 
-| From idea card (Ideenkarte) | From concept sketch (Konzeptskizze) | Fills |
-| --- | --- | --- |
-| Chance, Erfolgskriterium | V1 | §1 Purpose |
-| Prozess & Systeme, Kosten des Ist-Zustands | V2 | Q2 |
-| Stakeholder & Anforderungen | V9 | Q3 |
-| Riskanteste Annahme | V10 | §9 |
-| Recht/Ethik/Normen, Personenbezug | V8 | §5 Guardrails |
-| Datenlage | V3 | §8 Open questions (data access) |
+| From shortlist entry (H1) | From idea card | From concept sketch | Fills |
+| --- | --- | --- | --- |
+| Opportunity, Minimum success criterion | Chance, Erfolgskriterium | V1 | §1 Purpose |
+| Stakeholders & needs, Cost of the status quo | Stakeholder, Kosten des Ist-Zustands | V2 | Q1 (who is affected; the "how can you tell" stays yours) |
+| Process & systems, Cost of the status quo | Prozess & Systeme, Kosten des Ist-Zustands | V2 | Q2 |
+| Stakeholders & needs (first line = the person) | Stakeholder & Anforderungen | V9 | Q3 (role; situation and consequence stay yours) |
+| Minimum success criterion | Erfolgskriterium | — | Q4 as a starting point only — the demo decision is yours |
+| Data situation, Earlier attempts | Datenlage, Frühere Versuche | V3 | §3 Premises |
+| Personal data, Legal / ethics / standards, **waivers** | Recht/Ethik/Normen, Personenbezug | V8 | §5 Guardrails |
+| Riskiest assumption; V10 note → cheapest test | Riskanteste Annahme | V10 | §9 |
+| "Open before or during the maquette", every `[unknown]`, every waiver | — | — | §8 Open questions, with their original wording |
+| Committee rationale | — | Bewertung | one sentence in §6, why this idea was chosen |
 
-Say: "From your card I take the following — tell me where it no longer holds." One block, then wait.
+Say: "From the shortlist (or: your card) I take the following — tell me where it no longer holds." One block, then wait. Nothing that was prefilled is asked again; what the entry marks `[unknown]` is asked once, in its place in the sequence below.
 
 ### 2. Frame (§1, field of application)
 
