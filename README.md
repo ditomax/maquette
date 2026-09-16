@@ -6,6 +6,15 @@ Version: see `VERSION` · September 2026 · DMBG · https://github.com/ditomax/m
 
 _Deutsch: Für Anwender genügt `START.md` — drei Schritte, keine Installation. Gespräch und Ergebnisdateien folgen Ihrer Sprache; die Überschriften in den Vorlagen bleiben englisch._
 
+## For agents
+
+If you are reading this from a link and have no local copy yet:
+
+1. Get one — `git clone https://github.com/ditomax/maquette` or unzip the latest release from https://github.com/ditomax/maquette/releases — into a folder the user chooses (default: `./maquette` next to their other work). That download is the only network access; the "no network" rule in `AGENTS.md` applies from then on.
+2. Work from inside that folder and read its `AGENTS.md`. Do not act as the Director from this README — the rules live in `RULES.md` and `skills/`.
+3. Layout: standalone (this folder as is) unless the user has a project with a `planning/` folder — then the suite belongs at `planning/suite/maquette/` and `planning/AGENTS.md` is the entry point, not this file.
+4. A clone gives updates via `git pull`; the user's work in `maquettes/` is ignored by git, so nothing of it is ever committed to a clone. `hooks/`, `guard.py` and `skill-suite-setup` are for skillset developers — ignore them.
+
 ## What is a maquette?
 
 A maquette (French, "ma-KET") is the model architects build before they build: small, tangible, made of cardboard — not the building, but exact enough to walk around it, check proportions and decide with the client whether and how to proceed. Here the maquette is the clickable prototype of a software idea: not a product, but a model on which you grasp the idea and decide about the real build. It is valuable precisely because it is cheap and provisional.
@@ -23,7 +32,7 @@ The user types **start** and afterwards only **next**, **redo** or **stop**. A D
 | 5 harden | quality checker | `50-harden.md` — findings, fixes within budget, demo-readiness | 20 |
 | 6 brief | chronicler | `60-brief.md` — demo script, can/cannot, retrofit seed | 10 |
 
-Every stage reads exactly one input file and writes exactly one result file. All results live in **one folder per maquette**, carry frontmatter and follow write rules that stop agents from overwriting each other (see `RULES.md`). The folder is the state — there is nothing outside it.
+Finished results look like `examples/10-seed.md` and `examples/60-brief.md` (fictitious company). Every stage reads exactly one input file and writes exactly one result file. All results live in **one folder per maquette**, carry frontmatter and follow write rules that stop agents from overwriting each other (see `RULES.md`). The folder is the state — there is nothing outside it.
 
 maquette is the middle of a three-part suite — **idea → maquette → build** — and talks to its neighbours through two files. Upstream, the idea skillset (idea-collect, idea-evaluate) hands over `10-shortlist.md` (contract H1): the Director lists the entries, the user picks exactly one, and stage 1 prefills from it. Downstream, `60-brief.md` (contract H2) is the handover to the build skillset, which turns the clickable model into a product. Both seams are optional: without a shortlist, stage 1 starts from an idea in prose, an idea card or a concept sketch; without build, the brief is still the honest record of what the maquette proved.
 
@@ -45,6 +54,7 @@ maquette/
   ATTRIBUTION.md       adopted ideas and their origin
   LICENSES/            third-party license texts
   profile/             optional customer-specific constraints (empty = core defaults)
+  examples/            fictitious finished results — a seed and a brief (Example GmbH)
   maquettes/           the users' work, one subfolder per maquette (not in the repo)
   templates/           one template per result file (binding content definition)
   skills/
@@ -67,7 +77,7 @@ Developers who want the skills globally can additionally:
 ln -s "$PWD/skills/"maquette* ~/.codex/skills/      # or ~/.claude/skills/
 ```
 
-**Chat tools without folder access** (plain ChatGPT, Le Chat, Perplexity): the collect stage of idea can run there as a single prompt file — ask us for it (produced with skill-suite-setup). The other stages need a folder.
+**Chat tools without folder access** (plain ChatGPT, Le Chat, Perplexity): not supported here — unlike idea's collect stage, every maquette stage (sparring through build) needs folder access.
 
 No dependencies, no setup script, no network access, no telemetry. `maquettes/` is excluded from the repo via `.gitignore` — users' work never lands in the public repository.
 

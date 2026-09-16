@@ -1,5 +1,11 @@
 # Changelog — maquette
 
+## 0.5.4 — 2026-09-16
+Consistency fix: README's "chat tools without folder access" paragraph was a copy-paste of idea's collect-stage text; corrected to state maquette has no chat-only stage — every stage (sparring through build) needs folder access. No contract change.
+
+## 0.5.3 — 2026-09-16
+Onboarding: README § For agents, AGENTS.md guard, START fallback names the folder. Director: cold-start question offers the shortlist path; a first message mentioning idea/shortlist/committee asks for the path first (D1' wording, ID unchanged); git `yes` only if the work folder is tracked (a clone counts as no); `examples/` with fictitious finished results (Example GmbH). Brief template: `30-design.md` in the input line, candidates numbered per prefix, resolved questions as a table that keeps OQ numbers (H2/2 note, no contract bump); brief skill wording updated from "retrofit seed / discovery sprint" to "handover to build / build intake". Director: `status: done` bumps revision (§4.4). No contract change.
+
 ## 0.5.2 — 2026-09-16
 Documentation: prerequisites (browser), chaining from idea and to build by naming the file, profile pointer to skill-suite-setup/PROFILE.md with a minimal example, compatibility line, QUESTIONS.md in the structure, Director description names build and idea, update and uninstall notes. No contract change.
 
