@@ -4,7 +4,7 @@
 
 Version: see `VERSION` · September 2026 · DMBG · https://github.com/ditomax/maquette
 
-_Deutsch: Für Anwender genügt `START.md` — drei Schritte, keine Installation. Gespräch und Ergebnisdateien folgen Ihrer Sprache; die Überschriften in den Vorlagen bleiben englisch._
+For users, `START.md` is enough — three steps, no installation. Conversation and output files follow the user's language; headings in the templates stay in English.
 
 ## For agents
 
