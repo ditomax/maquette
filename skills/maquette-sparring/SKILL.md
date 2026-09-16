@@ -1,6 +1,6 @@
 ---
 name: maquette-sparring
-version: "0.3"
+version: "0.4"
 description: >
   Stage 1 of the maquette suite. Sparring partner for one idea: frame it, ask the
   forcing questions, challenge its premises, show three directions before the user
@@ -39,6 +39,10 @@ Map fields and read them back for correction instead of re-asking:
 | Riskiest assumption; V10 note → cheapest test | Riskanteste Annahme | V10 | §9 |
 | "Open before or during the maquette", every `[unknown]`, every waiver | — | — | §8 Open questions, with their original wording |
 | Committee rationale | — | Bewertung | one sentence in §6, why this idea was chosen |
+| V4 solution pattern & maturity (note) | — | V4 | field of application **proposed** from it (confirmed, not guessed); one line of direction hints for §6 |
+| V7 damage class (light + note) | — | V7 | §5 guardrail candidate ("a wrong result must be visible as such") and §9 "if wrong" |
+| "What would tip it" | — | — | §3 premise, rated `open` |
+| Views (contradictions), Dissent | — | — | hints for Q1/Q3; unresolved ones → §8 open question |
 
 Say: "From the shortlist (or: your card) I take the following — tell me where it no longer holds." One block, then wait. Nothing that was prefilled is asked again; what the entry marks `[unknown]` is asked once, in its place in the sequence below.
 
@@ -46,7 +50,7 @@ Say: "From the shortlist (or: your card) I take the following — tell me where 
 
 - Restate the problem in one sentence; ask if it is right.
 - Ladder up once: "Why does this matter right now?"
-- Guess the field of application out loud and have it confirmed. Note the field's standard concerns (web → access, data protection, deployment; data → source, freshness, licence) as open questions in §8 — do not discuss them now.
+- Propose the field of application — from V4 and "Process & systems" when a shortlist entry exists, otherwise a guess out loud — and have it confirmed. Note the field's standard concerns (web → access, data protection, deployment; data → source, freshness, licence) as open questions in §8 — do not discuss them now.
 - If a profile restricts topics (RULES §8), check the idea against it here and say so plainly if it falls outside.
 
 ### 3. Forcing questions (§2) — one at a time, push once

@@ -53,7 +53,7 @@ _Result of the build stage. The code lives in `vcode/`. This file is the build l
 
 ## Open questions
 
-- **Q<n>** — <…>
+- **OQ-<n>** — <…>
 
 ## Notes (human)
 

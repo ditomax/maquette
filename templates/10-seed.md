@@ -14,7 +14,7 @@ _Concept Seed light — result of the sparring stage. Candidate requirements (`c
 
 ## Input
 
-- **Source:** <idea in two sentences | idea card <ID> | concept sketch <ID>-K>
+- **Source:** <shortlist entry <ID> (<path>@<rev>) | idea in two sentences | idea card <ID> | concept sketch <ID>-K>
 - **Prefilled from the source:** <which fields were taken over and confirmed by the user, or "none — cold start">
 
 ## Field of application
@@ -100,9 +100,9 @@ _Concept Seed light — result of the sparring stage. Candidate requirements (`c
 
 ## 8. Open questions
 
-<!-- Everything unresolved, incl. the standard concerns of the field of application. Numbering Q1… continues in 40/50/60 and never restarts. -->
+<!-- Everything unresolved, incl. the standard concerns of the field of application. Numbering OQ-1… continues in 20/40/50/60 and never restarts (Q1–Q6 are the forcing questions above, a different namespace). -->
 
-- **Q1** — <…>
+- **OQ-1** — <…>
 
 ## 9. Riskiest assumption
 

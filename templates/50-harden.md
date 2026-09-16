@@ -53,7 +53,7 @@ _Result of the harden stage. Review against the maquette checklist (not diff-bas
 
 ## Open questions
 
-- **Q<n>** — <…>
+- **OQ-<n>** — <…>
 
 ## Notes (human)
 

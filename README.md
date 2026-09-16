@@ -2,9 +2,9 @@
 
 **From idea to clickable model — seven markdown skills, one command.**
 
-Version 0.4 · September 2026 · DMBG · https://github.com/ditomax/maquette
+Version: see `VERSION` · September 2026 · DMBG · https://github.com/ditomax/maquette
 
-_Deutsch: Für Anwender genügt `START.md` — drei Schritte, keine Installation. Eine deutsche Sprachfassung der Vorlagen folgt bei Bedarf; die Skills antworten ohnehin in der Sprache, in der man sie anspricht._
+_Deutsch: Für Anwender genügt `START.md` — drei Schritte, keine Installation. Gespräch und Ergebnisdateien folgen Ihrer Sprache; die Überschriften in den Vorlagen bleiben englisch._
 
 ## What is a maquette?
 
@@ -27,6 +27,8 @@ Every stage reads exactly one input file and writes exactly one result file. All
 
 maquette is the middle of a three-part suite — **idea → maquette → build** — and talks to its neighbours through two files. Upstream, the idea skillset (idea-collect, idea-evaluate) hands over `10-shortlist.md` (contract H1): the Director lists the entries, the user picks exactly one, and stage 1 prefills from it. Downstream, `60-brief.md` (contract H2) is the handover to the build skillset, which turns the clickable model into a product. Both seams are optional: without a shortlist, stage 1 starts from an idea in prose, an idea card or a concept sketch; without build, the brief is still the honest record of what the maquette proved.
 
+**Compatibility.** In: `10-shortlist.md` contract `H1/1` from idea ≥ 0.1.0. Out: `60-brief.md` contract `H2/2`, read by build ≥ 0.1.1 (`H2/1` briefs are still accepted by build with a note). Version triples tested together: [skill-suite-setup/compat.md](https://github.com/ditomax/skill-suite-setup/blob/main/compat.md). Changes: `CHANGELOG.md`.
+
 ## Structure
 
 ```
@@ -37,6 +39,9 @@ maquette/
   VERSION
   README.md            this file
   RULES.md             shared rules for all stages — frontmatter, write rules, conversation rules
+  QUESTIONS.md         every question the skillset asks, with stable IDs — the tailoring surface for profiles
+  CHANGELOG.md         what changed per version
+  hooks/               pre-commit guard for development clones (see Release)
   ATTRIBUTION.md       adopted ideas and their origin
   LICENSES/            third-party license texts
   profile/             optional customer-specific constraints (empty = core defaults)
@@ -62,7 +67,7 @@ Developers who want the skills globally can additionally:
 ln -s "$PWD/skills/"maquette* ~/.codex/skills/      # or ~/.claude/skills/
 ```
 
-**ChatGPT / Mistral** (no folder access): no Director. Use the body of a stage skill (without frontmatter) as system prompt, attach `RULES.md` and the matching template; the human maintains `00-maquette.md` by hand.
+**Chat tools without folder access** (plain ChatGPT, Le Chat, Perplexity): the collect stage of idea can run there as a single prompt file — ask us for it (produced with skill-suite-setup). The other stages need a folder.
 
 No dependencies, no setup script, no network access, no telemetry. `maquettes/` is excluded from the repo via `.gitignore` — users' work never lands in the public repository.
 
@@ -74,7 +79,7 @@ Git is optional in both forms. Skills never create a repository; if one exists, 
 
 ## Profiles
 
-Customer-specific variants (restricted topics, IT constraints, corporate design, extra checklist items, the customer's own approval process) do not fork this repo. They live in a `profile/` folder inside the workspace that the Director reads at start and passes to each stage. A profile may restrict, never loosen the core rules. The profile format is documented in `profile/README.md`; an empty `profile/` means core defaults. Customer ZIP = core release + `profile/` + empty `maquettes/`.
+Customer-specific variants (restricted topics, IT constraints, standards, corporate design, the customer's own review process, questions skipped or added) do not fork this repo. They live in a `profile/` folder the Director reads at start; a profile may restrict, never loosen. The format is specified in [skill-suite-setup/PROFILE.md](https://github.com/ditomax/skill-suite-setup/blob/main/PROFILE.md); a minimal example is in `profile/README.md`. `QUESTIONS.md` lists every question the skillset asks, with stable IDs — read it before a session, and use the IDs in a profile to skip or add questions.
 
 ## Modes
 
@@ -84,6 +89,8 @@ Customer-specific variants (restricted topics, IT constraints, corporate design,
 Git is optional: if a repository exists, every slice and every fix is committed; otherwise not. The skills never create a repository themselves.
 
 ## Release
+
+Development clones activate the customer-data guard once: `git config core.hooksPath hooks` (the hook calls `guard.py` from the sibling `skill-suite-setup` repo and blocks commits that carry customer markers). Release ZIPs are built with `skill-suite-setup/release.py`, which ships only git-tracked, allowlisted, guard-clean files.
 
 Repository: https://github.com/ditomax/maquette — releases at https://github.com/ditomax/maquette/releases.
 

@@ -51,4 +51,4 @@ Not adopted: gstack's runtime (TypeScript, bun), browser binaries, telemetry, Su
 - **idea-work** (DMBG) — six ideation modes, Concept Seed format, candidate requirement IDs `cF-/cU-/cNF-`, pre-mortem, open-question numbering.
 - **ki-ideenfindung v0.8** and **konzeptskizze v0.1** (DMBG) — one question at a time, opening statement, stop-anytime rule, evidence marks `[belegt|geschätzt|unbekannt]`, opportunity language, prefill-and-read-back, no confidentiality promises.
 - **Concept Document Authoring Manifest v8** and **CLAUDE.local.md v2** (DMBG) — Path B (retrofit), document template §0–8, vertical slices, grilling, PM gate, simplicity-first and surgical-change principles.
-- The "virtual team" narrative (CEO / Design Manager / Engineering / QA agents) originates in the enliteAI workshop deck for RHI Magnesita (September 2026) and is used here only as plain-language role names.
+- The "virtual team" narrative (CEO / Design Manager / Engineering / QA agents) originates in a vibe-coding workshop deck (enliteAI, September 2026) and is used here only as plain-language role names.

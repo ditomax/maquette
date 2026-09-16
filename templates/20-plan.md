@@ -58,11 +58,11 @@ _Result of the plan-board stage. The structure follows the Concept Authoring Man
 
 ## 8. Resolved questions
 
-<!-- From 10-seed.md §8 and grilling-light. Each Q gets a one-line decision. Questions that stay open move unchanged to §11. -->
+<!-- From 10-seed.md §8 and grilling-light. Each OQ gets a one-line decision. Questions that stay open move unchanged to §11. -->
 
 | Question | Decision | Reason |
 | --- | --- | --- |
-| Q1 | <…> | <…> |
+| OQ-1 | <…> | <…> |
 
 ## 9. Review board
 
@@ -95,7 +95,7 @@ _Result of the plan-board stage. The structure follows the Concept Authoring Man
 
 <!-- Numbering continues from 10-seed.md. -->
 
-- **Q<n>** — <…>
+- **OQ-<n>** — <…>
 
 ## 12. Gate
 

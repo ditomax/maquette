@@ -95,13 +95,22 @@ Skills never push, rebase, branch or touch files outside the maquette folder in 
 
 At the end of a stage, the stage skill reports in one short block: file written (name, revision), status (`done` proposed / `in_progress`), minutes used, open questions count. Only the Director sets `status: done` and updates the stage table in `00-maquette.md`.
 
-## 8. Profile (reserved)
+## 8. Profile
 
-A workspace may contain a `profile/` folder with customer-specific constraints (allowed topics, IT rules, corporate design, extra checklist items, the customer's own next-step process). When it exists, the Director reads it at start and passes the relevant parts to each stage. **A profile may restrict, never loosen:** write rules, git behaviour and "nothing outside the folder" stay as defined here. The profile format is defined in `profile/README.md` once the first profile exists; until then an absent or empty `profile/` means "core defaults".
+A workspace may contain a `profile/` folder with customer-specific constraints. **The profile format is owned by the setup skill** (skill-suite-setup, design §5); this skillset only reads it. The Director reads `profile/profile.md` at every start and passes the files it names to the stages. **A profile may restrict, never loosen:** write rules, git behaviour and "nothing outside the workspace" stay as defined here. An absent or empty `profile/` means core defaults.
 
+Files this skillset reads: `profile.md`, `questions.md`, `scope.md` (topic limits → sparring guardrails), `it-constraints.md` (stacks, network, data rules → plan-board, build), `design.md` (corporate design tokens → design-3), `review.md` (who decides after the maquette, next-step options → brief Part 4).
+
+**`profile/questions.md`** tailors the questions listed in `QUESTIONS.md` by ID:
+
+- `skip <ID>` with a value — the stage shows the value as prefilled ("from your profile: …"), lets the user correct it once, records the answer in its result file; the profile itself is never edited.
+- `add after <ID>` with a question — asked exactly once per stage run, right after the named question; the answer goes into the stage's result file under the closest section, marked `(profile)`.
+- Gate and safety questions (approvals, "good as it is?", stop) can never be skipped. Unknown IDs are reported at start, not silently ignored.
+
+The Director passes the rows of the coming stage to the stage skill together with the other profile constraints (§7 hand-back names which rows were applied).
 ## 9. Contracts
 
 maquette sits between two other skillsets and talks to them through files. A missing contract file is never an error — it only means more questions for the user.
 
 - **H1 — in.** `10-shortlist.md` (contract `H1/1`, written by idea-evaluate). The Director lists its entries and the user picks exactly one; sparring prefills from that entry and confirms instead of asking. Without a shortlist: cold start from an idea in prose, an idea card or a concept sketch.
-- **H2 — out.** `60-brief.md` (contract `H2/1`) is the handover to build. Part 3 carries everything build intake needs, including the prototype facts for reading `vcode/`. After `done`, neither the brief nor `vcode/` is edited by anyone — build reads, never writes here.
+- **H2 — out.** `60-brief.md` (contract `H2/2`) is the handover to build. Part 3 carries everything build intake needs — guardrails, candidates, vocabulary, decided and open questions, riskiest assumption, and the prototype facts for reading `vcode/` (stack, real/faked, data, slices with acceptance criteria, design, shortcuts). Build reads all four parts. After `done`, neither the brief nor `vcode/` is edited by anyone — build reads, never writes here.

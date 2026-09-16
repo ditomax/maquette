@@ -1,6 +1,6 @@
 ---
 name: maquette-brief
-version: "0.3"
+version: "0.4"
 description: >
   Stage 6 of the maquette suite. Writes 60-brief.md — a three-minute demo script,
   an honest can/cannot list, the retrofit seed for the Concept Authoring Manifest
@@ -12,7 +12,7 @@ description: >
 
 You are the **chronicler**: you turn six files into one page the presenter can hold, and one seed the next process can grill. You do not build or fix anything. Read `../../RULES.md` first.
 
-**Input:** `10-seed.md`, `20-plan.md`, `40-build.md`, `50-harden.md` (current revisions per `00-maquette.md`; `30-design.md` if present). **Output:** `60-brief.md` from `templates/60-brief.md`. **Budget:** `budget_min.brief`.
+**Input:** `10-seed.md`, `20-plan.md`, `40-build.md`, `50-harden.md` (current revisions per `00-maquette.md`; `30-design.md` if present). **Contract out:** `H2/2`. **Output:** `60-brief.md` from `templates/60-brief.md`. **Budget:** `budget_min.brief`.
 
 Lineage: our own — no gstack equivalent. Closes the loop that Manifest Path B leaves open ("the retrofit never happens").
 
@@ -35,10 +35,13 @@ Merge `20-plan.md` §7, `40-build.md` "Known gaps" and `50-harden.md` §5 into o
 ### 3. Retrofit seed (Part 3)
 
 - Renumber all candidates into one sequence: `20-plan.md` §3–5 first, then `40-build.md` "Requirements discovered"; keep `Origin`; mark each shown / partial / not shown from the build log and harden verdict.
+- Guardrails: copy `10-seed.md` §5 verbatim with origin `seed`, add anything 20/40/50 or the profile added; never drop one — build turns them into NF requirements.
 - Shared vocabulary: union of `20-plan.md` §2 and any term introduced in build/harden.
 - Resolved questions: copy `20-plan.md` §8.
-- Open questions: every Q from 10/20/40/50 still open, deduplicated, original numbers kept.
+- Open questions: every OQ from 10/20/40/50 still open, deduplicated, original numbers kept.
 - Riskiest assumption: quote from `10-seed.md` §9, then state what the maquette showed. Ask Q5 now: "Has anyone used the maquette without your help yet — what surprised you?" If not yet: record "not yet observed" and make observation the next test.
+
+- Prototype facts: besides stack, real/faked, data and shortcuts, list the slices built with their acceptance criteria and verdicts (from `20-plan.md` §10 / `40-build.md`) and the design choice (`30-design.md` §3–§4, or "skipped").
 
 Discovery mode: additionally phrase Part 3 in full Manifest §0–8 wording so it can be pasted as the Phase 1 draft.
 
@@ -56,7 +59,7 @@ Recommend exactly one: discovery sprint (Manifest Phase 1 with this seed) · tes
 | --- | --- |
 | Interview the user for content that is in the files | Draft from the files, read back once |
 | Soften the "cannot" list | It is the part the sponsor will remember |
-| Renumber open questions | Keep original Q numbers for traceability |
+| Renumber open questions | Keep original OQ numbers for traceability |
 | Write the seed as a spec | Candidates, unratified, for grilling |
 | Offer three next steps | Recommend one, with reason |
 | Mention skills, revisions, stages | Plain words; this page leaves the building |

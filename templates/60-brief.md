@@ -6,7 +6,7 @@ revision: 1
 created: <YYYY-MM-DDThh:mm>
 updated: <YYYY-MM-DDThh:mm>
 input: 10-seed.md@<rev>, 20-plan.md@<rev>, 40-build.md@<rev>, 50-harden.md@<rev>
-contract: H2/1               # handover contract version read by build ≥ 0.1.0
+contract: H2/2               # handover contract version read by build ≥ 0.1.1
 ---
 
 # Brief <code>: <title>
@@ -52,6 +52,12 @@ _Result of the brief stage and exit point of the maquette. Part 1 is for the pre
 | cF-1 | <…> | seed | shown |
 | cF-<n> | <…> | build | partial |
 
+### Guardrails
+
+<!-- From 10-seed.md §5 (must-nots, data-protection and security flags from the field, profile limits, "deliberately not shown"), extended by anything 20/40/50 added. Build intake turns each into a candidate NF requirement or an explicit out-of-scope line — they must not be re-elicited. -->
+
+- **GR-1** — <…> — <origin: seed | plan | build | harden | profile>
+
 ### Shared vocabulary
 
 <from 20-plan.md §2, extended with terms from build/harden — becomes CONTEXT.md in build>
@@ -62,9 +68,9 @@ _Result of the brief stage and exit point of the maquette. Part 1 is for the pre
 
 ### Open questions
 
-<!-- Every Q from 10, 20, 40, 50 still open, deduplicated, original numbers kept, plus every waiver that came in from the shortlist. This is the grilling agenda for Path A. -->
+<!-- Every OQ from 10, 20, 40, 50 still open, deduplicated, original numbers kept, plus every waiver that came in from the shortlist. This is the grilling agenda for Path A. -->
 
-- **Q<n>** — <…>
+- **OQ-<n>** — <…>
 
 ### Riskiest assumption — state after the maquette
 
@@ -79,6 +85,8 @@ _Result of the brief stage and exit point of the maquette. Part 1 is for the pre
 - **Stack and entry point:** <languages, frameworks, how to start — from 40-build.md>
 - **Real vs. faked:** <which behaviours are implemented, which are stubbed, hard-coded or scripted — one line each>
 - **Data:** <which data is real, which is mock or synthetic, where it lives>
+- **Slices built and acceptance criteria:** <from 20-plan.md §10 and 40-build.md — S<n>: criterion, passed / failed; these are the prototype's de-facto integration tests>
+- **Design:** <chosen variant and reason, tokens in 30-design.md §4 — or "skipped, plain style">
 - **Shortcuts taken:** <from 50-harden.md — what was deliberately not fixed and why>
 - **Worth keeping:** <parts of vcode/ the build team suggested reusing as-is, or "nothing — rebuild from concept">
 - **Not worth keeping:** <parts that only exist to make the demo run>

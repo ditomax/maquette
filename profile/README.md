@@ -1,18 +1,21 @@
-# profile/ — customer-specific constraints (reserved)
+# profile/ — customer-specific constraints
 
-This folder is empty in the public release. When a maquette workspace is prepared for one customer, it holds that customer's constraints, and the Director reads it at every start (RULES §8).
+Empty in the public release. A customer version carries this customer's constraints here; the Director reads `profile.md` at every start (RULES §8). The format is owned by the setup skill — see https://github.com/ditomax/skill-suite-setup/blob/main/PROFILE.md. This skillset reads: `profile.md`, `questions.md`, `scope.md` (topic limits → sparring guardrails), `it-constraints.md` (stacks, network, data rules → plan-board, build), `design.md` (corporate design tokens → design-3), `review.md` (who decides after the maquette, next-step options → brief Part 4).
 
-A profile may **restrict, never loosen**: write rules, git behaviour and "nothing outside the maquette folder" stay as defined in `RULES.md`. The profile shapes content and frame.
+A profile may **restrict, never loosen**. `questions.md` may skip (with a value) or add questions by the IDs in `QUESTIONS.md`.
 
-Planned files (the format is fixed with the first real profile):
+## Minimal example
 
-| File | Read by | Purpose |
-| --- | --- | --- |
-| `profile.md` | Director | customer, default language, default mode, budgets, contact person |
-| `scope.md` | sparring | allowed topic areas, exclusions → prefilled as guardrails |
-| `it-constraints.md` | plan-board, build | allowed stacks, "no network", data rules, where the model may run |
-| `design.md` | design-3 | corporate design tokens — variants then differ in layout, density and flow, not in colour |
-| `checklist.md` | harden | extra check items (accessibility, legal notice, language) |
-| `next-steps.md` | brief | the customer's own approval path instead of the default recommendations |
+Put this into `profile/profile.md` and the Director will use it at the next start:
 
-Until a profile exists, this README is the only file here and means "core defaults".
+```markdown
+# Profile — Example GmbH
+
+- **Customer:** Example GmbH
+- **Org code:** EXG
+- **Document language:** de
+- **Contact for questions:** Jane Doe, jane@example.com
+- **Profile files present:** none
+```
+
+Every further file (`questions.md`, `scope.md`, …) is optional; the field spec is in PROFILE.md linked above.

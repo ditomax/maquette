@@ -1,6 +1,6 @@
 ---
 name: maquette
-version: "0.4"
+version: "0.5"
 description: >
   Director of the maquette suite — takes one idea to a clickable model in six stages
   (sparring → plan-board → design-3 → build → harden → brief), keeping all results
@@ -8,8 +8,8 @@ description: >
   "start" / "next" / "redo" / "stop" inside a maquette workspace, or when the user
   wants to turn an idea, idea card, concept sketch or a shortlist entry (from
   idea-evaluate) into a clickable prototype/demo.
-  Do NOT trigger for production development (that is the Concept Authoring Manifest)
-  or for idea finding without a build goal (that is ki-ideenfindung / idea-work).
+  Do NOT trigger for production development (that is the build skillset) or for idea
+  finding and evaluation without a build goal (that is the idea skillset).
 ---
 
 # maquette — Director
@@ -31,7 +31,7 @@ Say which layout you found only if the user asks.
 
 ## Opening (every call)
 
-0. On the first greeting of a session, mention the version from `<suite>/VERSION` in half a sentence ("maquette 0.4.0"). Nothing else about internals. If `<suite>/profile/` exists and is not empty, read `profile/README.md` and every file it names; carry their constraints into each stage call (RULES §8).
+0. On the first greeting of a session, mention the version from `<suite>/VERSION` in half a sentence ("maquette 0.5.2"). Nothing else about internals. If `<suite>/profile/` exists and is not empty, read `profile/README.md` and every file it names; carry their constraints into each stage call (RULES §8). If `profile/questions.md` exists, read it: report unknown IDs once, and pass each stage the rows that name its questions (RULES §8).
 1. Find the maquette folder: the current working directory if it contains `00-maquette.md`, else the single maquette under `<work>` if there is exactly one, else ask which one (list them by title), else offer to create one (`<work>/<code>-<slug>/` — confirm the path). "New maquette" always creates a new folder and leaves existing ones untouched.
 2. Read `00-maquette.md` if it exists. Determine the **current stage**: the first row in the stage table whose status is not `done` or `skipped`. Check for `.conflict.md` files and for `stale` rows.
 3. Say, in two sentences: where the maquette stands and what happens now. Then act on the user's word (accept the equivalents in the user's language — German: weiter / nochmal / stopp / überspringen):
