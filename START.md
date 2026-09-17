@@ -20,7 +20,7 @@ Unzip the file and place the `maquette` folder where you will find it again — 
 - **Claude (Cowork):** new task → connect folder → select this folder.
 - **Claude Code / Codex / Vibe in a terminal:** change into the folder and start the program.
 
-The app is meant to read the rules from this folder by itself. **If nothing happens after step 3, type: "Read AGENTS.md and begin."**
+The app is meant to read the rules from this folder by itself. **If nothing happens after step 3, type: "Read maquette/AGENTS.md and begin."**
 
 ## 3. Type "start"
 
@@ -41,7 +41,7 @@ You can stop at any time. Whatever exists by then stays in the `maquettes/` fold
 
 If a committee produced a shortlist with the **idea** skillset, do not retype anything: type "start", and when the AI asks what to start from, say *"here is the shortlist:"* and give the path to `10-shortlist.md` (or paste the entry). The AI lists the entries, you pick one, and station 1 confirms what is already known instead of asking again. Without a shortlist, your idea in two sentences is enough.
 
-When the model is done, `60-brief.md` is what the next skillset, **build**, reads — the same way: say *"here is the brief:"* and give the path. One project folder for all three tools, with an entry point that knows which tool is up, is produced with the maintainers' tool [skill-suite-setup](https://github.com/ditomax/skill-suite-setup).
+When the model is done, `60-brief.md` is what the next skillset, **build**, reads — the same way: say *"here is the brief:"* and give the path. One project folder for all three tools, with an entry point that knows which tool is up, is produced with the suite's setup tool [skill-suite-setup](https://github.com/ditomax/skill-suite-setup).
 
 ## Where is what?
 
@@ -49,7 +49,7 @@ Every model gets its own subfolder in `maquettes/`, for example `maquettes/WST-w
 
 ## If something does not work
 
-- The AI does not react to "start"? Type: "Read AGENTS.md and begin."
+- The AI does not react to "start"? Type: "Read maquette/AGENTS.md and begin."
 - You want a second model? Type: "New maquette." The first one is kept.
 - New version of maquette? Download the latest ZIP from https://github.com/ditomax/maquette/releases, unzip it next to the old folder, and move your work folder (`maquettes/` and `profile/` if you have one) across. Work started under an older version is fine — the AI notices what changed and offers to redo a step where needed; it never fails on it. Ask us before editing a profile, so your changes survive the next version.
 - Uninstall? Delete the folder. Your work is in the work folder — take it with you first.

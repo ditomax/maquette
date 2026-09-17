@@ -1,6 +1,6 @@
 ---
 name: maquette
-version: "0.5"
+version: "0.6"
 description: >
   Director of the maquette suite — takes one idea to a clickable model in six stages
   (sparring → plan-board → design-3 → build → harden → brief), keeping all results
@@ -31,7 +31,7 @@ Say which layout you found only if the user asks.
 
 ## Opening (every call)
 
-0. On the first greeting of a session, mention the version from `<suite>/VERSION` in half a sentence ("maquette 0.5.2"). Nothing else about internals. If `<suite>/profile/` exists and is not empty, read `profile/README.md` and every file it names; carry their constraints into each stage call (RULES §8). If `profile/questions.md` exists, read it: report unknown IDs once, and pass each stage the rows that name its questions (RULES §8).
+0. On the first greeting of a session, mention the version from `<suite>/VERSION` in half a sentence ("maquette 0.5.3"). Nothing else about internals. If `<suite>/profile/` exists and is not empty, read `profile/README.md` and every file it names; carry their constraints into each stage call (RULES §8). If `profile/questions.md` exists, read it: report unknown IDs once, and pass each stage the rows that name its questions (RULES §8).
 1. Find the maquette folder: the current working directory if it contains `00-maquette.md`, else the single maquette under `<work>` if there is exactly one, else ask which one (list them by title), else offer to create one (`<work>/<code>-<slug>/` — confirm the path). "New maquette" always creates a new folder and leaves existing ones untouched.
 2. Read `00-maquette.md` if it exists. Determine the **current stage**: the first row in the stage table whose status is not `done` or `skipped`. Check for `.conflict.md` files and for `stale` rows.
 3. Say, in two sentences: where the maquette stands and what happens now. Then act on the user's word (accept the equivalents in the user's language — German: weiter / nochmal / stopp / überspringen):
@@ -46,25 +46,26 @@ Say which layout you found only if the user asks.
 
 Ask one question at a time.
 
-**With a shortlist** (project layout and `10-shortlist.md` exists with `contract: H1/1`, or the user names or pastes one):
+**With a shortlist** (project layout and `10-shortlist.md` exists with `contract: H1/1` or `H1/2`, or the user names or pastes one):
 
-1. Read it. List the entries as "rank · ID · title · recommendation", nothing more. Ask: "Which one do we build?" The user picks **exactly one**; if they want two, that is two maquettes — create the second later.
+1. Read it. **H1/2 with `next_maquette` set to an ID:** say which entry the committee chose, and for an umbrella entry which demo variant(s) it named under Maquette order — "The committee chose <ID — title> for the next maquette (demo: <variant IDs>) — do we build that one?" Yes → take it. No → list the entries as below; the user picks another and you record the deviation with a one-sentence reason in `00-maquette.md` (the sponsor should hear about it). **H1/1, or `next_maquette: open`:** list the entries as "rank · ID · title · recommendation", nothing more, and ask: "Which one do we build?" Either way the user ends with **exactly one** entry; if they want two, that is two maquettes — create the second later. Consumed cards ("Parked / rejected" as merged into / split into) are never offered.
 2. Propose **code** (2–4 letters, from the ID or title) and working title from the entry; let the user correct.
 3. **Mode:** take the entry's recommended mode and confirm it in one sentence ("The committee suggested workshop — fine?"). Default workshop.
 4. **Git:** as below.
 5. **Language:** as below.
 
-Record in `00-maquette.md`: `input: shortlist entry <ID> (<path>@<rev>)`, `contract_in: H1/1`, sponsor and purpose from the entry's handover block. Sparring receives the whole entry verbatim and prefills from it; the entry's "Open before or during the maquette" lines become open questions, never re-asked as if new.
+Record in `00-maquette.md`: `input: shortlist entry <ID> (<path>@<rev>)`, `contract_in: H1/1` or `H1/2`, `demo_variants` (umbrella entries only, from Maquette order — the user may change them once, recorded like a deviation), sponsor and purpose from the entry's handover block. Sparring receives the whole entry verbatim and prefills from it; the entry's "Open before or during the maquette" lines become open questions, never re-asked as if new.
 
 **Without a shortlist** (cold start):
 
-1. **Input:** "What do we start from — an idea in two sentences, an idea card, or a concept sketch?" (If a card/sketch is pasted, keep it verbatim for sparring.) Record `contract_in: none`.
+0. **Coming from idea?** If the user's first message mentions idea, a shortlist, a committee or an evaluation, do not ask the cold-start question yet: standalone → "Give me the path to your `10-shortlist.md` (or paste the entry) — or just describe the idea in two sentences if you do not have the file at hand", then continue under *With a shortlist*; project layout → say that no finished shortlist was found in `planning/idea/` and offer the cold start.
+1. **Input:** "What do we start from — an idea in two sentences, an idea card, a concept sketch — or, if you come from idea, the path to your shortlist file?" (If a card/sketch is pasted, keep it verbatim for sparring.) Record `contract_in: none`.
 2. **Code** (2–4 letters) and working title — propose both from the input, let the user correct.
 3. **Mode:** "Workshop (half a day, a demo) or discovery (several days, more robust)?" Default workshop.
 
 **Both paths:**
 
-4. **Git:** check silently whether the folder or a parent is a git repo (`git rev-parse --is-inside-work-tree` if a shell is available; else look for `.git`). Record `yes`/`no`. Never run `git init`; with `yes`, commits follow RULES §6. Tell the user the result in half a sentence.
+4. **Git:** check silently whether the folder or a parent is a git repo (`git rev-parse --is-inside-work-tree` if a shell is available; else look for `.git`). Record `yes`/`no`. Then `git check-ignore -q` on the folder the results will live in (standalone: `maquettes/<code>-<slug>`; the path need not exist yet): if it is ignored (the workspace is a clone of the public repo), record `no (clone — work folder ignored)` instead. Never run `git init`; with `yes`, commits follow RULES §6. Tell the user the result in half a sentence.
 5. **Language** of result files: English by default; a profile may set it; the language the user writes in overrides that; an explicit statement by the user ("I write German, the documents shall be English") overrides everything. Confirm the result in half a sentence.
 
 Then create `00-maquette.md` from `templates/00-maquette.md` with `revision: 1`, budgets per mode (workshop 15/20/15/60/20/10 min; discovery 30/45/30/180/45/20), `profile` set, the log line `start`, and run sparring.
@@ -75,7 +76,7 @@ Then create `00-maquette.md` from `templates/00-maquette.md` with `revision: 1`,
 2. Mark the row `in_progress` with the start time in `00-maquette.md` (revision + 1).
 3. Read and follow `<suite>/skills/maquette-<stage>/SKILL.md` in full, passing: maquette folder, current input file and its revision, `mode`, `git`, `language`, minutes, and the profile constraints that concern this stage.
 4. When the stage skill hands back (see RULES §7): verify the result file exists, has valid frontmatter, cites the right `input@revision`, and keeps every template heading. If a check fails, name it and ask the stage skill to fix — do not fix content yourself.
-5. Ask the user: "Good as it is — next, or redo?" On next: set `status: done` in the result file's frontmatter (the only field you edit in another skill's file), fill Status / Current revision / Finished / Minutes in the stage table, log the decision. With `git: yes`, commit that file (RULES §6) and say so in half a sentence.
+5. Ask the user: "Good as it is — next, or redo?" On next: set `status: done` in the result file's frontmatter (the only field you edit in another skill's file) — that write bumps `revision` and `updated` like any other (RULES §4.4), fill Status / Current revision / Finished / Minutes in the stage table, log the decision. With `git: yes`, commit that file (RULES §6) and say so in half a sentence.
 6. If minutes used exceed the budget by more than 25 %, note it under "Open items for the Director" — this is data for the retro, not a reprimand.
 
 ## Consistency checks (each opening)
@@ -108,6 +109,7 @@ Calm, brief, a little dry humour is fine. Never mention skill file names, revisi
 | Run `git init` or any install | Record `git: no` and continue |
 | Commit interim work | Commit only on `done`, slices and fixes (RULES §6) |
 | Re-ask what the shortlist entry answers | Pass the entry to sparring; it prefills and confirms |
+| Ignore the committee's Maquette order, or treat it as binding | Propose it; the user confirms or deviates with a recorded reason |
 | Keep state anywhere but the folder | Everything lives in `00-maquette.md` |
 | Skip the "good as it is?" check | Every stage ends with the user's word |
 | Let a stage run silently over budget | Say it, offer to close with the current state |

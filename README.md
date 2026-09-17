@@ -12,8 +12,8 @@ If you are reading this from a link and have no local copy yet:
 
 1. Get one — `git clone https://github.com/ditomax/maquette` or unzip the latest release from https://github.com/ditomax/maquette/releases — into a folder the user chooses (default: `./maquette` next to their other work). That download is the only network access; the "no network" rule in `AGENTS.md` applies from then on.
 2. Work from inside that folder and read its `AGENTS.md`. Do not act as the Director from this README — the rules live in `RULES.md` and `skills/`.
-3. Layout: standalone (this folder as is) unless the user has a project with a `planning/` folder — then the suite belongs at `planning/suite/maquette/` and `planning/AGENTS.md` is the entry point, not this file.
-4. A clone gives updates via `git pull`; the user's work in `maquettes/` is ignored by git, so nothing of it is ever committed to a clone. `hooks/`, `guard.py` and `skill-suite-setup` are for skillset developers — ignore them.
+3. Layout: standalone (this folder as is) unless the user has a project with a `planning/` folder — then the suite belongs at `planning/suite/maquette/` and `planning/AGENTS.md` is the entry point, not this file. That `planning/` form is produced by [skill-suite-setup](https://github.com/ditomax/skill-suite-setup) (see *The suite*), never assembled by hand.
+4. A clone gives updates via `git pull`; the user's work in `maquettes/` is ignored by git, so nothing of it is ever committed to a clone. `hooks/` and `guard.py` are for skillset developers — ignore them.
 
 ## What is a maquette?
 
@@ -34,9 +34,20 @@ The user types **start** and afterwards only **next**, **redo** or **stop**. A D
 
 Finished results look like `examples/10-seed.md` and `examples/60-brief.md` (fictitious company). Every stage reads exactly one input file and writes exactly one result file. All results live in **one folder per maquette**, carry frontmatter and follow write rules that stop agents from overwriting each other (see `RULES.md`). The folder is the state — there is nothing outside it.
 
-maquette is the middle of a three-part suite — **idea → maquette → build** — and talks to its neighbours through two files. Upstream, the idea skillset (idea-collect, idea-evaluate) hands over `10-shortlist.md` (contract H1): the Director lists the entries, the user picks exactly one, and stage 1 prefills from it. Downstream, `60-brief.md` (contract H2) is the handover to the build skillset, which turns the clickable model into a product. Both seams are optional: without a shortlist, stage 1 starts from an idea in prose, an idea card or a concept sketch; without build, the brief is still the honest record of what the maquette proved.
+maquette is the middle of a three-part suite — **idea → maquette → build** — and talks to its neighbours through two files. Upstream, the idea skillset (idea-collect, idea-evaluate) hands over `10-shortlist.md` (contract H1): the Director proposes the entry the committee chose for the next maquette (or lists the entries), the user confirms or picks exactly one, and stage 1 prefills from it. Downstream, `60-brief.md` (contract H2) is the handover to the build skillset, which turns the clickable model into a product. Both seams are optional: without a shortlist, stage 1 starts from an idea in prose, an idea card or a concept sketch; without build, the brief is still the honest record of what the maquette proved.
 
-**Compatibility.** In: `10-shortlist.md` contract `H1/1` from idea ≥ 0.1.0. Out: `60-brief.md` contract `H2/2`, read by build ≥ 0.1.1 (`H2/1` briefs are still accepted by build with a note). Version triples tested together: [skill-suite-setup/compat.md](https://github.com/ditomax/skill-suite-setup/blob/main/compat.md). Changes: `CHANGELOG.md`.
+**Compatibility.** In: `10-shortlist.md` contract `H1/2` from idea ≥ 0.2.0 (Maquette order, umbrella variants), `H1/1` from idea ≥ 0.1.0. Out: `60-brief.md` contract `H2/2`, read by build ≥ 0.1.1 (`H2/1` briefs are still accepted by build with a note). Version triples tested together: [skill-suite-setup/compat.md](https://github.com/ditomax/skill-suite-setup/blob/main/compat.md). Changes: `CHANGELOG.md`.
+
+## The suite
+
+| Repo | What it does |
+| --- | --- |
+| [idea](https://github.com/ditomax/idea) | vague wish → ranked shortlist (`10-shortlist.md`, contract H1) |
+| [maquette](https://github.com/ditomax/maquette) — this repo | one shortlist entry → clickable model and brief (`60-brief.md`, contract H2) |
+| [build](https://github.com/ditomax/build) | brief → product, with concept documents as the source of truth |
+| [skill-suite-setup](https://github.com/ditomax/skill-suite-setup) | puts the three into one project folder (`planning/`) with a profile and a single entry point that knows which skillset is up; builds customer-specific versions |
+
+Each skillset works on its own. Anyone who wants more than one of them, or a customer-specific version, gets the `planning/` form from [skill-suite-setup](https://github.com/ditomax/skill-suite-setup) instead of standalone folders side by side.
 
 ## Structure
 

@@ -78,7 +78,7 @@ input: <file>@<revision>[, <file>@<revision>]
 
 ## 6. Git
 
-Git is optional and never created by a skill. `git` in `00-maquette.md` is `yes` only if the maquette folder (or a parent) is a git repository at start; skills never run `git init`. With `git: no`, every commit step below is skipped and the result file records "— (no git)".
+Git is optional and never created by a skill. `git` in `00-maquette.md` is `yes` only if the maquette folder (or a parent) is a git repository at start; skills never run `git init`. `yes` also requires that the work folder is tracked: a clone of the public maquette repo ignores `maquettes/` via `.gitignore`, so a clone counts as `no` — the Director checks with `git check-ignore`. With `git: no`, every commit step below is skipped and the result file records "— (no git)".
 
 With `git: yes`, a commit marks a **frozen state, never progress**. Interim work is not committed.
 
@@ -112,5 +112,5 @@ The Director passes the rows of the coming stage to the stage skill together wit
 
 maquette sits between two other skillsets and talks to them through files. A missing contract file is never an error — it only means more questions for the user.
 
-- **H1 — in.** `10-shortlist.md` (contract `H1/1`, written by idea-evaluate). The Director lists its entries and the user picks exactly one; sparring prefills from that entry and confirms instead of asking. Without a shortlist: cold start from an idea in prose, an idea card or a concept sketch.
-- **H2 — out.** `60-brief.md` (contract `H2/2`) is the handover to build. Part 3 carries everything build intake needs — guardrails, candidates, vocabulary, decided and open questions, riskiest assumption, and the prototype facts for reading `vcode/` (stack, real/faked, data, slices with acceptance criteria, design, shortcuts). Build reads all four parts. After `done`, neither the brief nor `vcode/` is edited by anyone — build reads, never writes here.
+- **H1 — in.** `10-shortlist.md` (contract `H1/2` from idea ≥ 0.2.0, `H1/1` from older idea; written by idea-evaluate). With H1/2 the Director proposes the entry the committee named under Maquette order (and, for an umbrella entry, its demo variants), the user confirms or picks another with a recorded reason; with H1/1 the Director lists the entries and the user picks. Always exactly one; sparring prefills from that entry and confirms instead of asking. Without a shortlist: cold start from an idea in prose, an idea card or a concept sketch.
+- **H2 — out.** `60-brief.md` (contract `H2/2`) is the handover to build. Part 3 carries everything build intake needs — guardrails, candidates, vocabulary, decided and open questions, riskiest assumption, and the prototype facts for reading `vcode/` (stack, real/faked, data, slices with acceptance criteria, design, shortcuts). Build reads all four parts. Decided and open questions both keep their `OQ-n` numbers; build continues the sequence. After `done`, neither the brief nor `vcode/` is edited by anyone — build reads, never writes here.

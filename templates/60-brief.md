@@ -5,7 +5,7 @@ status: in_progress          # open | in_progress | done | skipped
 revision: 1
 created: <YYYY-MM-DDThh:mm>
 updated: <YYYY-MM-DDThh:mm>
-input: 10-seed.md@<rev>, 20-plan.md@<rev>, 40-build.md@<rev>, 50-harden.md@<rev>
+input: 10-seed.md@<rev>, 20-plan.md@<rev>, 30-design.md@<rev>, 40-build.md@<rev>, 50-harden.md@<rev>   # omit 30-design.md if the stage was skipped
 contract: H2/2               # handover contract version read by build ≥ 0.1.1
 ---
 
@@ -45,7 +45,7 @@ _Result of the brief stage and exit point of the maquette. Part 1 is for the pre
 
 ### Updated candidate requirements
 
-<!-- From 20-plan.md §3–5 plus 40-build.md "Requirements discovered", renumbered into one sequence. Column "Status in maquette": shown | partial | not shown. "not shown" rows are Path A material; "shown" rows are Path B material. -->
+<!-- From 20-plan.md §3–5 plus 40-build.md "Requirements discovered", renumbered per prefix — cF-, cU- and cNF- each start at 1 without gaps. Column "Status in maquette": shown | partial | not shown. "not shown" rows are Path A material; "shown" rows are Path B material. -->
 
 | ID | Requirement | Origin | Status in maquette |
 | --- | --- | --- | --- |
@@ -64,7 +64,11 @@ _Result of the brief stage and exit point of the maquette. Part 1 is for the pre
 
 ### Resolved questions
 
-<from 20-plan.md §8 — become ADR seeds in planning/build/decisions/>
+<!-- From 20-plan.md §8. A decided question keeps its OQ number — never renumber; build's concept §8 cites it. Rows become ADR seeds in planning/build/decisions/. -->
+
+| OQ | Question | Decision | Decided where |
+| --- | --- | --- | --- |
+| OQ-<n> | <…> | <one line> | <plan-board | build | harden> |
 
 ### Open questions
 

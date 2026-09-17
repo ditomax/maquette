@@ -1,6 +1,6 @@
 ---
 name: maquette-sparring
-version: "0.4"
+version: "0.5"
 description: >
   Stage 1 of the maquette suite. Sparring partner for one idea: frame it, ask the
   forcing questions, challenge its premises, show three directions before the user
@@ -43,6 +43,8 @@ Map fields and read them back for correction instead of re-asking:
 | V7 damage class (light + note) | — | V7 | §5 guardrail candidate ("a wrong result must be visible as such") and §9 "if wrong" |
 | "What would tip it" | — | — | §3 premise, rated `open` |
 | Views (contradictions), Dissent | — | — | hints for Q1/Q3; unresolved ones → §8 open question |
+| Umbrella entry: Variants table + `demo_variants` from `00-maquette.md` (H1/2) | — | — | Q4 starting point: the demo shows the named variant(s); their "needs only this variant has" → Q1/Q3 hints; every other variant → one §8 line "later scope: <ID> — <what differs>" |
+| Relation line (H1/2) | — | — | one sentence in §6 on where the idea came from (consolidated / split) — nothing else |
 
 Say: "From the shortlist (or: your card) I take the following — tell me where it no longer holds." One block, then wait. Nothing that was prefilled is asked again; what the entry marks `[unknown]` is asked once, in its place in the sequence below.
 

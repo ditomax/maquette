@@ -1,5 +1,11 @@
 # Changelog — maquette
 
+## 0.6.1 — 2026-09-17
+Discoverability: README gains § The suite (links to idea, maquette, build and skill-suite-setup, one line each, pointer to the `planning/` form for multi-skillset or customer use); § For agents no longer tells agents to ignore skill-suite-setup — point 3 names it as the producer of the `planning/` form, point 4 keeps only `hooks/` and `guard.py` as developer-only. START calls skill-suite-setup "the suite's setup tool" instead of "the maintainers' tool". No contract change.
+
+## 0.6.0 — 2026-09-17
+**Reads contract H1/2** (idea ≥ 0.2.0), H1/1 still accepted. Director proposes the entry the committee named under the shortlist's Maquette order (`next_maquette`) and, for an umbrella entry, its demo variants; the user confirms or picks another with a recorded one-sentence reason — always exactly one. Consumed cards are never offered. `00-maquette.md` gains `demo_variants`. Sparring: the demo variant(s) seed Q4, variant-only needs become Q1/Q3 hints, other variants become "later scope" lines in §8; the Relation line gives one sentence in §6. D1 wording updated (ID unchanged).
+
 ## 0.5.4 — 2026-09-16
 Consistency fix: README's "chat tools without folder access" paragraph was a copy-paste of idea's collect-stage text; corrected to state maquette has no chat-only stage — every stage (sparring through build) needs folder access. German-only language aside removed, its content folded into the English text (a customer-variant concern, not the base README's). No contract change.
 

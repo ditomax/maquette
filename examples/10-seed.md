@@ -15,7 +15,7 @@ _Concept Seed light — result of the sparring stage. Candidate requirements (`c
 
 ## Input
 
-- **Source:** shortlist entry EXG-001 (planning/idea/10-shortlist.md@3, contract H1/1)
+- **Source:** shortlist entry EXG-001 (planning/idea/10-shortlist.md@2, contract H1/2 — the committee's Maquette order, confirmed)
 - **Prefilled from the source:** opportunity and minimum success criterion (§1), stakeholders and cost of the status quo (Q1 who, Q2), first stakeholder line (Q3 role), data situation and earlier attempts (§3), personal data and the waiver "maquette without real customer data" (§5), riskiest assumption and cheapest test (§9), the four "open before or during the maquette" lines (§8), committee rationale (§6). Read back in one block; the user confirmed all of it with one correction: "the ~2 h include looking up the right old offer, not only typing."
 
 ## Field of application

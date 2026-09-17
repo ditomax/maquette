@@ -3,8 +3,8 @@ name: maquette-brief
 version: "0.4"
 description: >
   Stage 6 of the maquette suite. Writes 60-brief.md — a three-minute demo script,
-  an honest can/cannot list, the retrofit seed for the Concept Authoring Manifest
-  (Path B → Phase 1), and the recommended next step. Called by the maquette
+  an honest can/cannot list, the handover to build (contract H2/2 — build intake
+  runs Path B, then Path A), and the recommended next step. Called by the maquette
   Director; the exit point of every maquette.
 ---
 
@@ -32,22 +32,22 @@ Ask one question: "Who presents, and to whom?" — adjust tone and "the moment t
 
 Merge `20-plan.md` §7, `40-build.md` "Known gaps" and `50-harden.md` §5 into one table; each "cannot" gets a reason category (scope / time / data / decision pending). Write the two sentences "what this maquette proves / does not prove" — the second one must be as honest as the first.
 
-### 3. Retrofit seed (Part 3)
+### 3. Handover to build (Part 3)
 
-- Renumber all candidates into one sequence: `20-plan.md` §3–5 first, then `40-build.md` "Requirements discovered"; keep `Origin`; mark each shown / partial / not shown from the build log and harden verdict.
+- Renumber all candidates per prefix (cF-, cU-, cNF- each from 1, no gaps): `20-plan.md` §3–5 first, then `40-build.md` "Requirements discovered"; keep `Origin`; mark each shown / partial / not shown from the build log and harden verdict.
 - Guardrails: copy `10-seed.md` §5 verbatim with origin `seed`, add anything 20/40/50 or the profile added; never drop one — build turns them into NF requirements.
 - Shared vocabulary: union of `20-plan.md` §2 and any term introduced in build/harden.
-- Resolved questions: copy `20-plan.md` §8.
+- Resolved questions: copy `20-plan.md` §8 as the table OQ · question · decision · decided where; a decided question keeps its OQ number, never renumber.
 - Open questions: every OQ from 10/20/40/50 still open, deduplicated, original numbers kept.
 - Riskiest assumption: quote from `10-seed.md` §9, then state what the maquette showed. Ask Q5 now: "Has anyone used the maquette without your help yet — what surprised you?" If not yet: record "not yet observed" and make observation the next test.
 
 - Prototype facts: besides stack, real/faked, data and shortcuts, list the slices built with their acceptance criteria and verdicts (from `20-plan.md` §10 / `40-build.md`) and the design choice (`30-design.md` §3–§4, or "skipped").
 
-Discovery mode: additionally phrase Part 3 in full Manifest §0–8 wording so it can be pasted as the Phase 1 draft.
+Discovery mode: additionally phrase Part 3 in full concept-document wording so build intake can paste it as its draft.
 
 ### 4. Next step (Part 4)
 
-Recommend exactly one: discovery sprint (Manifest Phase 1 with this seed) · test the riskiest assumption first · a second maquette round with a named scope · park the idea with a reason. If a profile defines the customer's own next-step process, use that instead of the defaults. Name who decides (sponsor from `00-maquette.md`) and ask for a date. Do not sell; state the recommendation and the reason in two sentences.
+Recommend exactly one: build intake (Path B on what the maquette showed, then Path A) · test the riskiest assumption first · a second maquette round with a named scope · park the idea with a reason. If a profile defines the customer's own next-step process, use that instead of the defaults. Name who decides (sponsor from `00-maquette.md`) and ask for a date. Do not sell; state the recommendation and the reason in two sentences.
 
 ### 5. Write
 

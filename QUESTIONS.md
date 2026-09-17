@@ -1,16 +1,16 @@
 # maquette — Every question the skillset asks a human
 
-**Version 1 (maquette 0.5.2).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. "Prefilled from" names the earlier file that already answers it; with a shortlist entry (contract H1) those rows are read back and confirmed in one block, never re-asked. "—" means the question is this stage's own. Mode column: W = workshop, D = discovery, both if empty.
+**Version 2 (maquette 0.6.0).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. "Prefilled from" names the earlier file that already answers it; with a shortlist entry (contract H1) those rows are read back and confirmed in one block, never re-asked. "—" means the question is this stage's own. Mode column: W = workshop, D = discovery, both if empty.
 
 ## Director (`maquette`) — first call only
 
 | # | Question | Prefilled from | Note |
 | --- | --- | --- | --- |
-| D1 | (with shortlist) Which one do we build? — entries listed as rank · ID · title · recommendation | `10-shortlist.md` | exactly one |
-| D1' | (cold start) What do we start from — an idea in two sentences, an idea card, or a concept sketch? | — | |
+| D1 | (with shortlist) H1/2: The committee chose <ID — title> (demo: <variants>) — do we build that one? · H1/1 or no choice: Which one do we build? — entries listed as rank · ID · title · recommendation | `10-shortlist.md` Maquette order | exactly one; a deviation from the committee's choice gets a one-sentence reason |
+| D1' | (cold start) What do we start from — an idea in two sentences, an idea card, a concept sketch — or, if you come from idea, the path to your shortlist file? | — | if the first message mentions idea / shortlist / committee, the path is asked first |
 | D2 | Code (2–4 letters) and working title — proposed, user corrects | shortlist entry ID / title | |
 | D3 | Mode: the committee suggested <mode> — fine? / Workshop or discovery? | shortlist "Recommended mode" | default workshop |
-| D4 | Git: is the folder a repository? | checked silently, result told | never `git init` |
+| D4 | Git: is the folder a repository? | checked silently, result told | never `git init`; a clone of the public repo counts as no |
 | D5 | Language of the result files? | profile → chat language → explicit statement | |
 
 Every later call: one question at most — "Good as it is — next, or redo?" after a stage; the gate and conflict questions listed under the stages.

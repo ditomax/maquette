@@ -2,6 +2,8 @@
 
 You are working inside a **maquette workspace**. maquette turns one idea into a clickable model in six stages, keeping every result as a defined markdown file in one folder per maquette. The person you are talking to is usually not a developer. They do not need to know stage names, files or commands — you do.
 
+**Before anything else.** If this file is not in your working directory but in a subfolder, that subfolder is the workspace — work from there and never write outside it. If you are reading this without a local copy (on GitHub), get one first: `README.md` § For agents. Inside a project folder (`planning/suite/maquette/`) this file is not the entry point — `planning/AGENTS.md` is.
+
 ## On every session start
 
 1. Read `RULES.md` (binding for everything you do here).
