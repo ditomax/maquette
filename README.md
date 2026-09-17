@@ -2,7 +2,7 @@
 
 **From idea to clickable model — seven markdown skills, one command.**
 
-Version: see `VERSION` · September 2026 · DMBG · https://github.com/ditomax/maquette
+Version: see `VERSION` · September 2026 · https://github.com/ditomax/maquette
 
 For users, `START.md` is enough — three steps, no installation. Conversation and output files follow the user's language; headings in the templates stay in English.
 
@@ -34,9 +34,7 @@ The user types **start** and afterwards only **next**, **redo** or **stop**. A D
 
 Finished results look like `examples/10-seed.md` and `examples/60-brief.md` (fictitious company). Every stage reads exactly one input file and writes exactly one result file. All results live in **one folder per maquette**, carry frontmatter and follow write rules that stop agents from overwriting each other (see `RULES.md`). The folder is the state — there is nothing outside it.
 
-maquette is the middle of a three-part suite — **idea → maquette → build** — and talks to its neighbours through two files. Upstream, the idea skillset (idea-collect, idea-evaluate) hands over `10-shortlist.md` (contract H1): the Director proposes the entry the committee chose for the next maquette (or lists the entries), the user confirms or picks exactly one, and stage 1 prefills from it. Downstream, `60-brief.md` (contract H2) is the handover to the build skillset, which turns the clickable model into a product. Both seams are optional: without a shortlist, stage 1 starts from an idea in prose, an idea card or a concept sketch; without build, the brief is still the honest record of what the maquette proved.
-
-**Compatibility.** In: `10-shortlist.md` contract `H1/2` from idea ≥ 0.2.0 (Maquette order, umbrella variants), `H1/1` from idea ≥ 0.1.0. Out: `60-brief.md` contract `H2/2`, read by build ≥ 0.1.1 (`H2/1` briefs are still accepted by build with a note). Version triples tested together: [skill-suite-setup/compat.md](https://github.com/ditomax/skill-suite-setup/blob/main/compat.md). Changes: `CHANGELOG.md`.
+maquette is the middle of the three-part suite — **idea → maquette → build** — and talks to its neighbours through two files (see *Contracts*).
 
 ## The suite
 
@@ -48,6 +46,14 @@ maquette is the middle of a three-part suite — **idea → maquette → build**
 | [skill-suite-setup](https://github.com/ditomax/skill-suite-setup) | puts the three into one project folder (`planning/`) with a profile and a single entry point that knows which skillset is up; builds customer-specific versions |
 
 Each skillset works on its own. Anyone who wants more than one of them, or a customer-specific version, gets the `planning/` form from [skill-suite-setup](https://github.com/ditomax/skill-suite-setup) instead of standalone folders side by side.
+
+## Contracts
+
+- **In — H1.** `10-shortlist.md` (contract `H1`) from the idea skillset (idea-collect, idea-evaluate): the Director proposes the entry the committee chose for the next maquette (or lists the entries), the user confirms or picks exactly one, and stage 1 prefills from it.
+- **Out — H2.** `60-brief.md` (contract `H2`) — the handover to the build skillset, which turns the clickable model into a product.
+- Both seams are optional: without a shortlist, stage 1 starts from an idea in prose, an idea card or a concept sketch; without build, the brief is still the honest record of what the maquette proved.
+
+**Compatibility.** In: `10-shortlist.md` contract `H1/2` from idea ≥ 0.2.0 (Maquette order, umbrella variants), `H1/1` from idea ≥ 0.1.0. Out: `60-brief.md` contract `H2/2`, read by build ≥ 0.1.1 (`H2/1` briefs are still accepted by build with a note). Version triples tested together: [skill-suite-setup/compat.md](https://github.com/ditomax/skill-suite-setup/blob/main/compat.md). Changes: `CHANGELOG.md`.
 
 ## Structure
 
@@ -78,6 +84,10 @@ maquette/
     maquette-brief/
 ```
 
+## Inside a project
+
+The workspace above is the standalone form. Inside a project folder the same suite is copied to `planning/suite/maquette/` (read-only), the maquettes live in `planning/maquette/`, the profile in `planning/profile/`, and the shortlist in `planning/idea/10-shortlist.md`. Product code lives outside `planning/`; the prototype code stays in each maquette's `vcode/`, frozen after the brief. The Director recognises the layout by the `planning/` folder — nothing to configure.
+
 ## Distribution and installation
 
 This folder is the **workspace** — repo and ZIP share the same structure. Users download the ZIP of a release, unzip it, open the folder in their AI app and type "start" (instructions in `START.md`). `AGENTS.md` (Codex) and `CLAUDE.md` (Claude) are read automatically when the folder opens and turn the agent into the Director — nothing to install, no symlinks, no global skill folders.
@@ -92,12 +102,6 @@ ln -s "$PWD/skills/"maquette* ~/.codex/skills/      # or ~/.claude/skills/
 
 No dependencies, no setup script, no network access, no telemetry. `maquettes/` is excluded from the repo via `.gitignore` — users' work never lands in the public repository.
 
-## Inside a project
-
-The workspace above is the standalone form. Inside a project folder the same suite is copied to `planning/suite/maquette/` (read-only), the maquettes live in `planning/maquette/`, the profile in `planning/profile/`, and the shortlist in `planning/idea/10-shortlist.md`. Product code lives outside `planning/`; the prototype code stays in each maquette's `vcode/`, frozen after the brief. The Director recognises the layout by the `planning/` folder — nothing to configure.
-
-Git is optional in both forms. Skills never create a repository; if one exists, a commit marks a frozen state (a stage `done`, a slice, a fix) and nothing else — the policy is in `RULES.md` §6.
-
 ## Profiles
 
 Customer-specific variants (restricted topics, IT constraints, standards, corporate design, the customer's own review process, questions skipped or added) do not fork this repo. They live in a `profile/` folder the Director reads at start; a profile may restrict, never loosen. The format is specified in [skill-suite-setup/PROFILE.md](https://github.com/ditomax/skill-suite-setup/blob/main/PROFILE.md); a minimal example is in `profile/README.md`. `QUESTIONS.md` lists every question the skillset asks, with stable IDs — read it before a session, and use the IDs in a profile to skip or add questions.
@@ -107,7 +111,13 @@ Customer-specific variants (restricted topics, IT constraints, standards, corpor
 - **workshop** (default): half a day, goal is a demo. Forcing questions Q1–Q4, grilling 10 minutes, slices S1–S3, fix budget 10 (with git) / 5 (without).
 - **discovery**: two to three days, goal is a robust prototype plus a complete retrofit seed. Q1–Q6, grilling 30 minutes, all slices, double fix budget.
 
-Git is optional: if a repository exists, every slice and every fix is committed; otherwise not. The skills never create a repository themselves.
+## Language
+
+All skill text, template headings, frontmatter keys and status values are English. The conversation follows the user's language (German → informal "du"). The result files are written in the language recorded as `language` in `00-maquette.md`, resolved by the Director at start; the template's section headings stay English so completeness can be checked.
+
+## Git
+
+Optional, in the standalone form and inside a project alike. Skills never create a repository; if one exists, a commit marks a frozen state (a stage `done`, a slice, a fix) and nothing else — the policy is in `RULES.md` §6. Without a repository nothing is committed and the fix budget is the smaller one (see *Modes*).
 
 ## Release
 
