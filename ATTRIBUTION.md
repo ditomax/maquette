@@ -52,3 +52,7 @@ Not adopted: gstack's runtime (TypeScript, bun), browser binaries, telemetry, Su
 - **ki-ideenfindung v0.8** and **konzeptskizze v0.1** (Dietmar Millinger) — one question at a time, opening statement, stop-anytime rule, evidence marks `[belegt|geschätzt|unbekannt]`, opportunity language, prefill-and-read-back, no confidentiality promises.
 - **Concept Document Authoring Manifest v8** and **CLAUDE.local.md v2** (Dietmar Millinger) — Path B (retrofit), document template §0–8, vertical slices, grilling, PM gate, simplicity-first and surgical-change principles.
 - The "virtual team" narrative (CEO / Design Manager / Engineering / QA agents) originates in a vibe-coding workshop deck (enliteAI, September 2026) and is used here only as plain-language role names.
+
+## AI tools used in development
+
+maquette was written and revised with the help of AI assistants: **Claude Opus** (Anthropic) and **GPT-6 Astra** (OpenAI). They drafted and edited texts and were used in field tests. The method, every decision and the review of every change are Dietmar Millinger's.

@@ -1,5 +1,8 @@
 # Changelog — maquette
 
+## 0.6.3 — 2026-10-05
+`ATTRIBUTION.md` names the AI tools used in development (Claude Opus, GPT-6 Astra). No contract change.
+
 ## 0.6.2 — 2026-09-17
 README: own **Contracts** section (H1 in, H2 out, both optional) instead of a paragraph inside *How it works*; new **Language** and **Git** sections, the two duplicate git paragraphs folded into the latter; section order aligned with idea and build. No contract change. The company abbreviation DMBG is gone from the public texts: the product is simply the skill suite (idea → maquette → build); source credits in `ATTRIBUTION.md` name Dietmar Millinger.
 
