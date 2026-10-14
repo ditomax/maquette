@@ -6,12 +6,12 @@ revision: 1
 created: <YYYY-MM-DDThh:mm>
 updated: <YYYY-MM-DDThh:mm>
 input: 10-seed.md@<rev>, 20-plan.md@<rev>, 30-design.md@<rev>, 40-build.md@<rev>, 50-harden.md@<rev>   # omit 30-design.md if the stage was skipped
-contract: H2/2               # handover contract version read by build ≥ 0.1.1
+contract: H2/3               # handover contract version read by build ≥ 0.2.0 (H2/2 + register and coverage)
 ---
 
 # Brief <code>: <title>
 
-_Result of the brief stage and exit point of the maquette. Part 1 is for the presentation, Part 2 for the decision afterwards, Part 3 is **contract H2** — the handover to build. Build intake reads Part 3 and `vcode/` (read-only) and runs Path B (extract what the prototype already answers) before Path A (grill what it does not)._
+_Result of the brief stage and exit point of the maquette. Part 1 is for the presentation, Part 2 for the decision afterwards, Part 3 is **contract H2** — the handover to build. Build intake reads Part 3 and `vcode/` (read-only) and runs Path B (extract what the prototype already answers) before Path A (grill what it does not); with a register it also traces every R-ID (Path R)._
 
 ## Part 1 — Demo script (3 minutes)
 
@@ -43,14 +43,31 @@ _Result of the brief stage and exit point of the maquette. Part 1 is for the pre
 
 <one line, from 10-seed.md — build derives its standard concerns from it (web → data protection, access, deployment)>
 
+### Register and coverage
+
+<!-- H2/3. Only with contract_in: register/1 — otherwise the single line "No register — contract_in: <value>". The register's Register table copied completely (every column, every row), plus every R-ID under its Out of scope, plus new items of origin maquette (R-M1, R-M2 … — the maquette's own namespace). Coverage is the FINAL status after build and harden: shown | faked | not shown (later) | out. Build traces every row (R-n → F-<FEAT>-n) and closes intake only when every MUST is mapped or deferred with a reason. -->
+
+- **Register:** <file>@<rev> · contract register/1 · **outcome:** <go | go-with-conditions | stop> · **complete:** <yes | partial — …>
+- **K.o. decisions:** <verbatim from the register, one line each>
+- **Users and scale (frame):** <verbatim>
+- **V5 and V6 notes (upkeep, operation, running cost):** <verbatim>
+- **Register versions:** <started on file@rev; taken over file@rev (coverage redo, 20-plan.vN.md) | —>
+- **Newer register not taken over:** <— | file@rev, delta in one line per item>
+
+| Item | Priority | Type | Statement | Perspectives | Sources | Measure | Touchpoint | Origin | Coverage | Slice · requirements | Reason |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| <R-n | R-M<n>> | <MUST | SHOULD | COULD (proposed for R-M)> | <type> | <…> | <codes> | <C-IDs> | <… or —> | <— or touchpoint> | <contribution | review | maquette> | <shown | faked | not shown (later) | out> | <S1 · cF-1 | —> | <— or why> |
+
+**Count:** register items <n> · rows <n + k> · MUST <m>, each with explicit status · new items <k>
+
 ### Updated candidate requirements
 
-<!-- From 20-plan.md §3–5 plus 40-build.md "Requirements discovered", renumbered per prefix — cF-, cU- and cNF- each start at 1 without gaps. Column "Status in maquette": shown | partial | not shown. "not shown" rows are Path A material; "shown" rows are Path B material. -->
+<!-- From 20-plan.md §3–5 plus 40-build.md "Requirements discovered", renumbered per prefix — cF-, cU- and cNF- each start at 1 without gaps. Column "Status in maquette": shown | partial | not shown. "not shown" rows are Path A material; "shown" rows are Path B material. Column Register: R-n | model only | — (no register). -->
 
-| ID | Requirement | Origin | Status in maquette |
-| --- | --- | --- | --- |
-| cF-1 | <…> | seed | shown |
-| cF-<n> | <…> | build | partial |
+| ID | Requirement | Origin | Status in maquette | Register |
+| --- | --- | --- | --- | --- |
+| cF-1 | <…> | seed | shown | <R-n> |
+| cF-<n> | <…> | build | partial | <…> |
 
 ### Guardrails
 

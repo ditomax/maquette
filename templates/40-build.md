@@ -41,9 +41,9 @@ _Result of the build stage. The code lives in `vcode/`. This file is the build l
 
 <!-- Everything the plan lacked and the code needed. IDs continue from 20-plan.md (cF-new-1 … until brief sorts them in). Never written back into 10 or 20 (write rule 3). -->
 
-| ID | Requirement | Discovered in slice | Implemented? |
-| --- | --- | --- | --- |
-| cF-new-1 | <…> | S<n> | <yes | no> |
+| ID | Requirement | Discovered in slice | Implemented? | Register |
+| --- | --- | --- | --- | --- |
+| cF-new-1 | <…> | S<n> | <yes | no> | <R-? (new product requirement — the brief gives it an R-M number) | R-n | R-M<n> | model only | —> |
 
 ## Known gaps
 

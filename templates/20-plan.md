@@ -5,7 +5,7 @@ status: in_progress          # open | in_progress | done | skipped
 revision: 1
 created: <YYYY-MM-DDThh:mm>
 updated: <YYYY-MM-DDThh:mm>
-input: 10-seed.md@<rev>
+input: 10-seed.md@<rev>     # with a register also: , <register file>@<rev>
 ---
 
 # Plan <code>: <title>
@@ -30,21 +30,21 @@ _Result of the plan-board stage. The structure follows the Concept Authoring Man
 
 <!-- Taken from 10-seed.md §7 and checked in grilling-light: struck, sharpened, added. IDs stay stable; new IDs continue the sequence (cF-9 …). Each row names the slice that shows it. -->
 
-| ID | Requirement | Slice |
-| --- | --- | --- |
-| cF-1 | <…> | S1 |
+| ID | Requirement | Slice | Register |
+| --- | --- | --- | --- |
+| cF-1 | <…> | S1 | <R-n | model only | —> |
 
 ## 4. User interaction (cU)
 
-| ID | Requirement | Slice |
-| --- | --- | --- |
-| cU-1 | <…> | S1 |
+| ID | Requirement | Slice | Register |
+| --- | --- | --- | --- |
+| cU-1 | <…> | S1 | <…> |
 
 ## 5. Non-functional requirements (cNF)
 
-| ID | Requirement | Slice |
-| --- | --- | --- |
-| cNF-1 | <…> | — |
+| ID | Requirement | Slice | Register |
+| --- | --- | --- | --- |
+| cNF-1 | <…> | — | <…> |
 
 ## 6. Integration points
 
@@ -96,6 +96,20 @@ _Result of the plan-board stage. The structure follows the Concept Authoring Man
 <!-- Numbering continues from 10-seed.md. -->
 
 - **OQ-<n>** — <…>
+
+## Register coverage
+
+<!-- Only with contract_in: register/1 — otherwise the single line "No register — contract_in: <value>". One row per R-ID of the register (Register table and Out of scope), plus new items (origin maquette, own namespace R-M1, R-M2 …, priority proposed). Status: shown | faked | not shown (later) | out. shown/faked name slice and requirement IDs; not shown and out need a reason. Every MUST has an explicit status; register priorities are never changed here. -->
+
+Register: <file>@<rev> · outcome <…> · demo focus <R-…>
+
+| Item | Origin | Priority | Statement (short) | Status | Slice · requirements | Reason |
+| --- | --- | --- | --- | --- | --- | --- |
+| <R-n | R-M<n>> | <contribution | review | maquette> | <MUST | SHOULD | COULD (proposed)> | <…> | <shown | faked | not shown (later) | out> | <S1 · cF-1, cU-2 | —> | <— or why> |
+
+**Count:** register items <n> · rows <n + k> · MUST <m>, each with explicit status · new items <k> (R-M<…>)
+
+<!-- Coverage redo only: "Changes from <register file>@<rev>:" one line per change (R-ID · what · effect on coverage). Otherwise omit. -->
 
 ## 12. Gate
 

@@ -10,7 +10,7 @@ For users, `START.md` is enough — three steps, no installation. Conversation a
 
 If you are reading this from a link and have no local copy yet:
 
-1. Get one — `git clone https://github.com/ditomax/maquette` or unzip the latest release from https://github.com/ditomax/maquette/releases — into a folder the user chooses (default: `./maquette` next to their other work). That download is the only network access; the "no network" rule in `AGENTS.md` applies from then on.
+1. Get one — `git clone https://github.com/ditomax/maquette` or unzip the latest release from https://github.com/ditomax/maquette/releases — into a project folder **on the user's computer** that the user chooses and can see and open (default: `./maquette` next to their other work) — never only into your own sandbox or a temporary copy the user cannot see; if you cannot write there, tell the user which step to do themselves. That download is the only network access; the "no network" rule in `AGENTS.md` applies from then on.
 2. Work from inside that folder and read its `AGENTS.md`. Do not act as the Director from this README — the rules live in `RULES.md` and `skills/`.
 3. Layout: standalone (this folder as is) unless the user has a project with a `planning/` folder — then the suite belongs at `planning/suite/maquette/` and `planning/AGENTS.md` is the entry point, not this file. That `planning/` form is produced by [skill-suite-setup](https://github.com/ditomax/skill-suite-setup) (see *The suite*), never assembled by hand.
 4. A clone gives updates via `git pull`; the user's work in `maquettes/` is ignored by git, so nothing of it is ever committed to a clone. `hooks/` and `guard.py` are for skillset developers — ignore them.
@@ -40,8 +40,8 @@ maquette is the middle of the three-part suite — **idea → maquette → build
 
 | Repo | What it does |
 | --- | --- |
-| [idea](https://github.com/ditomax/idea) | vague wish → ranked shortlist (`10-shortlist.md`, contract H1) |
-| [maquette](https://github.com/ditomax/maquette) — this repo | one shortlist entry → clickable model and brief (`60-brief.md`, contract H2) |
+| [idea](https://github.com/ditomax/idea) | vague wish → ranked shortlist (`10-shortlist.md`, contract H1) — or, for a fixed project, a prioritised requirement register (`10-register.md`, contract register/1) |
+| [maquette](https://github.com/ditomax/maquette) — this repo | one shortlist entry or one register → clickable model and brief (`60-brief.md`, contract H2) |
 | [build](https://github.com/ditomax/build) | brief → product, with concept documents as the source of truth |
 | [skill-suite-setup](https://github.com/ditomax/skill-suite-setup) | puts the three into one project folder (`planning/`) with a profile and a single entry point that knows which skillset is up; builds customer-specific versions |
 
@@ -50,10 +50,11 @@ Each skillset works on its own. Anyone who wants more than one of them, or a cus
 ## Contracts
 
 - **In — H1.** `10-shortlist.md` (contract `H1`) from the idea skillset (idea-collect, idea-evaluate): the Director proposes the entry the committee chose for the next maquette (or lists the entries), the user confirms or picks exactly one, and stage 1 prefills from it.
-- **Out — H2.** `60-brief.md` (contract `H2`) — the handover to the build skillset, which turns the clickable model into a product.
-- Both seams are optional: without a shortlist, stage 1 starts from an idea in prose, an idea card or a concept sketch; without build, the brief is still the honest record of what the maquette proved.
+- **In — register/1.** `10-register.md` from idea's focus track (idea-focus-review): one fixed project, so no pick. Stage 1 prefills from the register (demo focus, K.o. conditions as guardrails, open questions); the plan and the brief carry a **coverage table** — every requirement `R-<n>` is shown, faked, not shown (later) or out, with a reason; requirements the maquette discovers get their own numbers `R-M<n>`. Nothing drops silently. A newer register version is noticed and taken over as a delta.
+- **Out — H2.** `60-brief.md` (contract `H2`) — the handover to the build skillset, which turns the clickable model into a product. Since H2/3 it carries the register with its final coverage, so build can trace every requirement.
+- Both seams are optional: without a shortlist or register, stage 1 starts from an idea in prose, an idea card or a concept sketch; without build, the brief is still the honest record of what the maquette proved.
 
-**Compatibility.** In: `10-shortlist.md` contract `H1/2` from idea ≥ 0.2.0 (Maquette order, umbrella variants), `H1/1` from idea ≥ 0.1.0. Out: `60-brief.md` contract `H2/2`, read by build ≥ 0.1.1 (`H2/1` briefs are still accepted by build with a note). Version triples tested together: [skill-suite-setup/compat.md](https://github.com/ditomax/skill-suite-setup/blob/main/compat.md). Changes: `CHANGELOG.md`.
+**Compatibility.** In: `10-register.md` contract `register/1` from idea ≥ 0.3.0; `10-shortlist.md` contract `H1/2` from idea ≥ 0.2.0 (Maquette order, umbrella variants), `H1/1` from idea ≥ 0.1.0. Out: `60-brief.md` contract `H2/3`, read by build ≥ 0.2.0 (H2/2 plus the register with its coverage; maquette ≤ 0.6 wrote `H2/2`, which build 0.2 still reads). Version triples tested together: [skill-suite-setup/compat.md](https://github.com/ditomax/skill-suite-setup/blob/main/compat.md). Changes: `CHANGELOG.md`.
 
 ## Structure
 
@@ -86,7 +87,7 @@ maquette/
 
 ## Inside a project
 
-The workspace above is the standalone form. Inside a project folder the same suite is copied to `planning/suite/maquette/` (read-only), the maquettes live in `planning/maquette/`, the profile in `planning/profile/`, and the shortlist in `planning/idea/10-shortlist.md`. Product code lives outside `planning/`; the prototype code stays in each maquette's `vcode/`, frozen after the brief. The Director recognises the layout by the `planning/` folder — nothing to configure.
+The workspace above is the standalone form. Inside a project folder the same suite is copied to `planning/suite/maquette/` (read-only), the maquettes live in `planning/maquette/`, the profile in `planning/profile/`, and the shortlist or register in `planning/idea/` (`10-shortlist.md`, `10-register.md`). Product code lives outside `planning/`; the prototype code stays in each maquette's `vcode/`, frozen after the brief. The Director recognises the layout by the `planning/` folder — nothing to configure.
 
 ## Distribution and installation
 

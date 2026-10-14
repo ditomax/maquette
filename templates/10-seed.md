@@ -14,7 +14,7 @@ _Concept Seed light — result of the sparring stage. Candidate requirements (`c
 
 ## Input
 
-- **Source:** <shortlist entry <ID> (<path>@<rev>) | idea in two sentences | idea card <ID> | concept sketch <ID>-K>
+- **Source:** <register <code> (<path>@<rev>) | shortlist entry <ID> (<path>@<rev>) | idea in two sentences | idea card <ID> | concept sketch <ID>-K>
 - **Prefilled from the source:** <which fields were taken over and confirmed by the user, or "none — cold start">
 
 ## Field of application
@@ -81,22 +81,22 @@ _Concept Seed light — result of the sparring stage. Candidate requirements (`c
 - **Non-cases:** <empty: shown | left out · many: … · error: …>
 - **Deliberately not shown:** <…>
 
-<!-- 5–8 candidates in total, derived from the walk-through and read back to the user. Only what the maquette must show. Testable where possible. -->
+<!-- 5–8 candidates in total, derived from the walk-through and read back to the user. Only what the maquette must show. Testable where possible. Column Register: R-n (serves that register item) | new (product requirement the register lacks — plan-board numbers it) | model only | — (no register). -->
 
 ### Functional
-| ID | Requirement |
-| --- | --- |
-| cF-1 | <…> |
+| ID | Requirement | Register |
+| --- | --- | --- |
+| cF-1 | <…> | <R-n | new | model only | —> |
 
 ### User interaction
-| ID | Requirement |
-| --- | --- |
-| cU-1 | <…> |
+| ID | Requirement | Register |
+| --- | --- | --- |
+| cU-1 | <…> | <…> |
 
 ### Non-functional
-| ID | Requirement |
-| --- | --- |
-| cNF-1 | <…> |
+| ID | Requirement | Register |
+| --- | --- | --- |
+| cNF-1 | <…> | <…> |
 
 ## 8. Open questions
 

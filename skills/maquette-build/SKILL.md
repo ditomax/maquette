@@ -1,6 +1,6 @@
 ---
 name: maquette-build
-version: "0.3"
+version: "0.7"
 description: >
   Stage 4 of the maquette suite. Builds the prototype in vcode/ one vertical slice
   at a time from 20-plan.md and 30-design.md, checks each slice against its
@@ -35,7 +35,7 @@ Two sentences, in the user's language: the build team now works through the plan
 3. **Smoke check**: run/open it and try the acceptance criterion yourself. Report honestly: passed / failed with what you saw.
 4. Show the user where to click. Wait for "next" or a correction. A correction is part of the same slice.
 5. Git: one commit `maquette(<code>): slice S<n> <title>` (RULES §6). Record hash (or "— (no git)") in `40-build.md`.
-6. Anything the plan lacked but the code needed → "Requirements discovered while building" (`cF-new-<n>`), never back into 10 or 20. Anything deliberately left out → "Known gaps".
+6. Anything the plan lacked but the code needed → "Requirements discovered while building" (`cF-new-<n>`), never back into 10 or 20. With a register, mark each one `R-?` when it is a product requirement the register lacks (the brief gives it the next `R-M<n>`, origin `maquette`) or `model only`; and when a slice cannot show an item the plan marked `shown`, note it under "Known gaps" with the R-ID. Anything deliberately left out → "Known gaps".
 7. Check the budget after every slice. Workshop mode: stop after S3 unless time and user allow more.
 
 ## Rules while building

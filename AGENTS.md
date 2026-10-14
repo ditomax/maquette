@@ -8,8 +8,9 @@ You are working inside a **maquette workspace**. maquette turns one idea into a 
 
 1. Read `RULES.md` (binding for everything you do here).
 2. Read `skills/maquette/SKILL.md` and **act as the Director** described there. Do not wait for a slash command: if the user says "start", "next", "redo", "stop" (or the same in their language), or describes an idea, that is your cue.
+   **Exception:** if the user only asks about these files — what `START.md` or this file says, whether the guide is clear — answer the question and do not start the workflow (no Director greeting, no workspace).
 3. Mention the version from `VERSION` once, in half a sentence, at the first greeting.
-4. If `profile/` exists and is not empty, read `profile/README.md` — it carries this customer's constraints (RULES §8).
+4. If `profile/profile.md` exists, read it — it carries this customer's constraints and names the other profile files (RULES §8). `profile/README.md` only explains the folder.
 
 ## Layout
 
@@ -26,7 +27,7 @@ maquettes/              the user's work: one subfolder per maquette
 
 Stage skills live at `skills/maquette-<stage>/SKILL.md`; the Director calls them by reading those files. The workspace root is `<suite>` in the skills' wording.
 
-Inside a project the same suite sits at `<project>/planning/suite/maquette/`; then the work lives in `<project>/planning/maquette/`, the profile in `<project>/planning/profile/`, and a shortlist from the idea skillset may wait in `<project>/planning/idea/10-shortlist.md` (RULES §2, §9). The Director tells the two layouts apart by itself.
+Inside a project the same suite sits at `<project>/planning/suite/maquette/`; then the work lives in `<project>/planning/maquette/`, the profile in `<project>/planning/profile/`, and a shortlist or a register from the idea skillset may wait in `<project>/planning/idea/` (`10-shortlist.md`, `10-register.md`; RULES §2, §9). The Director tells the two layouts apart by itself.
 
 ## Hard limits in this workspace
 

@@ -1,6 +1,6 @@
 ---
 name: maquette-sparring
-version: "0.5"
+version: "0.7"
 description: >
   Stage 1 of the maquette suite. Sparring partner for one idea: frame it, ask the
   forcing questions, challenge its premises, show three directions before the user
@@ -13,7 +13,7 @@ description: >
 
 You are the **sparring partner**: warm, curious, and unwilling to let a vague idea pass. You produce a document, never code. Read `../../RULES.md` first.
 
-**Input:** the starting point from `00-maquette.md` (a shortlist entry from idea-evaluate — contract H1 —, an idea in two sentences, an idea card, or a concept sketch). **Output:** `10-seed.md` from `templates/10-seed.md`. **Budget:** `budget_min.sparring`.
+**Input:** the starting point from `00-maquette.md` (a register from idea-focus-review — contract `register/1` —, a shortlist entry from idea-evaluate — contract H1 —, an idea in two sentences, an idea card, or a concept sketch). **Output:** `10-seed.md` from `templates/10-seed.md`. **Budget:** `budget_min.sparring`.
 
 Lineage: framing and validation from our `idea-work` skill (Mode 1 + Mode 5, express); the forcing questions and the premise challenge from gstack `office-hours` — without its persona, goal categories, web search and second opinions. gstack is © 2026 Garry Tan, MIT License — full text in `LICENSES/gstack-MIT.txt`, details in `ATTRIBUTION.md`.
 
@@ -23,7 +23,7 @@ Two sentences, in the user's language: you are the sparring partner; in about 15
 
 ## Sequence
 
-### 1. Prefill (only with a shortlist entry, an idea card or a concept sketch)
+### 1. Prefill (only with a register, a shortlist entry, an idea card or a concept sketch)
 
 Map fields and read them back for correction instead of re-asking:
 
@@ -45,6 +45,27 @@ Map fields and read them back for correction instead of re-asking:
 | Views (contradictions), Dissent | — | — | hints for Q1/Q3; unresolved ones → §8 open question |
 | Umbrella entry: Variants table + `demo_variants` from `00-maquette.md` (H1/2) | — | — | Q4 starting point: the demo shows the named variant(s); their "needs only this variant has" → Q1/Q3 hints; every other variant → one §8 line "later scope: <ID> — <what differs>" |
 | Relation line (H1/2) | — | — | one sentence in §6 on where the idea came from (consolidated / split) — nothing else |
+
+**From a register** (`contract_in: register/1`) — one project, fixed by a committee; prefill from the Frame, the Project check, the Register and the Handover:
+
+| From the register | Fills |
+| --- | --- |
+| Frame: Problem; Goal and minimum success criterion | §1 Purpose |
+| Frame: Problem (for whom, how often); Users and scale | Q2 status quo (frequency × effort as stated; the cost stays yours if missing) |
+| Frame: Perspectives; register perspectives per item | Q1 / Q3 hints (who is affected; the specific person, situation and consequence stay yours) |
+| Handover: **demo focus** (R-IDs) | **Q4 starting point** — the demo shows these items; the scope sentence is still decided here |
+| Project check: "What would tip it" | §3 premise, rated `open` |
+| Project check: V3 note, data items | §3 premises |
+| Project check: V4 note | field of application **proposed**; direction hints for §6 |
+| Project check: **V7** (damage / verifiability) | §5 guardrail candidate ("a wrong result must be visible as such") and §9 "if wrong" |
+| K.o. decisions — every **condition** (items with origin `review`) | §5 guardrails, verbatim, citing the R-ID — never re-discussed |
+| Items of type constraint with priority MUST | §5 guardrail or a `cNF-` candidate citing the R-ID |
+| Dissent; decided conflicts (variants per touchpoint) | Q1 / Q3 hints; a variant outside the demo focus → one §8 line "later scope: <touchpoint>" |
+| **Open questions** | §8 as `OQ-n`, original wording, source "register #<k>" — never re-asked as new |
+| Riskiest assumption (project) | §9 |
+| Sponsor, decision date | already in `00-maquette.md` — not asked |
+
+Say: "From the register I take the following — tell me where it no longer holds." One block, then wait. The register's priorities are the committee's decision: you never change a priority, you only decide what the maquette shows. Nothing that was prefilled is asked again; a MUST constraint that binds the product (not the demo) becomes a `cNF-` candidate citing its R-ID rather than a maquette guardrail. The seed's *Input* section names the register file and revision.
 
 Say: "From the shortlist (or: your card) I take the following — tell me where it no longer holds." One block, then wait. Nothing that was prefilled is asked again; what the entry marks `[unknown]` is asked once, in its place in the sequence below.
 
@@ -91,7 +112,8 @@ Push once per question for a concrete noun or verb. Tag `[evidenced|estimated|un
 ### 7. Guardrails and candidates (§5, §7)
 
 - Guardrails: must-nots from the field check, from the user, from prefill (personal data flagged → no real personal data in the maquette), from the profile if present, and the "not shown" answers from the walk-through.
-- Derive 5–8 candidate requirements **from the walk-through**: every object or datum named there becomes a `cF-` (what the model shows or does), every step the viewer takes a `cU-` (how one interacts), every constraint a `cNF-`. Only what the maquette must show. **Read the candidates back inline as one table** and ask: "Anything missing the sponsor would look for — or anything here you would not build?" Adjust, then say plainly that they are candidates, not a spec.
+- Derive 5–8 candidate requirements **from the walk-through**: every object or datum named there becomes a `cF-` (what the model shows or does), every step the viewer takes a `cU-` (how one interacts), every constraint a `cNF-`. Only what the maquette must show.
+- **With a register:** every candidate names its register item in the column *Register* — `R-n` when it serves an item, `new` when the walk-through found a product requirement the register lacks (plan-board gives it the next `R-M<n>`, origin `maquette`), `model only` when it exists only to make the demo work (dated demo data, a reset button). Every demo-focus item must be served by at least one candidate; say so if one is not. **Read the candidates back inline as one table** and ask: "Anything missing the sponsor would look for — or anything here you would not build?" Adjust, then say plainly that they are candidates, not a spec.
 
 ### 8. Riskiest assumption (§9)
 
@@ -109,6 +131,7 @@ Read back scope sentence, chosen direction, guardrails, number of candidates and
 | Skip the three directions because the user "already knows" | Show them anyway — the stop is the point |
 | Ask the questions as a list | One at a time, push once, tag evidence |
 | Re-ask what the idea card answers | Prefill and read back |
+| Change a register priority or re-open a K.o. condition | Priorities and conditions are the committee's; the maquette decides only what it shows |
 | Derive candidates from Q1–Q4 alone | Walk the demo first; every candidate points to a screen, an action or a constraint the user named |
 | Write §7 without showing it | Read the candidate table back and let the user strike or add |
 | Write code, scaffold, or name a stack | Only 10-seed.md leaves this stage |

@@ -6,13 +6,13 @@ revision: 2
 created: 2026-09-10T14:05
 updated: 2026-09-10T14:24
 input: 10-seed.md@2, 20-plan.md@2, 30-design.md@2, 40-build.md@3, 50-harden.md@2
-contract: H2/2
+contract: H2/3
 ---
 <!-- Example — fictitious Example GmbH. Shows what a finished file looks like; not a template. -->
 
 # Brief OFA: Offer draft assistant
 
-_Result of the brief stage and exit point of the maquette. Part 1 is for the presentation, Part 2 for the decision afterwards, Part 3 is **contract H2** — the handover to build. Build intake reads Part 3 and `vcode/` (read-only) and runs Path B (extract what the prototype already answers) before Path A (grill what it does not)._
+_Result of the brief stage and exit point of the maquette. Part 1 is for the presentation, Part 2 for the decision afterwards, Part 3 is **contract H2** — the handover to build. Build intake reads Part 3 and `vcode/` (read-only) and runs Path B (extract what the prototype already answers) before Path A (grill what it does not); with a register it also traces every R-ID (Path R)._
 
 ## Part 1 — Demo script (3 minutes)
 
@@ -48,24 +48,28 @@ _Result of the brief stage and exit point of the maquette. Part 1 is for the pre
 
 Internal web app (document assistant) for sales engineers: CRM opportunity in, offer draft out.
 
+### Register and coverage
+
+No register — contract_in: H1/2 (started from shortlist entry EXG-001).
+
 ### Updated candidate requirements
 
-| ID | Requirement | Origin | Status in maquette |
-| --- | --- | --- | --- |
-| cF-1 | A list of open opportunities with customer, pump series, quantity and stage | seed | shown |
-| cF-2 | Offer fields are prefilled from the selected CRM record, each with an origin tag | seed | shown |
-| cF-3 | Offer fields the record does not provide, or provides empty, are flagged as missing | seed | shown |
-| cF-4 | Text blocks from earlier offers of the same pump series are suggested | seed | partial |
-| cF-5 | A draft preview shows all sections and a count of values by origin | seed | shown |
-| cF-6 | Each suggested block shows the earlier offer's number and date | plan | shown |
-| cF-7 | The draft can be exported as a Word document based on the binding offer layout | plan | not shown |
-| cF-8 | Flow rates from earlier offers in l/s are converted to m³/h before reuse | build | partial |
-| cU-1 | One click from an opportunity to its draft workbench | seed | shown |
-| cU-2 | Each suggested text block can be accepted or rejected | seed | shown |
-| cU-3 | Preview is enabled only when no missing field is left empty | plan | shown |
-| cNF-1 | A draft is assembled in under 10 minutes (today ~2 h) | seed | partial |
-| cNF-2 | The preview prints on A4 without cut-off sections | build | partial |
-| cNF-3 | Missing-field markers are readable without colour (icon and text) | harden | shown |
+| ID | Requirement | Origin | Status in maquette | Register |
+| --- | --- | --- | --- | --- |
+| cF-1 | A list of open opportunities with customer, pump series, quantity and stage | seed | shown | — |
+| cF-2 | Offer fields are prefilled from the selected CRM record, each with an origin tag | seed | shown | — |
+| cF-3 | Offer fields the record does not provide, or provides empty, are flagged as missing | seed | shown | — |
+| cF-4 | Text blocks from earlier offers of the same pump series are suggested | seed | partial | — |
+| cF-5 | A draft preview shows all sections and a count of values by origin | seed | shown | — |
+| cF-6 | Each suggested block shows the earlier offer's number and date | plan | shown | — |
+| cF-7 | The draft can be exported as a Word document based on the binding offer layout | plan | not shown | — |
+| cF-8 | Flow rates from earlier offers in l/s are converted to m³/h before reuse | build | partial | — |
+| cU-1 | One click from an opportunity to its draft workbench | seed | shown | — |
+| cU-2 | Each suggested text block can be accepted or rejected | seed | shown | — |
+| cU-3 | Preview is enabled only when no missing field is left empty | plan | shown | — |
+| cNF-1 | A draft is assembled in under 10 minutes (today ~2 h) | seed | partial | — |
+| cNF-2 | The preview prints on A4 without cut-off sections | build | partial | — |
+| cNF-3 | Missing-field markers are readable without colour (icon and text) | harden | shown | — |
 
 ### Guardrails
 

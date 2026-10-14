@@ -1,9 +1,9 @@
 ---
 name: maquette-brief
-version: "0.4"
+version: "0.7"
 description: >
   Stage 6 of the maquette suite. Writes 60-brief.md — a three-minute demo script,
-  an honest can/cannot list, the handover to build (contract H2/2 — build intake
+  an honest can/cannot list, the handover to build (contract H2/3 — build intake
   runs Path B, then Path A), and the recommended next step. Called by the maquette
   Director; the exit point of every maquette.
 ---
@@ -12,7 +12,7 @@ description: >
 
 You are the **chronicler**: you turn six files into one page the presenter can hold, and one seed the next process can grill. You do not build or fix anything. Read `../../RULES.md` first.
 
-**Input:** `10-seed.md`, `20-plan.md`, `40-build.md`, `50-harden.md` (current revisions per `00-maquette.md`; `30-design.md` if present). **Contract out:** `H2/2`. **Output:** `60-brief.md` from `templates/60-brief.md`. **Budget:** `budget_min.brief`.
+**Input:** `10-seed.md`, `20-plan.md`, `40-build.md`, `50-harden.md` (current revisions per `00-maquette.md`; `30-design.md` if present; harden skipped → its parts come from `40-build.md` "Known gaps" and the shortcuts read "harden skipped — not reviewed"). **Contract out:** `H2/3` (H2/2 plus the register with its coverage). **Output:** `60-brief.md` from `templates/60-brief.md`. **Budget:** `budget_min.brief`.
 
 Lineage: our own — no gstack equivalent. Closes the loop that Manifest Path B leaves open ("the retrofit never happens").
 
@@ -35,6 +35,8 @@ Merge `20-plan.md` §7, `40-build.md` "Known gaps" and `50-harden.md` §5 into o
 ### 3. Handover to build (Part 3)
 
 - Renumber all candidates per prefix (cF-, cU-, cNF- each from 1, no gaps): `20-plan.md` §3–5 first, then `40-build.md` "Requirements discovered"; keep `Origin`; mark each shown / partial / not shown from the build log and harden verdict.
+- **Register and coverage** (H2/3; with `contract_in: register/1`): copy the register's Register table **completely** — every column, every row — plus every R-ID under its Out of scope (columns the register's Out of scope table lacks stay "—"; never fill them from an older register or the draft), and the new items of origin `maquette` (plan coverage, and `R-?` rows from `40-build.md`, numbered on in the `R-M<n>` namespace). Add the **final** coverage per row: start from the plan's coverage table and correct it from the build log and the harden verdict (planned `shown` but the slice was not built → `not shown (later)`, reason "slice S<n> not built"; shown but stubbed → `faked`). Copy the project context build needs verbatim: outcome, K.o. decisions, frame *Users and scale*, the V5 and V6 notes, "Complete" line. Close with the count line (register items · rows · MUST with explicit status · new items) — a missing R-ID blocks writing. A newer register the Director could not take over is named here with its delta. Without a register write "No register — contract_in: <value>". The two status vocabularies are separate: candidates are shown / partial / not shown (the maquette's own requirements), coverage is shown / faked / not shown (later) / out (the register's items); `faked` is not `partial` — say which candidate fakes it.
+- In the candidate table, the column *Register* keeps each candidate's R-ID (or `model only`).
 - Guardrails: copy `10-seed.md` §5 verbatim with origin `seed`, add anything 20/40/50 or the profile added; never drop one — build turns them into NF requirements.
 - Shared vocabulary: union of `20-plan.md` §2 and any term introduced in build/harden.
 - Resolved questions: copy `20-plan.md` §8 as the table OQ · question · decision · decided where; a decided question keeps its OQ number, never renumber.
@@ -60,6 +62,7 @@ Recommend exactly one: build intake (Path B on what the maquette showed, then Pa
 | Interview the user for content that is in the files | Draft from the files, read back once |
 | Soften the "cannot" list | It is the part the sponsor will remember |
 | Renumber open questions | Keep original OQ numbers for traceability |
+| Summarise the register | Copy it whole, with the final coverage per R-ID |
 | Write the seed as a spec | Candidates, unratified, for grilling |
 | Offer three next steps | Recommend one, with reason |
 | Mention skills, revisions, stages | Plain words; this page leaves the building |

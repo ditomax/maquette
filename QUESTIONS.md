@@ -1,17 +1,21 @@
 # maquette — Every question the skillset asks a human
 
-**Version 2 (maquette 0.6.0).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. "Prefilled from" names the earlier file that already answers it; with a shortlist entry (contract H1) those rows are read back and confirmed in one block, never re-asked. "—" means the question is this stage's own. Mode column: W = workshop, D = discovery, both if empty.
+**Version 3 (maquette 0.7.0).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. "Prefilled from" names the earlier file that already answers it; with a register (contract register/1) or a shortlist entry (contract H1) those rows are read back and confirmed in one block, never re-asked. "—" means the question is this stage's own. Mode column: W = workshop, D = discovery, both if empty.
 
 ## Director (`maquette`) — first call only
 
 | # | Question | Prefilled from | Note |
 | --- | --- | --- | --- |
 | D1 | (with shortlist) H1/2: The committee chose <ID — title> (demo: <variants>) — do we build that one? · H1/1 or no choice: Which one do we build? — entries listed as rank · ID · title · recommendation | `10-shortlist.md` Maquette order | exactly one; a deviation from the committee's choice gets a one-sentence reason |
-| D1' | (cold start) What do we start from — an idea in two sentences, an idea card, a concept sketch — or, if you come from idea, the path to your shortlist file? | — | if the first message mentions idea / shortlist / committee, the path is asked first |
-| D2 | Code (2–4 letters) and working title — proposed, user corrects | shortlist entry ID / title | |
-| D3 | Mode: the committee suggested <mode> — fine? / Workshop or discovery? | shortlist "Recommended mode" | default workshop |
+| D1R | (with register) The committee decided <outcome>, next <stage>, demo focus <R-IDs> — one project, nothing to pick. Only if outcome is stop or next is build: build a maquette anyway? | `10-register.md` Project check, Handover | no pick; register/2 or later → named, Director stops |
+| D1' | (cold start) What do we start from — an idea in two sentences, an idea card, a concept sketch — or, if you come from idea, the path to your shortlist or register file? | — | if the first message mentions idea / shortlist / register / committee, the path is asked first |
+| D1B | (both a shortlist and a register exist) Which one do we start from? | `planning/idea/` | once; normally one workspace has one track |
+| D2 | Code (2–5 letters) and working title — proposed, user corrects | register code / title, shortlist entry ID / title | |
+| D3 | Mode: the committee suggested <mode> — fine? / Workshop or discovery? | shortlist "Recommended mode" (a register carries none) | default workshop |
 | D4 | Git: is the folder a repository? | checked silently, result told | never `git init`; a clone of the public repo counts as no |
 | D5 | Language of the result files? | profile → chat language → explicit statement | |
+| D6 | A newer register exists — here is the delta (new · priority · statement · out of scope · demo focus · lights and K.o. decisions · open questions · completeness · outcome). Take it over? | `10-register.vN.md` vs. `register:` in 00-maquette.md | any later call; yes → plan (and brief) stale, coverage redo |
+
 
 Every later call: one question at most — "Good as it is — next, or redo?" after a stage; the gate and conflict questions listed under the stages.
 
@@ -19,7 +23,7 @@ Every later call: one question at most — "Good as it is — next, or redo?" af
 
 | # | Question | Mode | Prefilled from (H1 entry / card) | Seed section |
 | --- | --- | --- | --- | --- |
-| S0 | From the shortlist I take the following — tell me where it no longer holds. (one block) | | Opportunity, Min. success criterion → §1 · Stakeholders, Cost → Q1 · Process, Cost → Q2 · Stakeholders first line → Q3 · Min. success criterion → Q4 start · Data situation, Earlier attempts → §3 · Personal data, Legal, waivers → §5 · Riskiest assumption, V10 → §9 · unknowns, waivers → §8 · Committee rationale → §6 | all |
+| S0 | From the register / the shortlist I take the following — tell me where it no longer holds. (one block) | | **Register:** Frame problem, goal → §1 · Frame problem, Users and scale → Q2 · perspectives → Q1/Q3 hints · demo focus → Q4 start · what would tip it → §3 · V3 → §3 · V4 → field · V7 → §5, §9 · K.o. conditions, MUST constraints → §5 · dissent, conflicts → hints · open questions → §8 OQ-n · riskiest assumption → §9. **Shortlist:** Opportunity, Min. success criterion → §1 · Stakeholders, Cost → Q1 · Process, Cost → Q2 · Stakeholders first line → Q3 · Min. success criterion → Q4 start · Data situation, Earlier attempts → §3 · Personal data, Legal, waivers → §5 · Riskiest assumption, V10 → §9 · unknowns, waivers → §8 · Committee rationale → §6 | all |
 | S1 | Is this the problem in one sentence: …? | | Opportunity | §1 |
 | S2 | Why does this matter right now? (ladder up once) | | — | §1 |
 | S3 | Field of application — is it <proposal>? | | V4, Process & systems (confirmed, not guessed) | Field |
@@ -56,6 +60,7 @@ With a complete H1 entry sparring asks **3 own questions of substance** (Q1 evid
 | F2 | Design fork (at most one), e.g. projector or own laptop? | | profile design rules decided here | §9 |
 | F3 | Engineering fork (at most one), e.g. live fetch or a file in the folder? | | profile IT constraints are hard limits | §9 |
 | P7 | Acceptance criteria per slice — read back one by one: right? | | — | §10 |
+| P9 | Register coverage — here is every R-ID with shown · faked · not shown (later) · out and the count line: right? Any MUST you want shown after all? | | 20-plan coverage draft | Register coverage |
 | P8 | Do you approve the plan — yes, with changes, or redo? (gate) | W 1 round / D 2 | — | §12 |
 
 ## Stage 3 — design-3 (skippable)
@@ -94,4 +99,4 @@ Everything else in the brief is drafted from the six files and read back once �
 
 ## What maquette hands over and never asks again
 
-`60-brief.md` (contract H2/2) carries the field of application, the guardrails, the candidate requirements with their maquette status, the shared vocabulary, decided and open questions, the riskiest assumption with what the maquette showed, and the prototype facts for reading `vcode/`. build's intake extracts these (Path B) and asks only for what the maquette did not show — see `build/QUESTIONS.md`.
+`60-brief.md` (contract H2/3) carries the register with the final coverage of every R-ID (when the maquette started from one), the field of application, the guardrails, the candidate requirements with their maquette status, the shared vocabulary, decided and open questions, the riskiest assumption with what the maquette showed, and the prototype facts for reading `vcode/`. build's intake extracts these (Path B) and asks only for what the maquette did not show — see `build/QUESTIONS.md`.

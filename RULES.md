@@ -1,6 +1,6 @@
 # maquette — Shared Rules for All Stage Skills
 
-**Version 2.** Every stage skill reads this file before doing anything. The Director (`maquette`) enforces it. If a stage skill and this file disagree, this file wins.
+**Version 3** (maquette 0.7.0: register/1 in, coverage, H2/3 out). Every stage skill reads this file before doing anything. The Director (`maquette`) enforces it. If a stage skill and this file disagree, this file wins.
 
 ## 1. Vocabulary
 
@@ -9,6 +9,8 @@
 - **Result file** — `NN-<stage>.md` in the maquette folder, filled from the matching template in `templates/`.
 - **Director** — the `maquette` skill. Reads the folder, tells the user where they are, calls the stage skill, updates `00-maquette.md`.
 - **Human notes** — the section `## Notes (human)` at the end of every result file.
+- **Register** — `10-register.md` from idea's focus track (contract `register/1`): one fixed project, every requirement `R-<n>` with a committee priority MUST / SHOULD / COULD.
+- **Coverage** — what the maquette does with each register item: `shown` · `faked` · `not shown (later)` · `out`, with a reason where needed. Kept in `20-plan.md` and, final, in `60-brief.md`. Nothing drops silently.
 - **Profile** — an optional `profile/` folder in the workspace with customer-specific constraints (reserved; see §8).
 
 ## 2. Folder is the state
@@ -17,10 +19,10 @@ There is no state outside the maquette folder — no `~/.something`, no environm
 
 Two layouts are supported; the Director resolves which one applies at start and calls the maquettes root `<work>`:
 
-| Layout | `<suite>` (read-only) | `<work>` (maquette folders) | profile | shortlist (H1) |
+| Layout | `<suite>` (read-only) | `<work>` (maquette folders) | profile | shortlist (H1) · register |
 | --- | --- | --- | --- | --- |
 | standalone workspace | the folder holding `AGENTS.md`, `VERSION` | `<suite>/maquettes/` | `<suite>/profile/` | none, or a file the user names |
-| inside a project | `<project>/planning/suite/maquette/` | `<project>/planning/maquette/` | `<project>/planning/profile/` | `<project>/planning/idea/10-shortlist.md` |
+| inside a project | `<project>/planning/suite/maquette/` | `<project>/planning/maquette/` | `<project>/planning/profile/` | `<project>/planning/idea/10-shortlist.md` · `10-register.md` (highest `.vN`) |
 
 The project layout is recognised by a `planning/` folder above `<suite>`. Everything else is identical: one folder per maquette, nothing outside it.
 
@@ -113,4 +115,5 @@ The Director passes the rows of the coming stage to the stage skill together wit
 maquette sits between two other skillsets and talks to them through files. A missing contract file is never an error — it only means more questions for the user.
 
 - **H1 — in.** `10-shortlist.md` (contract `H1/2` from idea ≥ 0.2.0, `H1/1` from older idea; written by idea-evaluate). With H1/2 the Director proposes the entry the committee named under Maquette order (and, for an umbrella entry, its demo variants), the user confirms or picks another with a recorded reason; with H1/1 the Director lists the entries and the user picks. Always exactly one; sparring prefills from that entry and confirms instead of asking. Without a shortlist: cold start from an idea in prose, an idea card or a concept sketch.
-- **H2 — out.** `60-brief.md` (contract `H2/2`) is the handover to build. Part 3 carries everything build intake needs — guardrails, candidates, vocabulary, decided and open questions, riskiest assumption, and the prototype facts for reading `vcode/` (stack, real/faked, data, slices with acceptance criteria, design, shortcuts). Build reads all four parts. Decided and open questions both keep their `OQ-n` numbers; build continues the sequence. After `done`, neither the brief nor `vcode/` is edited by anyone — build reads, never writes here.
+- **register/1 — in.** `10-register.md` (`contract: register/1`, `track: focus`, from idea ≥ 0.3.0; written by idea-focus-review). One project, so no pick; sparring prefills from frame, project check, register and handover (demo focus → Q4, K.o. conditions → guardrails, open questions → `OQ-n`). Every R-ID gets a coverage row in `20-plan.md` and, final, in `60-brief.md`; new requirements found by the maquette get its own namespace `R-M<n>` (R-M1, R-M2 … — never a plain R-number, so a later register round cannot collide), origin `maquette`, priority proposed; register priorities are never changed. A newer register version (`10-register.vN.md`) is detected on every opening and taken over as a delta (coverage redo). `register/2` or later → the Director names it and stops.
+- **H2 — out.** `60-brief.md` (contract `H2/3`) is the handover to build. Part 3 carries everything build intake needs — the register with its final coverage (H2/3, or "No register"), guardrails, candidates with their R-IDs, vocabulary, decided and open questions, riskiest assumption, and the prototype facts for reading `vcode/` (stack, real/faked, data, slices with acceptance criteria, design, shortcuts). Build reads all four parts. Decided and open questions both keep their `OQ-n` numbers; build continues the sequence. After `done`, neither the brief nor `vcode/` is edited by anyone — build reads, never writes here. H2/3 = H2/2 + subsection *Register and coverage* + column *Register*.
