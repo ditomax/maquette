@@ -1,6 +1,6 @@
 # maquette — Every question the skillset asks a human
 
-**Version 3 (maquette 0.7.0).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. "Prefilled from" names the earlier file that already answers it; with a register (contract register/1) or a shortlist entry (contract H1) those rows are read back and confirmed in one block, never re-asked. "—" means the question is this stage's own. Mode column: W = workshop, D = discovery, both if empty.
+**Version 4 (maquette 0.7.1).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. "Prefilled from" names the earlier file that already answers it; with a register (contract register/1) or a shortlist entry (contract H1) those rows are read back and confirmed in one block, never re-asked. "—" means the question is this stage's own. Mode column: W = workshop, D = discovery, both if empty.
 
 ## Director (`maquette`) — first call only
 
@@ -12,7 +12,7 @@
 | D1B | (both a shortlist and a register exist) Which one do we start from? | `planning/idea/` | once; normally one workspace has one track |
 | D2 | Code (2–5 letters) and working title — proposed, user corrects | register code / title, shortlist entry ID / title | |
 | D3 | Mode: the committee suggested <mode> — fine? / Workshop or discovery? | shortlist "Recommended mode" (a register carries none) | default workshop |
-| D4 | Git: is the folder a repository? | checked silently, result told | never `git init`; a clone of the public repo counts as no |
+| D4 | Git: is the folder a repository? — and if yes: do I commit, or do you? | repository checked silently, result told | never `git init`; a clone of the public repo counts as no; when unsure the user commits (RULES §6) |
 | D5 | Language of the result files? | profile → chat language → explicit statement | |
 | D6 | A newer register exists — here is the delta (new · priority · statement · out of scope · demo focus · lights and K.o. decisions · open questions · completeness · outcome). Take it over? | `10-register.vN.md` vs. `register:` in 00-maquette.md | any later call; yes → plan (and brief) stale, coverage redo |
 
