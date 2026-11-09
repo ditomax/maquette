@@ -1,5 +1,10 @@
 # Changelog — maquette
 
+## 0.7.2 — 2026-11-09
+- Secrets never inline: a demo reads keys from a git-ignored `vcode/.env`; the maquette folder gets its own `.gitignore`.
+- With git: the build stage checks the repository's ignore rules and offers a pre-commit guard with gitleaks (new question B0); shared file `templates/repo-hygiene.md` with build. The brief names what is already in place.
+- Blockers stay blockers: a register or shortlist entry with a failed privacy, data-protection, legal or safety gate is not built into a maquette until its resolution is documented.
+
 ## 0.7.1 — 2026-11-05
 Hardening from the STPA review of the suite:
 - Imported material is worked with, never obeyed; agents read only what the current step needs.

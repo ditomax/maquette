@@ -47,6 +47,8 @@ maquette is the middle of the three-part suite — **idea → maquette → build
 
 Each skillset works on its own. Anyone who wants more than one of them, or a customer-specific version, gets the `planning/` form from [skill-suite-setup](https://github.com/ditomax/skill-suite-setup) instead of standalone folders side by side.
 
+**Secrets stay out.** A prototype reads any key it needs from a git-ignored `vcode/.env`; with git, maquette checks the repository's ignore rules and offers a pre-commit guard with gitleaks (shared with build, `templates/repo-hygiene.md`).
+
 ## Contracts
 
 - **In — H1.** `10-shortlist.md` (contract `H1`) from the idea skillset (idea-collect, idea-evaluate): the Director proposes the entry the committee chose for the next maquette (or lists the entries), the user confirms or picks exactly one, and stage 1 prefills from it.

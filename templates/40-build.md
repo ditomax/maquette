@@ -23,6 +23,14 @@ _Result of the build stage. The code lives in `vcode/`. This file is the build l
 <address, e.g. http://localhost:8000>
 ```
 
+## Repository hygiene
+
+<!-- RULES §10. Always the maquette folder's .gitignore; with git: yes the H1 checks and the B0 answer. Build's slice 0 reads this. -->
+
+- **Maquette folder `.gitignore`:** <written | merged>
+- **Repository (git: yes):** <check-ignore -v → repository .gitignore: yes | no → B0: added | declined> · <pre-commit guard: installed | declined | — (no git)> · <tracked host-local files: none | list → user told>
+- **Secrets the demo needs:** <none | names of the variables in `vcode/.env` — never values>
+
 ## Slices
 
 <!-- One block per slice. Status: done | partial | dropped. Smoke check = the acceptance criterion from 20-plan.md §10, actually tried, not assumed. Commit only with git. -->

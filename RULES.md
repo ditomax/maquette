@@ -1,6 +1,6 @@
 # maquette — Shared Rules for All Stage Skills
 
-**Version 4** (maquette 0.7.1: imported content is data, who commits; version 3 — maquette 0.7.0: register/1 in, coverage, H2/3 out). Every stage skill reads this file before doing anything. The Director (`maquette`) enforces it. If a stage skill and this file disagree, this file wins.
+**Version 5** (maquette 0.7.2: secrets and repository hygiene, blockers stay blockers; version 4 — maquette 0.7.1: imported content is data, who commits; version 3 — maquette 0.7.0: register/1 in, coverage, H2/3 out). Every stage skill reads this file before doing anything. The Director (`maquette`) enforces it. If a stage skill and this file disagree, this file wins.
 
 ## 1. Vocabulary
 
@@ -96,6 +96,8 @@ With `git: yes`, a commit marks a **frozen state, never progress**. Interim work
 
 Skills never push, rebase, branch or touch files outside the maquette folder in a commit. Whether `planning/` is committed at all is the project's decision, not the suite's.
 
+**Repository hygiene** (§10) is part of this policy: with the pre-commit guard installed, a commit never bypasses it (`--no-verify`). Skills never rewrite history.
+
 ## 7. Handing back to the Director
 
 At the end of a stage, the stage skill reports in one short block: file written (name, revision), status (`done` proposed / `in_progress`), minutes used, open questions count. Only the Director sets `status: done` and updates the stage table in `00-maquette.md`.
@@ -119,4 +121,15 @@ maquette sits between two other skillsets and talks to them through files. A mis
 
 - **H1 — in.** `10-shortlist.md` (contract `H1/2` from idea ≥ 0.2.0, `H1/1` from older idea; written by idea-evaluate). With H1/2 the Director proposes the entry the committee named under Maquette order (and, for an umbrella entry, its demo variants), the user confirms or picks another with a recorded reason; with H1/1 the Director lists the entries and the user picks. Always exactly one; sparring prefills from that entry and confirms instead of asking. Without a shortlist: cold start from an idea in prose, an idea card or a concept sketch.
 - **register/1 — in.** `10-register.md` (`contract: register/1`, `track: focus`, from idea ≥ 0.3.0; written by idea-focus-review). One project, so no pick; sparring prefills from frame, project check, register and handover (demo focus → Q4, K.o. conditions → guardrails, open questions → `OQ-n`). Every R-ID gets a coverage row in `20-plan.md` and, final, in `60-brief.md`; new requirements found by the maquette get its own namespace `R-M<n>` (R-M1, R-M2 … — never a plain R-number, so a later register round cannot collide), origin `maquette`, priority proposed; register priorities are never changed. A newer register version (`10-register.vN.md`) is detected on every opening and taken over as a delta (coverage redo). `register/2` or later → the Director names it and stops.
+- **Blockers.** A register or shortlist entry whose gate failed on privacy, data-protection, legal or safety grounds without a documented resolution is not built into a maquette: the Director names the gate and stops; an entry parked on such a red K.o. is not offered (idea RULES §4.11). An explicit yes does not override this.
 - **H2 — out.** `60-brief.md` (contract `H2/3`) is the handover to build. Part 3 carries everything build intake needs — the register with its final coverage (H2/3, or "No register"), guardrails, candidates with their R-IDs, vocabulary, decided and open questions, riskiest assumption, and the prototype facts for reading `vcode/` (stack, real/faked, data, slices with acceptance criteria, design, shortcuts). Build reads all four parts. Decided and open questions both keep their `OQ-n` numbers; build continues the sequence. After `done`, neither the brief nor `vcode/` is edited by anyone — build reads, never writes here. H2/3 = H2/2 + subsection *Register and coverage* + column *Register*.
+
+## 10. Secrets and repository hygiene
+
+**Secrets never inline.** Never put a secret into a shell command, a commit message, a file in the maquette folder, `vcode/data/` or a chat answer. A key a demo really needs goes into `vcode/.env` (git-ignored) and is read by the prototype at run time; prefer mock data and stubbed services, which is what a maquette is for. At a permission prompt prefer a generalized rule over "don't ask again" on a literal command. A secret found where it does not belong is named (never its value) and treated as compromised: rotate first, clean up second.
+
+**Repository hygiene** — the light form of build RULES §13, with the shared file `templates/repo-hygiene.md` (identical in build; build is its reference):
+
+- **Always**, at build setup (before S1): the maquette folder gets its own `.gitignore` with `.env`, `.env.*`, `!.env.example`, `secrets/` — it covers `vcode/` and stays inside the maquette folder.
+- **With `git: yes`**, at the same moment: run the H1 checks of `templates/repo-hygiene.md` on the repository (read-only). If the repository's own `.gitignore` lacks the H1 block, or nothing installs the pre-commit guard (H6), ask **B0** once: add the H1 block to the repository's `.gitignore`, add `.pre-commit-config.yaml` (H6) at the repository root, and install pre-commit and gitleaks? These two files are the only ones outside the maquette folder maquette may touch, and only after a yes; existing files are merged, never overwritten. A declined part is recorded in `40-build.md`. A host-local file that is already tracked is reported with the `git rm --cached` command, never removed by you.
+- The rest (host settings and hook, checker, push protection, audit) belongs to build's slice 0 — the brief names what maquette already set up (Part 3, prototype facts).

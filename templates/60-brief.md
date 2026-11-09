@@ -111,6 +111,7 @@ _Result of the brief stage and exit point of the maquette. Part 1 is for the pre
 - **Shortcuts taken:** <from 50-harden.md — what was deliberately not fixed and why>
 - **Worth keeping:** <parts of vcode/ the build team suggested reusing as-is, or "nothing — rebuild from concept">
 - **Not worth keeping:** <parts that only exist to make the demo run>
+- **Secrets and repository hygiene:** <from 40-build.md — maquette folder .gitignore; repository H1 / pre-commit: done | declined | no git; secrets the demo reads from `vcode/.env`: names only, never values — build's slice 0 completes the rest>
 
 ## Part 4 — Next step
 

@@ -1,6 +1,6 @@
 # maquette — Every question the skillset asks a human
 
-**Version 4 (maquette 0.7.1).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. "Prefilled from" names the earlier file that already answers it; with a register (contract register/1) or a shortlist entry (contract H1) those rows are read back and confirmed in one block, never re-asked. "—" means the question is this stage's own. Mode column: W = workshop, D = discovery, both if empty.
+**Version 5 (maquette 0.7.2).** One row per question, in the order it is asked. **The IDs are stable identifiers** — `profile/questions.md` (setup skill) refers to them; renumbering is a breaking change. "Prefilled from" names the earlier file that already answers it; with a register (contract register/1) or a shortlist entry (contract H1) those rows are read back and confirmed in one block, never re-asked. "—" means the question is this stage's own. Mode column: W = workshop, D = discovery, both if empty.
 
 ## Director (`maquette`) — first call only
 
@@ -75,6 +75,7 @@ With a complete H1 entry sparring asks **3 own questions of substance** (Q1 evid
 
 | # | Question | When |
 | --- | --- | --- |
+| B0 | (git: yes, something missing) Add the secret-hygiene ignore rules to the repository's `.gitignore` and a pre-commit guard with gitleaks at the repository root — and may I install pre-commit and gitleaks? | build setup, before S1; never skippable (the install part may be declined) |
 | B1 | Something must be installed: here is the exact command — go ahead? | only if the plan names an install |
 | B2 | Slice S<n> is clickable here — next, or a correction? | after every slice |
 | B3 | This slice cannot be built as planned — smallest cut is …, agreed? | on deviation |

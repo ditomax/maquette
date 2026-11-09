@@ -25,6 +25,7 @@ Two sentences, in the user's language: the build team now works through the plan
 - Create `vcode/`. Copy the chosen design file (`start_file` from `30-design.md` §4) as the starting point; keep its tokens.
 - Stack: as decided in `20-plan.md` §9 engineering. Default: static HTML/JS or one Python file. **No installs** unless the plan names them; if something must be installed, say the exact command and wait. A profile's IT constraints override any default.
 - Data: in `vcode/data/`, with a `SOURCE.md` (source, date, licence line). Synthetic data is fine if the plan says so — label it visibly in the UI ("sample data, as of …").
+- **Secrets and repository hygiene** (RULES §10): write the maquette folder's `.gitignore`; with `git: yes` run the H1 checks of `templates/repo-hygiene.md` and, if anything is missing, ask B0 (repository `.gitignore`, pre-commit guard). A demo that needs a key reads it from `vcode/.env` — never from code, data or the command line. Record the result under *Repository hygiene* in `40-build.md`.
 - Write the **How to start** block in `40-build.md` first, then verify it works.
 - Git (`git: yes` only): work on the current branch; commit the setup as `maquette(<code>): slice S0 setup`. Never `git init`, never push.
 
@@ -44,6 +45,7 @@ Two sentences, in the user's language: the build team now works through the plan
 - Keep the UI text in the project language and the vocabulary from `20-plan.md` §2.
 - If a slice cannot be built as planned, say so, propose the smallest cut, and record the deviation — do not silently change scope.
 - No hidden network calls; if the maquette fetches anything live, it must be in the plan and visible in the UI.
+- No secret in a command, a commit, `vcode/` code or `vcode/data/`; never commit with `--no-verify`.
 
 ## Close
 
