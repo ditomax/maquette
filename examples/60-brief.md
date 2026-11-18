@@ -149,4 +149,6 @@ No register — contract_in: H1/2 (started from shortlist entry EXG-001).
 - **Who decides:** Head of Sales
 - **When:** sales leadership meeting on 2026-09-17
 
+> Produced with the skill suite (guidelines only) — review and responsibility lie with the operator; see `DISCLAIMER.md`.
+
 ## Notes (human)

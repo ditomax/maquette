@@ -14,6 +14,7 @@ git: no                      # yes | no — checked by the Director at start
 language: en                 # language of the result files' content
 budget_min: {sparring: 15, plan: 20, design: 15, build: 60, harden: 20, brief: 10}
 profile: none                # none | profile/ (if a profile folder exists)
+disclaimer: —                # accepted <YYYY-MM-DD> — set by the Director after the user's ok (RULES §11)
 contract_in: none            # none | H1/1 | H1/2 (started from a shortlist entry) | register/1 (started from a register)
 register: —                  # register/1 only: the register version coverage is measured against, e.g. ../../idea/10-register.md@3 (relative to this maquette folder)
 demo_variants: —             # umbrella entry only: variant IDs the demo shows (from the shortlist's Maquette order)

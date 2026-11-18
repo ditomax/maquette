@@ -53,7 +53,7 @@ input: <file>@<revision>[, <file>@<revision>]
 ---
 ```
 
-`00-maquette.md` additionally carries `title`, `code`, `mode`, `git`, `language`, `budget_min`. Stage skills read those; only the Director writes them. A template may add stage-specific fields (`40-build.md`: `git`; `50-harden.md`: `git`, `budget_fixes`) — copied from `00-maquette.md`, never invented.
+`00-maquette.md` additionally carries `title`, `code`, `mode`, `git`, `language`, `budget_min`, `disclaimer` (§11). Stage skills read those; only the Director writes them. A template may add stage-specific fields (`40-build.md`: `git`; `50-harden.md`: `git`, `budget_fixes`) — copied from `00-maquette.md`, never invented.
 
 ## 4. Write rules
 
@@ -133,3 +133,15 @@ maquette sits between two other skillsets and talks to them through files. A mis
 - **Always**, at build setup (before S1): the maquette folder gets its own `.gitignore` with `.env`, `.env.*`, `!.env.example`, `secrets/` — it covers `vcode/` and stays inside the maquette folder.
 - **With `git: yes`**, at the same moment: run the H1 checks of `templates/repo-hygiene.md` on the repository (read-only). If the repository's own `.gitignore` lacks the H1 block, or nothing installs the pre-commit guard (H6), ask **B0** once: add the H1 block to the repository's `.gitignore`, add `.pre-commit-config.yaml` (H6) at the repository root, and install pre-commit and gitleaks? These two files are the only ones outside the maquette folder maquette may touch, and only after a yes; existing files are merged, never overwritten. A declined part is recorded in `40-build.md`. A host-local file that is already tracked is reported with the `git rm --cached` command, never removed by you.
 - The rest (host settings and hook, checker, push protection, audit) belongs to build's slice 0 — the brief names what maquette already set up (Part 3, prototype facts).
+
+## 11. Disclaimer
+
+The skill suite is a set of guidelines; whoever runs it is responsible for inputs, outputs and decisions (`DISCLAIMER.md`). The Director shows this notice once per `00-maquette.md` and records the acknowledgement. It is never skipped, not even by a profile (a profile may restrict, never loosen — §8).
+
+> The skill suite is a set of guidelines. You — the person running it — are responsible for all inputs, outputs and decisions. Review the results before relying on them. Full text: `DISCLAIMER.md`.
+
+- **When:** on a first call, before the first question; on any later opening whose `00-maquette.md` has no `disclaimer: accepted …` (work files from earlier versions).
+- **How:** verbatim in English; a one-sentence translation in the user's language may follow — the English text is authoritative. Ask for an explicit ok.
+- **Record:** frontmatter `disclaimer: accepted <YYYY-MM-DD>` and one log line `disclaimer accepted`. On a first call the ok is held until `00-maquette.md` is created. Once recorded, the notice is not shown again for that file.
+- **No ok:** stop and write nothing.
+- **Footer:** handover templates carry one line before *Notes (human)*: `` > Produced with the skill suite (guidelines only) — review and responsibility lie with the operator; see `DISCLAIMER.md`. `` — stages keep it unchanged.

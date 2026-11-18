@@ -1,5 +1,11 @@
 # Changelog — maquette
 
+## 0.7.3 — 2026-11-10
+**Disclaimer** — the suite is a set of guidelines; whoever runs it is responsible for the results:
+- New `DISCLAIMER.md`, linked from the README.
+- The Director shows a short notice once per `00-maquette.md` and records the ok; a profile cannot skip it (RULES §11).
+- One-line footer in the handover templates.
+
 ## 0.7.2 — 2026-11-09
 - Secrets never inline: a demo reads keys from a git-ignored `vcode/.env`; the maquette folder gets its own `.gitignore`.
 - With git: the build stage checks the repository's ignore rules and offers a pre-commit guard with gitleaks (new question B0); shared file `templates/repo-hygiene.md` with build. The brief names what is already in place.

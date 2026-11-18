@@ -119,6 +119,8 @@ _Result of the brief stage and exit point of the maquette. Part 1 is for the pre
 - **Who decides:** <sponsor from 00-maquette.md>
 - **When:** <…>
 
+> Produced with the skill suite (guidelines only) — review and responsibility lie with the operator; see `DISCLAIMER.md`.
+
 ## Notes (human)
 
 <!-- Off limits for all skills. Copied verbatim on every rewrite. -->

@@ -4,6 +4,8 @@
 
 Version: see `VERSION` · September 2026 · https://github.com/ditomax/maquette
 
+**Disclaimer:** the skill suite is a set of guidelines — whoever runs it is responsible for inputs, outputs and decisions. See [`DISCLAIMER.md`](DISCLAIMER.md).
+
 For users, `START.md` is enough — three steps, no installation. Conversation and output files follow the user's language; headings in the templates stay in English.
 
 ## For agents

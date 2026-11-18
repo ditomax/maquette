@@ -177,6 +177,8 @@ Mobile web app for field service technicians (draft generation from voice notes,
 - **Who decides:** Head of Service (sponsor)
 - **When:** 2026-11-12 (register decision date, confirmed)
 
+> Produced with the skill suite (guidelines only) — review and responsibility lie with the operator; see `DISCLAIMER.md`.
+
 ## Notes (human)
 
 <!-- Off limits for all skills. Copied verbatim on every rewrite. -->
